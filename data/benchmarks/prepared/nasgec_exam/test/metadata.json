@@ -1,0 +1,14 @@
+{
+  "dataset": "nasgec_exam",
+  "split": "test",
+  "rows": 2000,
+  "average_references": 1.448,
+  "pipeline_input": "data/benchmarks/prepared/nasgec_exam/test/pipeline.tsv",
+  "gold_para": "data/benchmarks/prepared/nasgec_exam/test/gold.para",
+  "gold_m2": "data/benchmarks/prepared/nasgec_exam/test/gold.m2",
+  "selection": "public NaSGEC-Exam test gold; Media and Thesis require a signed agreement",
+  "evaluation": "uniform ChERRANT character/span F0.5 without BPE; the official BPE M2 is retained for provenance only",
+  "official_m2_bpe": true,
+  "source_url": "https://github.com/SUDA-LA/CGECData",
+  "source_path": "data/benchmarks/upstream/cgecdata/NaSGEC/v1-ACL23/NaSGEC/NaSGEC-Exam/nasgec.exam.test.m2"
+}

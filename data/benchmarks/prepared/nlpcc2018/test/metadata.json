@@ -1,0 +1,13 @@
+{
+  "dataset": "nlpcc2018",
+  "split": "test",
+  "rows": 2000,
+  "average_references": 1.091,
+  "pipeline_input": "data/benchmarks/prepared/nlpcc2018/test/pipeline.tsv",
+  "gold_para": "data/benchmarks/prepared/nlpcc2018/test/gold.para",
+  "gold_m2": "data/benchmarks/prepared/nlpcc2018/test/gold.m2",
+  "selection": "official public test gold, ChERRANT character-level conversion",
+  "evaluation": "ChERRANT char/span F0.5; original shared task also reports word-level M2",
+  "source_url": "https://github.com/zhaoyyoo/NLPCC2018_GEC",
+  "source_path": "data/benchmarks/upstream/nlpcc2018/Data.zip"
+}

@@ -1,0 +1,29 @@
+.env
+.env.*
+!.env.example
+
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# Local caches and generated experiment artifacts
+*.sqlite3
+*.sqlite3-shm
+*.sqlite3-wal
+runs/
+tmp/
+
+# Downloaded benchmark data and third-party repositories
+external_tools/
+Structurized_Prompt_CGEC-main/
+data/benchmarks/upstream/
+data/benchmarks/prepared/**/pipeline.tsv
+data/benchmarks/prepared/**/gold.para
+data/benchmarks/prepared/**/gold.m2
+
+# Private working material and locally supplied papers
+meeting record *
+ScreenShot_*.png
+_TALLIP__*.pdf
+.codex-bookmark-organizer-*/
+flaCGEC_test.json.tsv

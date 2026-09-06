@@ -1,0 +1,321 @@
+dataset	split	sentences	unit	stage	condition	category	TP	FP	FN	reference_edits	predicted_edits	precision	recall	f0.5	f0.5_x100
+nlpcc2018	test	2000	character	T0	Raw	M	462	1205	872	1334	1667	0.277145	0.346327	0.288678	28.87
+nlpcc2018	test	2000	character	T0	Raw	R	668	1149	867	1535	1817	0.367639	0.435179	0.379416	37.94
+nlpcc2018	test	2000	character	T0	Raw	U	421	832	571	992	1253	0.335994	0.424395	0.350600	35.06
+nlpcc2018	test	2000	character	T0	Raw	W	23	40	45	68	63	0.365079	0.338235	0.359375	35.94
+nlpcc2018	test	2000	character	T0	Raw	WO	36	44	42	78	80	0.450000	0.461538	0.452261	45.23
+nlpcc2018	test	2000	character	T1	Direct-WB	M	346	614	986	1332	960	0.360417	0.259760	0.334493	33.45
+nlpcc2018	test	2000	character	T1	Direct-WB	R	596	605	937	1533	1201	0.496253	0.388780	0.470254	47.03
+nlpcc2018	test	2000	character	T1	Direct-WB	U	240	356	747	987	596	0.402685	0.243161	0.355977	35.60
+nlpcc2018	test	2000	character	T1	Direct-WB	W	25	28	45	70	53	0.471698	0.357143	0.443262	44.33
+nlpcc2018	test	2000	character	T1	Direct-WB	WO	29	36	50	79	65	0.446154	0.367089	0.427729	42.77
+nlpcc2018	test	2000	character	T2	Projected-WB	M	347	619	985	1332	966	0.359213	0.260511	0.333911	33.39
+nlpcc2018	test	2000	character	T2	Projected-WB	R	591	599	942	1533	1190	0.496639	0.385519	0.469569	46.96
+nlpcc2018	test	2000	character	T2	Projected-WB	U	240	360	747	987	600	0.400000	0.243161	0.354296	35.43
+nlpcc2018	test	2000	character	T2	Projected-WB	W	26	29	44	70	55	0.472727	0.371429	0.448276	44.83
+nlpcc2018	test	2000	character	T2	Projected-WB	WO	29	36	50	79	65	0.446154	0.367089	0.427729	42.77
+nlpcc2018	test	2000	character	T3	Iterative Projected-WB	M	348	627	984	1332	975	0.356923	0.261261	0.332569	33.26
+nlpcc2018	test	2000	character	T3	Iterative Projected-WB	R	594	603	939	1533	1197	0.496241	0.387476	0.469862	46.99
+nlpcc2018	test	2000	character	T3	Iterative Projected-WB	U	240	361	747	987	601	0.399334	0.243161	0.353878	35.39
+nlpcc2018	test	2000	character	T3	Iterative Projected-WB	W	26	29	44	70	55	0.472727	0.371429	0.448276	44.83
+nlpcc2018	test	2000	character	T3	Iterative Projected-WB	WO	29	36	50	79	65	0.446154	0.367089	0.427729	42.77
+nlpcc2018	test	2000	word	T0	Raw	M	401	1193	802	1203	1594	0.251568	0.333333	0.264547	26.45
+nlpcc2018	test	2000	word	T0	Raw	R	807	1539	1052	1859	2346	0.343990	0.434104	0.358890	35.89
+nlpcc2018	test	2000	word	T0	Raw	U	447	859	532	979	1306	0.342266	0.456588	0.360310	36.03
+nlpcc2018	test	2000	word	T0	Raw	W	31	59	59	90	90	0.344444	0.344444	0.344444	34.44
+nlpcc2018	test	2000	word	T0	Raw	WO	16	17	20	36	33	0.484848	0.444444	0.476190	47.62
+nlpcc2018	test	2000	word	T1	Direct-WB	M	288	633	908	1196	921	0.312704	0.240803	0.295082	29.51
+nlpcc2018	test	2000	word	T1	Direct-WB	R	718	908	1134	1852	1626	0.441574	0.387689	0.429631	42.96
+nlpcc2018	test	2000	word	T1	Direct-WB	U	265	401	704	969	666	0.397898	0.273478	0.364712	36.47
+nlpcc2018	test	2000	word	T1	Direct-WB	W	27	42	66	93	69	0.391304	0.290323	0.365854	36.59
+nlpcc2018	test	2000	word	T1	Direct-WB	WO	15	11	21	36	26	0.576923	0.416667	0.535714	53.57
+nlpcc2018	test	2000	word	T2	Projected-WB	M	289	633	906	1195	922	0.313449	0.241841	0.295925	29.59
+nlpcc2018	test	2000	word	T2	Projected-WB	R	716	903	1134	1850	1619	0.442248	0.387027	0.429978	43.00
+nlpcc2018	test	2000	word	T2	Projected-WB	U	261	407	706	967	668	0.390719	0.269907	0.358615	35.86
+nlpcc2018	test	2000	word	T2	Projected-WB	W	28	42	65	93	70	0.400000	0.301075	0.375335	37.53
+nlpcc2018	test	2000	word	T2	Projected-WB	WO	15	11	21	36	26	0.576923	0.416667	0.535714	53.57
+nlpcc2018	test	2000	word	T3	Iterative Projected-WB	M	290	638	905	1195	928	0.312500	0.242678	0.295496	29.55
+nlpcc2018	test	2000	word	T3	Iterative Projected-WB	R	718	906	1132	1850	1624	0.442118	0.388108	0.430146	43.01
+nlpcc2018	test	2000	word	T3	Iterative Projected-WB	U	262	407	705	967	669	0.391629	0.270941	0.359594	35.96
+nlpcc2018	test	2000	word	T3	Iterative Projected-WB	W	28	42	65	93	70	0.400000	0.301075	0.375335	37.53
+nlpcc2018	test	2000	word	T3	Iterative Projected-WB	WO	15	11	21	36	26	0.576923	0.416667	0.535714	53.57
+mucgec	test	6000	character	T0	Raw	M	2455	3977	3865	6320	6432	0.381685	0.388449	0.383019	38.30
+mucgec	test	6000	character	T0	Raw	R	2808	3745	3522	6330	6553	0.428506	0.443602	0.431442	43.14
+mucgec	test	6000	character	T0	Raw	U	1941	2974	1954	3895	4915	0.394914	0.498331	0.412014	41.20
+mucgec	test	6000	character	T0	Raw	W	138	88	190	328	226	0.610619	0.420732	0.560065	56.01
+mucgec	test	6000	character	T0	Raw	WO	159	144	251	410	303	0.524752	0.387805	0.490136	49.01
+mucgec	test	6000	character	T1	Direct-WB	M	1839	1898	4193	6032	3737	0.492106	0.304874	0.438275	43.83
+mucgec	test	6000	character	T1	Direct-WB	R	2292	1518	3941	6233	3810	0.601575	0.367720	0.533693	53.37
+mucgec	test	6000	character	T1	Direct-WB	U	1207	1169	2410	3617	2376	0.507997	0.333702	0.459950	45.99
+mucgec	test	6000	character	T1	Direct-WB	W	127	85	206	333	212	0.599057	0.381381	0.537680	53.77
+mucgec	test	6000	character	T1	Direct-WB	WO	141	114	272	413	255	0.552941	0.341404	0.491975	49.20
+mucgec	test	6000	character	T2	Projected-WB	M	1829	1893	4199	6028	3722	0.491402	0.303417	0.437225	43.72
+mucgec	test	6000	character	T2	Projected-WB	R	2276	1504	3948	6224	3780	0.602116	0.365681	0.533171	53.32
+mucgec	test	6000	character	T2	Projected-WB	U	1208	1160	2412	3620	2368	0.510135	0.333702	0.461350	46.14
+mucgec	test	6000	character	T2	Projected-WB	W	128	85	204	332	213	0.600939	0.385542	0.540541	54.05
+mucgec	test	6000	character	T2	Projected-WB	WO	141	114	276	417	255	0.552941	0.338129	0.490605	49.06
+mucgec	test	6000	character	T3	Iterative Projected-WB	M	1834	1916	4192	6026	3750	0.489067	0.304348	0.436127	43.61
+mucgec	test	6000	character	T3	Iterative Projected-WB	R	2287	1507	3943	6230	3794	0.602794	0.367095	0.534196	53.42
+mucgec	test	6000	character	T3	Iterative Projected-WB	U	1208	1166	2406	3614	2374	0.508846	0.334256	0.460717	46.07
+mucgec	test	6000	character	T3	Iterative Projected-WB	W	128	87	204	332	215	0.595349	0.385542	0.536913	53.69
+mucgec	test	6000	character	T3	Iterative Projected-WB	WO	140	115	277	417	255	0.549020	0.335731	0.487126	48.71
+mucgec	test	6000	word	T0	Raw	M	2257	4012	3687	5944	6269	0.360026	0.379711	0.363798	36.38
+mucgec	test	6000	word	T0	Raw	R	3668	4885	4418	8086	8553	0.428855	0.453624	0.433590	43.36
+mucgec	test	6000	word	T0	Raw	U	1999	2995	1857	3856	4994	0.400280	0.518413	0.419394	41.94
+mucgec	test	6000	word	T0	Raw	W	169	121	270	439	290	0.582759	0.384966	0.528455	52.85
+mucgec	test	6000	word	T0	Raw	WO	74	80	121	195	154	0.480519	0.379487	0.456227	45.62
+mucgec	test	6000	word	T1	Direct-WB	M	1668	1904	4010	5678	3572	0.466965	0.293765	0.417710	41.77
+mucgec	test	6000	word	T1	Direct-WB	R	3034	2391	4843	7877	5425	0.559263	0.385172	0.512899	51.29
+mucgec	test	6000	word	T1	Direct-WB	U	1202	1241	2392	3594	2443	0.492018	0.334446	0.449648	44.96
+mucgec	test	6000	word	T1	Direct-WB	W	150	122	290	440	272	0.551471	0.340909	0.490838	49.08
+mucgec	test	6000	word	T1	Direct-WB	WO	65	45	132	197	110	0.590909	0.329949	0.510204	51.02
+mucgec	test	6000	word	T2	Projected-WB	M	1659	1890	4018	5677	3549	0.467456	0.292232	0.417400	41.74
+mucgec	test	6000	word	T2	Projected-WB	R	3017	2386	4853	7870	5403	0.558393	0.383355	0.511668	51.17
+mucgec	test	6000	word	T2	Projected-WB	U	1195	1232	2397	3592	2427	0.492377	0.332684	0.449248	44.92
+mucgec	test	6000	word	T2	Projected-WB	W	153	118	287	440	271	0.564576	0.347727	0.501969	50.20
+mucgec	test	6000	word	T2	Projected-WB	WO	65	47	133	198	112	0.580357	0.328283	0.503096	50.31
+mucgec	test	6000	word	T3	Iterative Projected-WB	M	1661	1904	4017	5678	3565	0.465919	0.292533	0.416541	41.65
+mucgec	test	6000	word	T3	Iterative Projected-WB	R	3034	2385	4850	7884	5419	0.559882	0.384830	0.513194	51.32
+mucgec	test	6000	word	T3	Iterative Projected-WB	U	1195	1231	2398	3593	2426	0.492580	0.332591	0.449349	44.93
+mucgec	test	6000	word	T3	Iterative Projected-WB	W	153	120	287	440	273	0.560440	0.347727	0.499347	49.93
+mucgec	test	6000	word	T3	Iterative Projected-WB	WO	64	47	134	198	111	0.576577	0.323232	0.498442	49.84
+yaclc	validation	1000	character	T0	Raw	M	564	474	475	1039	1038	0.543353	0.542830	0.543248	54.32
+yaclc	validation	1000	character	T0	Raw	R	619	461	443	1062	1080	0.573148	0.582863	0.575065	57.51
+yaclc	validation	1000	character	T0	Raw	U	425	269	233	658	694	0.612392	0.645897	0.618812	61.88
+yaclc	validation	1000	character	T0	Raw	W	25	11	13	38	36	0.694444	0.657895	0.686813	68.68
+yaclc	validation	1000	character	T0	Raw	WO	33	22	21	54	55	0.600000	0.611111	0.602190	60.22
+yaclc	validation	1000	character	T1	Direct-WB	M	391	200	405	796	591	0.661591	0.491206	0.618671	61.87
+yaclc	validation	1000	character	T1	Direct-WB	R	500	227	404	904	727	0.687758	0.553097	0.655824	65.58
+yaclc	validation	1000	character	T1	Direct-WB	U	249	139	242	491	388	0.641753	0.507128	0.609398	60.94
+yaclc	validation	1000	character	T1	Direct-WB	W	24	20	18	42	44	0.545455	0.571429	0.550459	55.05
+yaclc	validation	1000	character	T1	Direct-WB	WO	26	14	32	58	40	0.650000	0.448276	0.596330	59.63
+yaclc	validation	1000	character	T2	Projected-WB	M	387	195	416	803	582	0.664948	0.481943	0.618013	61.80
+yaclc	validation	1000	character	T2	Projected-WB	R	495	224	403	898	719	0.688456	0.551225	0.655803	65.58
+yaclc	validation	1000	character	T2	Projected-WB	U	249	132	248	497	381	0.653543	0.501006	0.616032	61.60
+yaclc	validation	1000	character	T2	Projected-WB	W	24	20	16	40	44	0.545455	0.600000	0.555556	55.56
+yaclc	validation	1000	character	T2	Projected-WB	WO	24	14	32	56	38	0.631579	0.428571	0.576923	57.69
+yaclc	validation	1000	character	T3	Iterative Projected-WB	M	389	200	414	803	589	0.660441	0.484433	0.615701	61.57
+yaclc	validation	1000	character	T3	Iterative Projected-WB	R	499	226	404	903	725	0.688276	0.552602	0.656061	65.61
+yaclc	validation	1000	character	T3	Iterative Projected-WB	U	250	131	247	497	381	0.656168	0.503018	0.618506	61.85
+yaclc	validation	1000	character	T3	Iterative Projected-WB	W	24	21	18	42	45	0.533333	0.571429	0.540541	54.05
+yaclc	validation	1000	character	T3	Iterative Projected-WB	WO	24	15	32	56	39	0.615385	0.428571	0.566038	56.60
+yaclc	validation	1000	word	T0	Raw	M	580	467	475	1055	1047	0.553964	0.549763	0.553118	55.31
+yaclc	validation	1000	word	T0	Raw	R	815	548	553	1368	1363	0.597946	0.595760	0.597507	59.75
+yaclc	validation	1000	word	T0	Raw	U	457	276	250	707	733	0.623465	0.646393	0.627920	62.79
+yaclc	validation	1000	word	T0	Raw	W	43	13	19	62	56	0.767857	0.693548	0.751748	75.17
+yaclc	validation	1000	word	T0	Raw	WO	13	15	9	22	28	0.464286	0.590909	0.485075	48.51
+yaclc	validation	1000	word	T1	Direct-WB	M	401	207	401	802	608	0.659539	0.500000	0.619975	62.00
+yaclc	validation	1000	word	T1	Direct-WB	R	672	292	505	1177	964	0.697095	0.570943	0.667594	66.76
+yaclc	validation	1000	word	T1	Direct-WB	U	284	124	249	533	408	0.696078	0.532833	0.655889	65.59
+yaclc	validation	1000	word	T1	Direct-WB	W	37	22	29	66	59	0.627119	0.560606	0.612583	61.26
+yaclc	validation	1000	word	T1	Direct-WB	WO	8	8	18	26	16	0.500000	0.307692	0.444444	44.44
+yaclc	validation	1000	word	T2	Projected-WB	M	388	193	397	785	581	0.667814	0.494268	0.623995	62.40
+yaclc	validation	1000	word	T2	Projected-WB	R	662	285	506	1168	947	0.699050	0.566781	0.667877	66.79
+yaclc	validation	1000	word	T2	Projected-WB	U	276	121	254	530	397	0.695214	0.520755	0.651558	65.16
+yaclc	validation	1000	word	T2	Projected-WB	W	35	22	29	64	57	0.614035	0.546875	0.599315	59.93
+yaclc	validation	1000	word	T2	Projected-WB	WO	8	9	18	26	17	0.470588	0.307692	0.425532	42.55
+yaclc	validation	1000	word	T3	Iterative Projected-WB	M	396	197	399	795	593	0.667791	0.498113	0.625197	62.52
+yaclc	validation	1000	word	T3	Iterative Projected-WB	R	667	294	504	1171	961	0.694069	0.569599	0.665005	66.50
+yaclc	validation	1000	word	T3	Iterative Projected-WB	U	281	120	252	533	401	0.700748	0.527205	0.657464	65.75
+yaclc	validation	1000	word	T3	Iterative Projected-WB	W	35	23	30	65	58	0.603448	0.538462	0.589226	58.92
+yaclc	validation	1000	word	T3	Iterative Projected-WB	WO	8	9	18	26	17	0.470588	0.307692	0.425532	42.55
+flacgec	test	1325	character	T0	Raw	M	297	336	540	837	633	0.469194	0.354839	0.440784	44.08
+flacgec	test	1325	character	T0	Raw	R	226	379	371	597	605	0.373554	0.378559	0.374544	37.45
+flacgec	test	1325	character	T0	Raw	U	115	549	93	208	664	0.173193	0.552885	0.200768	20.08
+flacgec	test	1325	character	T0	Raw	W	162	29	71	233	191	0.848168	0.695279	0.812437	81.24
+flacgec	test	1325	character	T0	Raw	WO	213	43	268	481	256	0.832031	0.442827	0.707641	70.76
+flacgec	test	1325	character	T1	Direct-WB	M	226	223	611	837	449	0.503341	0.270012	0.429168	42.92
+flacgec	test	1325	character	T1	Direct-WB	R	173	252	424	597	425	0.407059	0.289782	0.376578	37.66
+flacgec	test	1325	character	T1	Direct-WB	U	92	420	116	208	512	0.179688	0.442308	0.203901	20.39
+flacgec	test	1325	character	T1	Direct-WB	W	164	43	69	233	207	0.792271	0.703863	0.772856	77.29
+flacgec	test	1325	character	T1	Direct-WB	WO	194	42	287	481	236	0.822034	0.403326	0.680702	68.07
+flacgec	test	1325	character	T2	Projected-WB	M	221	223	616	837	444	0.497748	0.264038	0.422886	42.29
+flacgec	test	1325	character	T2	Projected-WB	R	177	244	420	597	421	0.420428	0.296482	0.387988	38.80
+flacgec	test	1325	character	T2	Projected-WB	U	90	419	118	208	509	0.176817	0.432692	0.200535	20.05
+flacgec	test	1325	character	T2	Projected-WB	W	166	44	67	233	210	0.790476	0.712446	0.773532	77.35
+flacgec	test	1325	character	T2	Projected-WB	WO	194	39	287	481	233	0.832618	0.403326	0.686483	68.65
+flacgec	test	1325	character	T3	Iterative Projected-WB	M	224	221	613	837	445	0.503371	0.267622	0.427971	42.80
+flacgec	test	1325	character	T3	Iterative Projected-WB	R	178	250	419	597	428	0.415888	0.298157	0.385448	38.54
+flacgec	test	1325	character	T3	Iterative Projected-WB	U	91	424	117	208	515	0.176699	0.437500	0.200617	20.06
+flacgec	test	1325	character	T3	Iterative Projected-WB	W	165	44	68	233	209	0.789474	0.708155	0.771749	77.17
+flacgec	test	1325	character	T3	Iterative Projected-WB	WO	195	40	286	481	235	0.829787	0.405405	0.686137	68.61
+flacgec	test	1325	word	T0	Raw	M	245	386	498	743	631	0.388273	0.329744	0.374962	37.50
+flacgec	test	1325	word	T0	Raw	R	433	554	478	911	987	0.438703	0.475302	0.445565	44.56
+flacgec	test	1325	word	T0	Raw	U	106	588	67	173	694	0.152738	0.612717	0.179722	17.97
+flacgec	test	1325	word	T0	Raw	W	148	33	76	224	181	0.817680	0.660714	0.780591	78.06
+flacgec	test	1325	word	T0	Raw	WO	139	26	216	355	165	0.842424	0.391549	0.684729	68.47
+flacgec	test	1325	word	T1	Direct-WB	M	183	264	560	743	447	0.409396	0.246299	0.361517	36.15
+flacgec	test	1325	word	T1	Direct-WB	R	361	440	550	911	801	0.450687	0.396268	0.438639	43.86
+flacgec	test	1325	word	T1	Direct-WB	U	82	443	91	173	525	0.156190	0.473988	0.180378	18.04
+flacgec	test	1325	word	T1	Direct-WB	W	147	46	77	224	193	0.761658	0.656250	0.737952	73.80
+flacgec	test	1325	word	T1	Direct-WB	WO	124	21	231	355	145	0.855172	0.349296	0.663102	66.31
+flacgec	test	1325	word	T2	Projected-WB	M	178	263	565	743	441	0.403628	0.239569	0.355006	35.50
+flacgec	test	1325	word	T2	Projected-WB	R	366	429	545	911	795	0.460377	0.401756	0.447323	44.73
+flacgec	test	1325	word	T2	Projected-WB	U	83	442	90	173	525	0.158095	0.479769	0.182578	18.26
+flacgec	test	1325	word	T2	Projected-WB	W	149	45	75	224	194	0.768041	0.665179	0.745000	74.50
+flacgec	test	1325	word	T2	Projected-WB	WO	123	21	232	355	144	0.854167	0.346479	0.660580	66.06
+flacgec	test	1325	word	T3	Iterative Projected-WB	M	182	261	561	743	443	0.410835	0.244953	0.361829	36.18
+flacgec	test	1325	word	T3	Iterative Projected-WB	R	366	434	545	911	800	0.457500	0.401756	0.445147	44.51
+flacgec	test	1325	word	T3	Iterative Projected-WB	U	83	445	90	173	528	0.157197	0.479769	0.181619	18.16
+flacgec	test	1325	word	T3	Iterative Projected-WB	W	149	46	75	224	195	0.764103	0.665179	0.742032	74.20
+flacgec	test	1325	word	T3	Iterative Projected-WB	WO	124	21	231	355	145	0.855172	0.349296	0.663102	66.31
+fcgec	validation	2000	character	T0	Raw	M	119	810	261	380	929	0.128095	0.313158	0.145264	14.53
+fcgec	validation	2000	character	T0	Raw	R	72	684	163	235	756	0.095238	0.306383	0.110463	11.05
+fcgec	validation	2000	character	T0	Raw	U	214	619	213	427	833	0.256903	0.501171	0.284650	28.47
+fcgec	validation	2000	character	T0	Raw	W	43	34	85	128	77	0.558442	0.335938	0.493119	49.31
+fcgec	validation	2000	character	T0	Raw	WO	40	26	74	114	66	0.606061	0.350877	0.529101	52.91
+fcgec	validation	2000	character	T1	Direct-WB	M	80	312	298	378	392	0.204082	0.211640	0.205550	20.55
+fcgec	validation	2000	character	T1	Direct-WB	R	49	385	186	235	434	0.112903	0.208511	0.124302	12.43
+fcgec	validation	2000	character	T1	Direct-WB	U	129	241	290	419	370	0.348649	0.307876	0.339652	33.97
+fcgec	validation	2000	character	T1	Direct-WB	W	22	23	106	128	45	0.488889	0.171875	0.357143	35.71
+fcgec	validation	2000	character	T1	Direct-WB	WO	21	12	93	114	33	0.636364	0.184211	0.426829	42.68
+fcgec	validation	2000	character	T2	Projected-WB	M	78	304	300	378	382	0.204188	0.206349	0.204617	20.46
+fcgec	validation	2000	character	T2	Projected-WB	R	50	381	185	235	431	0.116009	0.212766	0.127616	12.76
+fcgec	validation	2000	character	T2	Projected-WB	U	129	239	290	419	368	0.350543	0.307876	0.341089	34.11
+fcgec	validation	2000	character	T2	Projected-WB	W	22	22	106	128	44	0.500000	0.171875	0.361842	36.18
+fcgec	validation	2000	character	T2	Projected-WB	WO	21	12	93	114	33	0.636364	0.184211	0.426829	42.68
+fcgec	validation	2000	character	T3	Iterative Projected-WB	M	80	309	298	378	389	0.205656	0.211640	0.206825	20.68
+fcgec	validation	2000	character	T3	Iterative Projected-WB	R	49	384	186	235	433	0.113164	0.208511	0.124555	12.46
+fcgec	validation	2000	character	T3	Iterative Projected-WB	U	129	241	290	419	370	0.348649	0.307876	0.339652	33.97
+fcgec	validation	2000	character	T3	Iterative Projected-WB	W	22	23	106	128	45	0.488889	0.171875	0.357143	35.71
+fcgec	validation	2000	character	T3	Iterative Projected-WB	WO	21	12	93	114	33	0.636364	0.184211	0.426829	42.68
+fcgec	validation	2000	word	T0	Raw	M	104	838	248	352	942	0.110403	0.295455	0.126214	12.62
+fcgec	validation	2000	word	T0	Raw	R	102	991	189	291	1093	0.093321	0.350515	0.109372	10.94
+fcgec	validation	2000	word	T0	Raw	U	190	666	192	382	856	0.221963	0.497382	0.249606	24.96
+fcgec	validation	2000	word	T0	Raw	W	62	38	105	167	100	0.620000	0.371257	0.546737	54.67
+fcgec	validation	2000	word	T0	Raw	WO	21	15	52	73	36	0.583333	0.287671	0.483871	48.39
+fcgec	validation	2000	word	T1	Direct-WB	M	71	343	284	355	414	0.171498	0.200000	0.176529	17.65
+fcgec	validation	2000	word	T1	Direct-WB	R	74	607	219	293	681	0.108664	0.252560	0.122638	12.26
+fcgec	validation	2000	word	T1	Direct-WB	U	111	310	268	379	421	0.263658	0.292876	0.269026	26.90
+fcgec	validation	2000	word	T1	Direct-WB	W	34	23	133	167	57	0.596491	0.203593	0.430380	43.04
+fcgec	validation	2000	word	T1	Direct-WB	WO	10	5	63	73	15	0.666667	0.136986	0.375940	37.59
+fcgec	validation	2000	word	T2	Projected-WB	M	69	334	286	355	403	0.171216	0.194366	0.175394	17.54
+fcgec	validation	2000	word	T2	Projected-WB	R	74	596	218	292	670	0.110448	0.253425	0.124495	12.45
+fcgec	validation	2000	word	T2	Projected-WB	U	110	308	268	378	418	0.263158	0.291005	0.268293	26.83
+fcgec	validation	2000	word	T2	Projected-WB	W	34	23	133	167	57	0.596491	0.203593	0.430380	43.04
+fcgec	validation	2000	word	T2	Projected-WB	WO	10	5	63	73	15	0.666667	0.136986	0.375940	37.59
+fcgec	validation	2000	word	T3	Iterative Projected-WB	M	71	337	284	355	408	0.174020	0.200000	0.178661	17.87
+fcgec	validation	2000	word	T3	Iterative Projected-WB	R	73	603	219	292	676	0.107988	0.250000	0.121829	12.18
+fcgec	validation	2000	word	T3	Iterative Projected-WB	U	110	310	268	378	420	0.261905	0.291005	0.267250	26.72
+fcgec	validation	2000	word	T3	Iterative Projected-WB	W	34	23	133	167	57	0.596491	0.203593	0.430380	43.04
+fcgec	validation	2000	word	T3	Iterative Projected-WB	WO	10	5	63	73	15	0.666667	0.136986	0.375940	37.59
+nacgec	test	5869	character	T0	Raw	M	553	2291	1239	1792	2844	0.194444	0.308594	0.209979	21.00
+nacgec	test	5869	character	T0	Raw	R	377	2005	791	1168	2382	0.158270	0.322774	0.176234	17.62
+nacgec	test	5869	character	T0	Raw	U	1353	1632	1451	2804	2985	0.453266	0.482525	0.458831	45.88
+nacgec	test	5869	character	T0	Raw	W	201	97	335	536	298	0.674497	0.375000	0.581597	58.16
+nacgec	test	5869	character	T0	Raw	WO	183	102	322	505	285	0.642105	0.362376	0.556231	55.62
+nacgec	test	5869	character	T1	Direct-WB	M	341	1117	1448	1789	1458	0.233882	0.190609	0.223724	22.37
+nacgec	test	5869	character	T1	Direct-WB	R	253	1090	894	1147	1343	0.188384	0.220575	0.194048	19.40
+nacgec	test	5869	character	T1	Direct-WB	U	900	765	1896	2796	1665	0.540541	0.321888	0.475888	47.59
+nacgec	test	5869	character	T1	Direct-WB	W	102	60	433	535	162	0.629630	0.190654	0.431107	43.11
+nacgec	test	5869	character	T1	Direct-WB	WO	99	49	408	507	148	0.668919	0.195266	0.450409	45.04
+nacgec	test	5869	character	T2	Projected-WB	M	344	1095	1445	1789	1439	0.239055	0.192286	0.227966	22.80
+nacgec	test	5869	character	T2	Projected-WB	R	254	1079	894	1148	1333	0.190548	0.221254	0.195988	19.60
+nacgec	test	5869	character	T2	Projected-WB	U	897	749	1897	2794	1646	0.544957	0.321045	0.478247	47.82
+nacgec	test	5869	character	T2	Projected-WB	W	103	61	432	535	164	0.628049	0.192523	0.432410	43.24
+nacgec	test	5869	character	T2	Projected-WB	WO	99	48	408	507	147	0.673469	0.195266	0.452055	45.21
+nacgec	test	5869	character	T3	Iterative Projected-WB	M	341	1109	1448	1789	1450	0.235172	0.190609	0.224667	22.47
+nacgec	test	5869	character	T3	Iterative Projected-WB	R	253	1089	894	1147	1342	0.188525	0.220575	0.194167	19.42
+nacgec	test	5869	character	T3	Iterative Projected-WB	U	900	763	1896	2796	1663	0.541191	0.321888	0.476291	47.63
+nacgec	test	5869	character	T3	Iterative Projected-WB	W	104	61	431	535	165	0.630303	0.194393	0.435146	43.51
+nacgec	test	5869	character	T3	Iterative Projected-WB	WO	99	48	408	507	147	0.673469	0.195266	0.452055	45.21
+nacgec	test	5869	word	T0	Raw	M	525	2332	1166	1691	2857	0.183759	0.310467	0.200091	20.01
+nacgec	test	5869	word	T0	Raw	R	531	2743	909	1440	3274	0.162187	0.368750	0.182650	18.26
+nacgec	test	5869	word	T0	Raw	U	1286	1800	1340	2626	3086	0.416721	0.489718	0.429526	42.95
+nacgec	test	5869	word	T0	Raw	W	297	120	481	778	417	0.712230	0.381748	0.607114	60.71
+nacgec	test	5869	word	T0	Raw	WO	88	60	170	258	148	0.594595	0.341085	0.517647	51.76
+nacgec	test	5869	word	T1	Direct-WB	M	309	1192	1371	1680	1501	0.205863	0.183929	0.201067	20.11
+nacgec	test	5869	word	T1	Direct-WB	R	384	1876	1031	1415	2260	0.169912	0.271378	0.183644	18.36
+nacgec	test	5869	word	T1	Direct-WB	U	861	994	1761	2622	1855	0.464151	0.328375	0.428699	42.87
+nacgec	test	5869	word	T1	Direct-WB	W	160	77	618	778	237	0.675105	0.205656	0.463499	46.35
+nacgec	test	5869	word	T1	Direct-WB	WO	42	21	216	258	63	0.666667	0.162791	0.411765	41.18
+nacgec	test	5869	word	T2	Projected-WB	M	312	1172	1368	1680	1484	0.210243	0.185714	0.204832	20.48
+nacgec	test	5869	word	T2	Projected-WB	R	383	1858	1032	1415	2241	0.170906	0.270671	0.184507	18.45
+nacgec	test	5869	word	T2	Projected-WB	U	861	981	1758	2619	1842	0.467427	0.328751	0.431060	43.11
+nacgec	test	5869	word	T2	Projected-WB	W	161	77	617	778	238	0.676471	0.206941	0.465318	46.53
+nacgec	test	5869	word	T2	Projected-WB	WO	42	21	216	258	63	0.666667	0.162791	0.411765	41.18
+nacgec	test	5869	word	T3	Iterative Projected-WB	M	309	1189	1371	1680	1498	0.206275	0.183929	0.201382	20.14
+nacgec	test	5869	word	T3	Iterative Projected-WB	R	384	1878	1031	1415	2262	0.169761	0.271378	0.183504	18.35
+nacgec	test	5869	word	T3	Iterative Projected-WB	U	862	991	1760	2622	1853	0.465192	0.328757	0.429540	42.95
+nacgec	test	5869	word	T3	Iterative Projected-WB	W	162	76	616	778	238	0.680672	0.208226	0.468208	46.82
+nacgec	test	5869	word	T3	Iterative Projected-WB	WO	42	21	216	258	63	0.666667	0.162791	0.411765	41.18
+nasgec_exam	test	2000	character	T0	Raw	M	206	785	409	615	991	0.207871	0.334959	0.224940	22.49
+nasgec_exam	test	2000	character	T0	Raw	R	171	646	217	388	817	0.209302	0.440722	0.233862	23.39
+nasgec_exam	test	2000	character	T0	Raw	U	322	590	293	615	912	0.353070	0.523577	0.377668	37.77
+nasgec_exam	test	2000	character	T0	Raw	W	43	28	66	109	71	0.605634	0.394495	0.547074	54.71
+nasgec_exam	test	2000	character	T0	Raw	WO	36	30	76	112	66	0.545455	0.321429	0.478723	47.87
+nasgec_exam	test	2000	character	T1	Direct-WB	M	119	256	483	602	375	0.317333	0.197674	0.283064	28.31
+nasgec_exam	test	2000	character	T1	Direct-WB	R	117	340	257	374	457	0.256018	0.312834	0.265668	26.57
+nasgec_exam	test	2000	character	T1	Direct-WB	U	202	226	406	608	428	0.471963	0.332237	0.435345	43.53
+nasgec_exam	test	2000	character	T1	Direct-WB	W	26	20	84	110	46	0.565217	0.236364	0.442177	44.22
+nasgec_exam	test	2000	character	T1	Direct-WB	WO	23	15	90	113	38	0.605263	0.203540	0.433962	43.40
+nasgec_exam	test	2000	character	T2	Projected-WB	M	115	251	483	598	366	0.314208	0.192308	0.278855	27.89
+nasgec_exam	test	2000	character	T2	Projected-WB	R	116	340	257	373	456	0.254386	0.310992	0.263996	26.40
+nasgec_exam	test	2000	character	T2	Projected-WB	U	199	221	408	607	420	0.473810	0.327842	0.435068	43.51
+nasgec_exam	test	2000	character	T2	Projected-WB	W	26	20	84	110	46	0.565217	0.236364	0.442177	44.22
+nasgec_exam	test	2000	character	T2	Projected-WB	WO	22	15	91	113	37	0.594595	0.194690	0.421456	42.15
+nasgec_exam	test	2000	character	T3	Iterative Projected-WB	M	117	252	484	601	369	0.317073	0.194676	0.281656	28.17
+nasgec_exam	test	2000	character	T3	Iterative Projected-WB	R	118	341	256	374	459	0.257081	0.315508	0.266968	26.70
+nasgec_exam	test	2000	character	T3	Iterative Projected-WB	U	203	224	404	607	427	0.475410	0.334432	0.438445	43.84
+nasgec_exam	test	2000	character	T3	Iterative Projected-WB	W	26	20	84	110	46	0.565217	0.236364	0.442177	44.22
+nasgec_exam	test	2000	character	T3	Iterative Projected-WB	WO	22	15	91	113	37	0.594595	0.194690	0.421456	42.15
+nasgec_exam	test	2000	word	T0	Raw	M	196	811	399	595	1007	0.194638	0.329412	0.211984	21.20
+nasgec_exam	test	2000	word	T0	Raw	R	241	875	233	474	1116	0.215950	0.508439	0.244026	24.40
+nasgec_exam	test	2000	word	T0	Raw	U	330	618	275	605	948	0.348101	0.545455	0.375256	37.53
+nasgec_exam	test	2000	word	T0	Raw	W	66	36	89	155	102	0.647059	0.425806	0.586146	58.61
+nasgec_exam	test	2000	word	T0	Raw	WO	12	22	49	61	34	0.352941	0.196721	0.304569	30.46
+nasgec_exam	test	2000	word	T1	Direct-WB	M	119	289	466	585	408	0.291667	0.203419	0.268381	26.84
+nasgec_exam	test	2000	word	T1	Direct-WB	R	175	520	286	461	695	0.251799	0.379610	0.269978	27.00
+nasgec_exam	test	2000	word	T1	Direct-WB	U	205	283	384	589	488	0.420082	0.348048	0.403384	40.34
+nasgec_exam	test	2000	word	T1	Direct-WB	W	37	24	120	157	61	0.606557	0.235669	0.461347	46.13
+nasgec_exam	test	2000	word	T1	Direct-WB	WO	10	7	51	61	17	0.588235	0.163934	0.387597	38.76
+nasgec_exam	test	2000	word	T2	Projected-WB	M	118	282	467	585	400	0.295000	0.201709	0.270023	27.00
+nasgec_exam	test	2000	word	T2	Projected-WB	R	174	514	286	460	688	0.252907	0.378261	0.270859	27.09
+nasgec_exam	test	2000	word	T2	Projected-WB	U	205	275	386	591	480	0.427083	0.346870	0.408204	40.82
+nasgec_exam	test	2000	word	T2	Projected-WB	W	36	24	121	157	60	0.600000	0.229299	0.453401	45.34
+nasgec_exam	test	2000	word	T2	Projected-WB	WO	9	7	52	61	16	0.562500	0.147541	0.360000	36.00
+nasgec_exam	test	2000	word	T3	Iterative Projected-WB	M	118	282	467	585	400	0.295000	0.201709	0.270023	27.00
+nasgec_exam	test	2000	word	T3	Iterative Projected-WB	R	178	516	285	463	694	0.256484	0.384449	0.274776	27.48
+nasgec_exam	test	2000	word	T3	Iterative Projected-WB	U	207	280	382	589	487	0.425051	0.351443	0.407962	40.80
+nasgec_exam	test	2000	word	T3	Iterative Projected-WB	W	37	24	120	157	61	0.606557	0.235669	0.461347	46.13
+nasgec_exam	test	2000	word	T3	Iterative Projected-WB	WO	9	7	52	61	16	0.562500	0.147541	0.360000	36.00
+cefe_track3	validation	19	character	T0	Raw	M	3	7	8	11	10	0.300000	0.272727	0.294118	29.41
+cefe_track3	validation	19	character	T0	Raw	R	13	13	9	22	26	0.500000	0.590909	0.515873	51.59
+cefe_track3	validation	19	character	T0	Raw	U	3	4	5	8	7	0.428571	0.375000	0.416667	41.67
+cefe_track3	validation	19	character	T0	Raw	W	2	0	2	4	2	1.000000	0.500000	0.833333	83.33
+cefe_track3	validation	19	character	T0	Raw	WO	0	0	0	0	0	1.000000	1.000000	1.000000	100.00
+cefe_track3	validation	19	character	T1	Direct-WB	M	2	7	9	11	9	0.222222	0.181818	0.212766	21.28
+cefe_track3	validation	19	character	T1	Direct-WB	R	10	9	12	22	19	0.526316	0.454545	0.510204	51.02
+cefe_track3	validation	19	character	T1	Direct-WB	U	1	0	7	8	1	1.000000	0.125000	0.416667	41.67
+cefe_track3	validation	19	character	T1	Direct-WB	W	2	0	2	4	2	1.000000	0.500000	0.833333	83.33
+cefe_track3	validation	19	character	T1	Direct-WB	WO	0	1	0	0	1	0.000000	1.000000	0.000000	0.00
+cefe_track3	validation	19	character	T2	Projected-WB	M	2	7	9	11	9	0.222222	0.181818	0.212766	21.28
+cefe_track3	validation	19	character	T2	Projected-WB	R	10	9	12	22	19	0.526316	0.454545	0.510204	51.02
+cefe_track3	validation	19	character	T2	Projected-WB	U	1	0	7	8	1	1.000000	0.125000	0.416667	41.67
+cefe_track3	validation	19	character	T2	Projected-WB	W	2	0	2	4	2	1.000000	0.500000	0.833333	83.33
+cefe_track3	validation	19	character	T2	Projected-WB	WO	0	1	0	0	1	0.000000	1.000000	0.000000	0.00
+cefe_track3	validation	19	character	T3	Iterative Projected-WB	M	2	7	9	11	9	0.222222	0.181818	0.212766	21.28
+cefe_track3	validation	19	character	T3	Iterative Projected-WB	R	10	9	12	22	19	0.526316	0.454545	0.510204	51.02
+cefe_track3	validation	19	character	T3	Iterative Projected-WB	U	1	0	7	8	1	1.000000	0.125000	0.416667	41.67
+cefe_track3	validation	19	character	T3	Iterative Projected-WB	W	2	0	2	4	2	1.000000	0.500000	0.833333	83.33
+cefe_track3	validation	19	character	T3	Iterative Projected-WB	WO	0	1	0	0	1	0.000000	1.000000	0.000000	0.00
+cefe_track3	validation	19	word	T0	Raw	M	2	9	8	10	11	0.181818	0.200000	0.185185	18.52
+cefe_track3	validation	19	word	T0	Raw	R	14	17	9	23	31	0.451613	0.608696	0.476190	47.62
+cefe_track3	validation	19	word	T0	Raw	U	2	4	6	8	6	0.333333	0.250000	0.312500	31.25
+cefe_track3	validation	19	word	T0	Raw	W	2	0	1	3	2	1.000000	0.666667	0.909091	90.91
+cefe_track3	validation	19	word	T0	Raw	WO	0	0	0	0	0	1.000000	1.000000	1.000000	100.00
+cefe_track3	validation	19	word	T1	Direct-WB	M	2	10	8	10	12	0.166667	0.200000	0.172414	17.24
+cefe_track3	validation	19	word	T1	Direct-WB	R	11	15	12	23	26	0.423077	0.478261	0.433071	43.31
+cefe_track3	validation	19	word	T1	Direct-WB	U	1	1	7	8	2	0.500000	0.125000	0.312500	31.25
+cefe_track3	validation	19	word	T1	Direct-WB	W	2	0	1	3	2	1.000000	0.666667	0.909091	90.91
+cefe_track3	validation	19	word	T1	Direct-WB	WO	0	1	0	0	1	0.000000	1.000000	0.000000	0.00
+cefe_track3	validation	19	word	T2	Projected-WB	M	2	10	8	10	12	0.166667	0.200000	0.172414	17.24
+cefe_track3	validation	19	word	T2	Projected-WB	R	11	15	12	23	26	0.423077	0.478261	0.433071	43.31
+cefe_track3	validation	19	word	T2	Projected-WB	U	1	1	7	8	2	0.500000	0.125000	0.312500	31.25
+cefe_track3	validation	19	word	T2	Projected-WB	W	2	0	1	3	2	1.000000	0.666667	0.909091	90.91
+cefe_track3	validation	19	word	T2	Projected-WB	WO	0	1	0	0	1	0.000000	1.000000	0.000000	0.00
+cefe_track3	validation	19	word	T3	Iterative Projected-WB	M	2	10	8	10	12	0.166667	0.200000	0.172414	17.24
+cefe_track3	validation	19	word	T3	Iterative Projected-WB	R	11	15	12	23	26	0.423077	0.478261	0.433071	43.31
+cefe_track3	validation	19	word	T3	Iterative Projected-WB	U	1	1	7	8	2	0.500000	0.125000	0.312500	31.25
+cefe_track3	validation	19	word	T3	Iterative Projected-WB	W	2	0	1	3	2	1.000000	0.666667	0.909091	90.91
+cefe_track3	validation	19	word	T3	Iterative Projected-WB	WO	0	1	0	0	1	0.000000	1.000000	0.000000	0.00
