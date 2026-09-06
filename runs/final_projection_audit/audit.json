@@ -1,0 +1,1133 @@
+{
+  "completed_utc": "2026-08-25T07:35:08.485610+00:00",
+  "status": "PASS",
+  "model_runs": {
+    "rows": 20213,
+    "api_calls_through_T3": 42344,
+    "models": [
+      "deepseek-v4-pro"
+    ],
+    "thinking_fallbacks": 0,
+    "errors": 0,
+    "empty_stage_outputs": 0,
+    "datasets": [
+      {
+        "dataset": "nlpcc2018",
+        "rows": 2000,
+        "api_calls_through_T3": 4206,
+        "models": [
+          "deepseek-v4-pro"
+        ],
+        "thinking_fallbacks": 0,
+        "errors": 0,
+        "empty_stage_outputs": 0
+      },
+      {
+        "dataset": "mucgec",
+        "rows": 6000,
+        "api_calls_through_T3": 12712,
+        "models": [
+          "deepseek-v4-pro"
+        ],
+        "thinking_fallbacks": 0,
+        "errors": 0,
+        "empty_stage_outputs": 0
+      },
+      {
+        "dataset": "yaclc",
+        "rows": 1000,
+        "api_calls_through_T3": 2130,
+        "models": [
+          "deepseek-v4-pro"
+        ],
+        "thinking_fallbacks": 0,
+        "errors": 0,
+        "empty_stage_outputs": 0
+      },
+      {
+        "dataset": "flacgec",
+        "rows": 1325,
+        "api_calls_through_T3": 2822,
+        "models": [
+          "deepseek-v4-pro"
+        ],
+        "thinking_fallbacks": 0,
+        "errors": 0,
+        "empty_stage_outputs": 0
+      },
+      {
+        "dataset": "fcgec",
+        "rows": 2000,
+        "api_calls_through_T3": 4142,
+        "models": [
+          "deepseek-v4-pro"
+        ],
+        "thinking_fallbacks": 0,
+        "errors": 0,
+        "empty_stage_outputs": 0
+      },
+      {
+        "dataset": "nacgec",
+        "rows": 5869,
+        "api_calls_through_T3": 12172,
+        "models": [
+          "deepseek-v4-pro"
+        ],
+        "thinking_fallbacks": 0,
+        "errors": 0,
+        "empty_stage_outputs": 0
+      },
+      {
+        "dataset": "nasgec_exam",
+        "rows": 2000,
+        "api_calls_through_T3": 4121,
+        "models": [
+          "deepseek-v4-pro"
+        ],
+        "thinking_fallbacks": 0,
+        "errors": 0,
+        "empty_stage_outputs": 0
+      },
+      {
+        "dataset": "cefe_track3",
+        "rows": 19,
+        "api_calls_through_T3": 39,
+        "models": [
+          "deepseek-v4-pro"
+        ],
+        "thinking_fallbacks": 0,
+        "errors": 0,
+        "empty_stage_outputs": 0
+      }
+    ]
+  },
+  "fixed_source_segmentations": 20213,
+  "word_m2_stage_invariant_sources": 20213,
+  "word_gleu_stage_invariant_sources": 20213,
+  "m2_files": 104,
+  "m2_blocks_validated": 262769,
+  "m2_physical_annotations_validated": 795161,
+  "linked_movements_validated": 13907,
+  "score_coverage": {
+    "character_m2": 32,
+    "word_m2": 32,
+    "character_gleu": 32,
+    "word_gleu": 32
+  },
+  "threshold_sensitivity": {
+    "character": {
+      "max_f0.5_x100_range": 0.0,
+      "mean_f0.5_x100_range": 0.0,
+      "ranges": {
+        "cefe_track3/T0": 0.0,
+        "cefe_track3/T1": 0.0,
+        "cefe_track3/T2": 0.0,
+        "cefe_track3/T3": 0.0,
+        "fcgec/T0": 0.0,
+        "fcgec/T1": 0.0,
+        "fcgec/T2": 0.0,
+        "fcgec/T3": 0.0,
+        "flacgec/T0": 0.0,
+        "flacgec/T1": 0.0,
+        "flacgec/T2": 0.0,
+        "flacgec/T3": 0.0,
+        "mucgec/T0": 0.0,
+        "mucgec/T1": 0.0,
+        "mucgec/T2": 0.0,
+        "mucgec/T3": 0.0,
+        "nacgec/T0": 0.0,
+        "nacgec/T1": 0.0,
+        "nacgec/T2": 0.0,
+        "nacgec/T3": 0.0,
+        "nasgec_exam/T0": 0.0,
+        "nasgec_exam/T1": 0.0,
+        "nasgec_exam/T2": 0.0,
+        "nasgec_exam/T3": 0.0,
+        "nlpcc2018/T0": 0.0,
+        "nlpcc2018/T1": 0.0,
+        "nlpcc2018/T2": 0.0,
+        "nlpcc2018/T3": 0.0,
+        "yaclc/T0": 0.0,
+        "yaclc/T1": 0.0,
+        "yaclc/T2": 0.0,
+        "yaclc/T3": 0.0
+      }
+    },
+    "word": {
+      "max_f0.5_x100_range": 0.010000000000005116,
+      "mean_f0.5_x100_range": 0.0015624999999996891,
+      "ranges": {
+        "cefe_track3/T0": 0.0,
+        "cefe_track3/T1": 0.0,
+        "cefe_track3/T2": 0.0,
+        "cefe_track3/T3": 0.0,
+        "fcgec/T0": 0.0,
+        "fcgec/T1": 0.0,
+        "fcgec/T2": 0.0,
+        "fcgec/T3": 0.0,
+        "flacgec/T0": 0.0,
+        "flacgec/T1": 0.0,
+        "flacgec/T2": 0.0,
+        "flacgec/T3": 0.0,
+        "mucgec/T0": 0.0,
+        "mucgec/T1": 0.00999999999999801,
+        "mucgec/T2": 0.0,
+        "mucgec/T3": 0.010000000000005116,
+        "nacgec/T0": 0.0,
+        "nacgec/T1": 0.0,
+        "nacgec/T2": 0.0,
+        "nacgec/T3": 0.0,
+        "nasgec_exam/T0": 0.0,
+        "nasgec_exam/T1": 0.0,
+        "nasgec_exam/T2": 0.0,
+        "nasgec_exam/T3": 0.0,
+        "nlpcc2018/T0": 0.0,
+        "nlpcc2018/T1": 0.0,
+        "nlpcc2018/T2": 0.0,
+        "nlpcc2018/T3": 0.0,
+        "yaclc/T0": 0.0,
+        "yaclc/T1": 0.009999999999990905,
+        "yaclc/T2": 0.009999999999990905,
+        "yaclc/T3": 0.010000000000005116
+      }
+    }
+  },
+  "files": [
+    {
+      "dataset": "nlpcc2018",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/nlpcc2018/test/char/reference.projection.all.char.m2",
+      "blocks": 2000,
+      "references": 2183,
+      "physical_annotations": 4564,
+      "linked_movements": 87
+    },
+    {
+      "dataset": "nlpcc2018",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/nlpcc2018/test/char/hypothesis.T0.projection.char.m2",
+      "blocks": 2000,
+      "references": 2000,
+      "physical_annotations": 5008,
+      "linked_movements": 80
+    },
+    {
+      "dataset": "nlpcc2018",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/nlpcc2018/test/char/hypothesis.T1.projection.char.m2",
+      "blocks": 2000,
+      "references": 2000,
+      "physical_annotations": 3385,
+      "linked_movements": 65
+    },
+    {
+      "dataset": "nlpcc2018",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/nlpcc2018/test/char/hypothesis.T2.projection.char.m2",
+      "blocks": 2000,
+      "references": 2000,
+      "physical_annotations": 3393,
+      "linked_movements": 65
+    },
+    {
+      "dataset": "nlpcc2018",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/nlpcc2018/test/char/hypothesis.T3.projection.char.m2",
+      "blocks": 2000,
+      "references": 2000,
+      "physical_annotations": 3404,
+      "linked_movements": 65
+    },
+    {
+      "dataset": "nlpcc2018",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/nlpcc2018/test/word/reference.T0.projection.word.m2",
+      "blocks": 2000,
+      "references": 2183,
+      "physical_annotations": 4683,
+      "linked_movements": 39
+    },
+    {
+      "dataset": "nlpcc2018",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/nlpcc2018/test/word/reference.T1.projection.word.m2",
+      "blocks": 2000,
+      "references": 2183,
+      "physical_annotations": 4683,
+      "linked_movements": 39
+    },
+    {
+      "dataset": "nlpcc2018",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/nlpcc2018/test/word/reference.T2.projection.word.m2",
+      "blocks": 2000,
+      "references": 2183,
+      "physical_annotations": 4683,
+      "linked_movements": 39
+    },
+    {
+      "dataset": "nlpcc2018",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/nlpcc2018/test/word/reference.T3.projection.word.m2",
+      "blocks": 2000,
+      "references": 2183,
+      "physical_annotations": 4683,
+      "linked_movements": 39
+    },
+    {
+      "dataset": "nlpcc2018",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/nlpcc2018/test/word/hypothesis.T0.projection.word.m2",
+      "blocks": 2000,
+      "references": 2000,
+      "physical_annotations": 5446,
+      "linked_movements": 33
+    },
+    {
+      "dataset": "nlpcc2018",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/nlpcc2018/test/word/hypothesis.T1.projection.word.m2",
+      "blocks": 2000,
+      "references": 2000,
+      "physical_annotations": 3741,
+      "linked_movements": 26
+    },
+    {
+      "dataset": "nlpcc2018",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/nlpcc2018/test/word/hypothesis.T2.projection.word.m2",
+      "blocks": 2000,
+      "references": 2000,
+      "physical_annotations": 3740,
+      "linked_movements": 26
+    },
+    {
+      "dataset": "nlpcc2018",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/nlpcc2018/test/word/hypothesis.T3.projection.word.m2",
+      "blocks": 2000,
+      "references": 2000,
+      "physical_annotations": 3751,
+      "linked_movements": 26
+    },
+    {
+      "dataset": "mucgec",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/mucgec/test/char/reference.projection.all.char.m2",
+      "blocks": 6000,
+      "references": 13119,
+      "physical_annotations": 43748,
+      "linked_movements": 882
+    },
+    {
+      "dataset": "mucgec",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/mucgec/test/char/hypothesis.T0.projection.char.m2",
+      "blocks": 6000,
+      "references": 6000,
+      "physical_annotations": 18894,
+      "linked_movements": 303
+    },
+    {
+      "dataset": "mucgec",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/mucgec/test/char/hypothesis.T1.projection.char.m2",
+      "blocks": 6000,
+      "references": 6000,
+      "physical_annotations": 11999,
+      "linked_movements": 255
+    },
+    {
+      "dataset": "mucgec",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/mucgec/test/char/hypothesis.T2.projection.char.m2",
+      "blocks": 6000,
+      "references": 6000,
+      "physical_annotations": 11967,
+      "linked_movements": 255
+    },
+    {
+      "dataset": "mucgec",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/mucgec/test/char/hypothesis.T3.projection.char.m2",
+      "blocks": 6000,
+      "references": 6000,
+      "physical_annotations": 11999,
+      "linked_movements": 255
+    },
+    {
+      "dataset": "mucgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/mucgec/test/word/reference.T0.projection.word.m2",
+      "blocks": 6000,
+      "references": 13119,
+      "physical_annotations": 45798,
+      "linked_movements": 423
+    },
+    {
+      "dataset": "mucgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/mucgec/test/word/reference.T1.projection.word.m2",
+      "blocks": 6000,
+      "references": 13119,
+      "physical_annotations": 45798,
+      "linked_movements": 423
+    },
+    {
+      "dataset": "mucgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/mucgec/test/word/reference.T2.projection.word.m2",
+      "blocks": 6000,
+      "references": 13119,
+      "physical_annotations": 45798,
+      "linked_movements": 423
+    },
+    {
+      "dataset": "mucgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/mucgec/test/word/reference.T3.projection.word.m2",
+      "blocks": 6000,
+      "references": 13119,
+      "physical_annotations": 45798,
+      "linked_movements": 423
+    },
+    {
+      "dataset": "mucgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/mucgec/test/word/hypothesis.T0.projection.word.m2",
+      "blocks": 6000,
+      "references": 6000,
+      "physical_annotations": 20566,
+      "linked_movements": 154
+    },
+    {
+      "dataset": "mucgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/mucgec/test/word/hypothesis.T1.projection.word.m2",
+      "blocks": 6000,
+      "references": 6000,
+      "physical_annotations": 13188,
+      "linked_movements": 110
+    },
+    {
+      "dataset": "mucgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/mucgec/test/word/hypothesis.T2.projection.word.m2",
+      "blocks": 6000,
+      "references": 6000,
+      "physical_annotations": 13135,
+      "linked_movements": 112
+    },
+    {
+      "dataset": "mucgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/mucgec/test/word/hypothesis.T3.projection.word.m2",
+      "blocks": 6000,
+      "references": 6000,
+      "physical_annotations": 13162,
+      "linked_movements": 111
+    },
+    {
+      "dataset": "yaclc",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/yaclc/validation/char/reference.projection.all.char.m2",
+      "blocks": 1000,
+      "references": 8931,
+      "physical_annotations": 29283,
+      "linked_movements": 525
+    },
+    {
+      "dataset": "yaclc",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/yaclc/validation/char/hypothesis.T0.projection.char.m2",
+      "blocks": 1000,
+      "references": 1000,
+      "physical_annotations": 2977,
+      "linked_movements": 55
+    },
+    {
+      "dataset": "yaclc",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/yaclc/validation/char/hypothesis.T1.projection.char.m2",
+      "blocks": 1000,
+      "references": 1000,
+      "physical_annotations": 2010,
+      "linked_movements": 40
+    },
+    {
+      "dataset": "yaclc",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/yaclc/validation/char/hypothesis.T2.projection.char.m2",
+      "blocks": 1000,
+      "references": 1000,
+      "physical_annotations": 1989,
+      "linked_movements": 38
+    },
+    {
+      "dataset": "yaclc",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/yaclc/validation/char/hypothesis.T3.projection.char.m2",
+      "blocks": 1000,
+      "references": 1000,
+      "physical_annotations": 2001,
+      "linked_movements": 39
+    },
+    {
+      "dataset": "yaclc",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/yaclc/validation/word/reference.T0.projection.word.m2",
+      "blocks": 1000,
+      "references": 8931,
+      "physical_annotations": 31778,
+      "linked_movements": 229
+    },
+    {
+      "dataset": "yaclc",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/yaclc/validation/word/reference.T1.projection.word.m2",
+      "blocks": 1000,
+      "references": 8931,
+      "physical_annotations": 31778,
+      "linked_movements": 229
+    },
+    {
+      "dataset": "yaclc",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/yaclc/validation/word/reference.T2.projection.word.m2",
+      "blocks": 1000,
+      "references": 8931,
+      "physical_annotations": 31778,
+      "linked_movements": 229
+    },
+    {
+      "dataset": "yaclc",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/yaclc/validation/word/reference.T3.projection.word.m2",
+      "blocks": 1000,
+      "references": 8931,
+      "physical_annotations": 31778,
+      "linked_movements": 229
+    },
+    {
+      "dataset": "yaclc",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/yaclc/validation/word/hypothesis.T0.projection.word.m2",
+      "blocks": 1000,
+      "references": 1000,
+      "physical_annotations": 3274,
+      "linked_movements": 28
+    },
+    {
+      "dataset": "yaclc",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/yaclc/validation/word/hypothesis.T1.projection.word.m2",
+      "blocks": 1000,
+      "references": 1000,
+      "physical_annotations": 2239,
+      "linked_movements": 16
+    },
+    {
+      "dataset": "yaclc",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/yaclc/validation/word/hypothesis.T2.projection.word.m2",
+      "blocks": 1000,
+      "references": 1000,
+      "physical_annotations": 2191,
+      "linked_movements": 17
+    },
+    {
+      "dataset": "yaclc",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/yaclc/validation/word/hypothesis.T3.projection.word.m2",
+      "blocks": 1000,
+      "references": 1000,
+      "physical_annotations": 2218,
+      "linked_movements": 17
+    },
+    {
+      "dataset": "flacgec",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/flacgec/test/char/reference.projection.all.char.m2",
+      "blocks": 1325,
+      "references": 1325,
+      "physical_annotations": 2837,
+      "linked_movements": 481
+    },
+    {
+      "dataset": "flacgec",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/flacgec/test/char/hypothesis.T0.projection.char.m2",
+      "blocks": 1325,
+      "references": 1325,
+      "physical_annotations": 2647,
+      "linked_movements": 256
+    },
+    {
+      "dataset": "flacgec",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/flacgec/test/char/hypothesis.T1.projection.char.m2",
+      "blocks": 1325,
+      "references": 1325,
+      "physical_annotations": 2303,
+      "linked_movements": 236
+    },
+    {
+      "dataset": "flacgec",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/flacgec/test/char/hypothesis.T2.projection.char.m2",
+      "blocks": 1325,
+      "references": 1325,
+      "physical_annotations": 2293,
+      "linked_movements": 233
+    },
+    {
+      "dataset": "flacgec",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/flacgec/test/char/hypothesis.T3.projection.char.m2",
+      "blocks": 1325,
+      "references": 1325,
+      "physical_annotations": 2305,
+      "linked_movements": 235
+    },
+    {
+      "dataset": "flacgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/flacgec/test/word/reference.T0.projection.word.m2",
+      "blocks": 1325,
+      "references": 1325,
+      "physical_annotations": 2761,
+      "linked_movements": 355
+    },
+    {
+      "dataset": "flacgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/flacgec/test/word/reference.T1.projection.word.m2",
+      "blocks": 1325,
+      "references": 1325,
+      "physical_annotations": 2761,
+      "linked_movements": 355
+    },
+    {
+      "dataset": "flacgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/flacgec/test/word/reference.T2.projection.word.m2",
+      "blocks": 1325,
+      "references": 1325,
+      "physical_annotations": 2761,
+      "linked_movements": 355
+    },
+    {
+      "dataset": "flacgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/flacgec/test/word/reference.T3.projection.word.m2",
+      "blocks": 1325,
+      "references": 1325,
+      "physical_annotations": 2761,
+      "linked_movements": 355
+    },
+    {
+      "dataset": "flacgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/flacgec/test/word/hypothesis.T0.projection.word.m2",
+      "blocks": 1325,
+      "references": 1325,
+      "physical_annotations": 2862,
+      "linked_movements": 165
+    },
+    {
+      "dataset": "flacgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/flacgec/test/word/hypothesis.T1.projection.word.m2",
+      "blocks": 1325,
+      "references": 1325,
+      "physical_annotations": 2476,
+      "linked_movements": 145
+    },
+    {
+      "dataset": "flacgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/flacgec/test/word/hypothesis.T2.projection.word.m2",
+      "blocks": 1325,
+      "references": 1325,
+      "physical_annotations": 2465,
+      "linked_movements": 144
+    },
+    {
+      "dataset": "flacgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/flacgec/test/word/hypothesis.T3.projection.word.m2",
+      "blocks": 1325,
+      "references": 1325,
+      "physical_annotations": 2476,
+      "linked_movements": 145
+    },
+    {
+      "dataset": "fcgec",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/fcgec/validation/char/reference.projection.all.char.m2",
+      "blocks": 2000,
+      "references": 2550,
+      "physical_annotations": 2976,
+      "linked_movements": 115
+    },
+    {
+      "dataset": "fcgec",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/fcgec/validation/char/hypothesis.T0.projection.char.m2",
+      "blocks": 2000,
+      "references": 2000,
+      "physical_annotations": 3053,
+      "linked_movements": 66
+    },
+    {
+      "dataset": "fcgec",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/fcgec/validation/char/hypothesis.T1.projection.char.m2",
+      "blocks": 2000,
+      "references": 2000,
+      "physical_annotations": 2405,
+      "linked_movements": 33
+    },
+    {
+      "dataset": "fcgec",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/fcgec/validation/char/hypothesis.T2.projection.char.m2",
+      "blocks": 2000,
+      "references": 2000,
+      "physical_annotations": 2399,
+      "linked_movements": 33
+    },
+    {
+      "dataset": "fcgec",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/fcgec/validation/char/hypothesis.T3.projection.char.m2",
+      "blocks": 2000,
+      "references": 2000,
+      "physical_annotations": 2404,
+      "linked_movements": 33
+    },
+    {
+      "dataset": "fcgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/fcgec/validation/word/reference.T0.projection.word.m2",
+      "blocks": 2000,
+      "references": 2550,
+      "physical_annotations": 2848,
+      "linked_movements": 73
+    },
+    {
+      "dataset": "fcgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/fcgec/validation/word/reference.T1.projection.word.m2",
+      "blocks": 2000,
+      "references": 2550,
+      "physical_annotations": 2848,
+      "linked_movements": 73
+    },
+    {
+      "dataset": "fcgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/fcgec/validation/word/reference.T2.projection.word.m2",
+      "blocks": 2000,
+      "references": 2550,
+      "physical_annotations": 2848,
+      "linked_movements": 73
+    },
+    {
+      "dataset": "fcgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/fcgec/validation/word/reference.T3.projection.word.m2",
+      "blocks": 2000,
+      "references": 2550,
+      "physical_annotations": 2848,
+      "linked_movements": 73
+    },
+    {
+      "dataset": "fcgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/fcgec/validation/word/hypothesis.T0.projection.word.m2",
+      "blocks": 2000,
+      "references": 2000,
+      "physical_annotations": 3385,
+      "linked_movements": 36
+    },
+    {
+      "dataset": "fcgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/fcgec/validation/word/hypothesis.T1.projection.word.m2",
+      "blocks": 2000,
+      "references": 2000,
+      "physical_annotations": 2658,
+      "linked_movements": 15
+    },
+    {
+      "dataset": "fcgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/fcgec/validation/word/hypothesis.T2.projection.word.m2",
+      "blocks": 2000,
+      "references": 2000,
+      "physical_annotations": 2642,
+      "linked_movements": 15
+    },
+    {
+      "dataset": "fcgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/fcgec/validation/word/hypothesis.T3.projection.word.m2",
+      "blocks": 2000,
+      "references": 2000,
+      "physical_annotations": 2649,
+      "linked_movements": 15
+    },
+    {
+      "dataset": "nacgec",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/nacgec/test/char/reference.projection.all.char.m2",
+      "blocks": 5869,
+      "references": 6978,
+      "physical_annotations": 8990,
+      "linked_movements": 512
+    },
+    {
+      "dataset": "nacgec",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/nacgec/test/char/hypothesis.T0.projection.char.m2",
+      "blocks": 5869,
+      "references": 5869,
+      "physical_annotations": 9424,
+      "linked_movements": 285
+    },
+    {
+      "dataset": "nacgec",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/nacgec/test/char/hypothesis.T1.projection.char.m2",
+      "blocks": 5869,
+      "references": 5869,
+      "physical_annotations": 7344,
+      "linked_movements": 148
+    },
+    {
+      "dataset": "nacgec",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/nacgec/test/char/hypothesis.T2.projection.char.m2",
+      "blocks": 5869,
+      "references": 5869,
+      "physical_annotations": 7312,
+      "linked_movements": 147
+    },
+    {
+      "dataset": "nacgec",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/nacgec/test/char/hypothesis.T3.projection.char.m2",
+      "blocks": 5869,
+      "references": 5869,
+      "physical_annotations": 7337,
+      "linked_movements": 147
+    },
+    {
+      "dataset": "nacgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/nacgec/test/word/reference.T0.projection.word.m2",
+      "blocks": 5869,
+      "references": 6978,
+      "physical_annotations": 8789,
+      "linked_movements": 259
+    },
+    {
+      "dataset": "nacgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/nacgec/test/word/reference.T1.projection.word.m2",
+      "blocks": 5869,
+      "references": 6978,
+      "physical_annotations": 8789,
+      "linked_movements": 259
+    },
+    {
+      "dataset": "nacgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/nacgec/test/word/reference.T2.projection.word.m2",
+      "blocks": 5869,
+      "references": 6978,
+      "physical_annotations": 8789,
+      "linked_movements": 259
+    },
+    {
+      "dataset": "nacgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/nacgec/test/word/reference.T3.projection.word.m2",
+      "blocks": 5869,
+      "references": 6978,
+      "physical_annotations": 8789,
+      "linked_movements": 259
+    },
+    {
+      "dataset": "nacgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/nacgec/test/word/hypothesis.T0.projection.word.m2",
+      "blocks": 5869,
+      "references": 5869,
+      "physical_annotations": 10248,
+      "linked_movements": 148
+    },
+    {
+      "dataset": "nacgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/nacgec/test/word/hypothesis.T1.projection.word.m2",
+      "blocks": 5869,
+      "references": 5869,
+      "physical_annotations": 8164,
+      "linked_movements": 63
+    },
+    {
+      "dataset": "nacgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/nacgec/test/word/hypothesis.T2.projection.word.m2",
+      "blocks": 5869,
+      "references": 5869,
+      "physical_annotations": 8123,
+      "linked_movements": 63
+    },
+    {
+      "dataset": "nacgec",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/nacgec/test/word/hypothesis.T3.projection.word.m2",
+      "blocks": 5869,
+      "references": 5869,
+      "physical_annotations": 8163,
+      "linked_movements": 63
+    },
+    {
+      "dataset": "nasgec_exam",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/nasgec_exam/test/char/reference.projection.all.char.m2",
+      "blocks": 2000,
+      "references": 2895,
+      "physical_annotations": 4121,
+      "linked_movements": 146
+    },
+    {
+      "dataset": "nasgec_exam",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/nasgec_exam/test/char/hypothesis.T0.projection.char.m2",
+      "blocks": 2000,
+      "references": 2000,
+      "physical_annotations": 3159,
+      "linked_movements": 66
+    },
+    {
+      "dataset": "nasgec_exam",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/nasgec_exam/test/char/hypothesis.T1.projection.char.m2",
+      "blocks": 2000,
+      "references": 2000,
+      "physical_annotations": 2420,
+      "linked_movements": 38
+    },
+    {
+      "dataset": "nasgec_exam",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/nasgec_exam/test/char/hypothesis.T2.projection.char.m2",
+      "blocks": 2000,
+      "references": 2000,
+      "physical_annotations": 2409,
+      "linked_movements": 37
+    },
+    {
+      "dataset": "nasgec_exam",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/nasgec_exam/test/char/hypothesis.T3.projection.char.m2",
+      "blocks": 2000,
+      "references": 2000,
+      "physical_annotations": 2415,
+      "linked_movements": 37
+    },
+    {
+      "dataset": "nasgec_exam",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/nasgec_exam/test/word/reference.T0.projection.word.m2",
+      "blocks": 2000,
+      "references": 2895,
+      "physical_annotations": 4099,
+      "linked_movements": 80
+    },
+    {
+      "dataset": "nasgec_exam",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/nasgec_exam/test/word/reference.T1.projection.word.m2",
+      "blocks": 2000,
+      "references": 2895,
+      "physical_annotations": 4099,
+      "linked_movements": 80
+    },
+    {
+      "dataset": "nasgec_exam",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/nasgec_exam/test/word/reference.T2.projection.word.m2",
+      "blocks": 2000,
+      "references": 2895,
+      "physical_annotations": 4099,
+      "linked_movements": 80
+    },
+    {
+      "dataset": "nasgec_exam",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/nasgec_exam/test/word/reference.T3.projection.word.m2",
+      "blocks": 2000,
+      "references": 2895,
+      "physical_annotations": 4099,
+      "linked_movements": 80
+    },
+    {
+      "dataset": "nasgec_exam",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/nasgec_exam/test/word/hypothesis.T0.projection.word.m2",
+      "blocks": 2000,
+      "references": 2000,
+      "physical_annotations": 3469,
+      "linked_movements": 34
+    },
+    {
+      "dataset": "nasgec_exam",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/nasgec_exam/test/word/hypothesis.T1.projection.word.m2",
+      "blocks": 2000,
+      "references": 2000,
+      "physical_annotations": 2666,
+      "linked_movements": 17
+    },
+    {
+      "dataset": "nasgec_exam",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/nasgec_exam/test/word/hypothesis.T2.projection.word.m2",
+      "blocks": 2000,
+      "references": 2000,
+      "physical_annotations": 2644,
+      "linked_movements": 16
+    },
+    {
+      "dataset": "nasgec_exam",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/nasgec_exam/test/word/hypothesis.T3.projection.word.m2",
+      "blocks": 2000,
+      "references": 2000,
+      "physical_annotations": 2655,
+      "linked_movements": 16
+    },
+    {
+      "dataset": "cefe_track3",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/cefe_track3/validation/char/reference.projection.all.char.m2",
+      "blocks": 19,
+      "references": 19,
+      "physical_annotations": 45,
+      "linked_movements": 0
+    },
+    {
+      "dataset": "cefe_track3",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/cefe_track3/validation/char/hypothesis.T0.projection.char.m2",
+      "blocks": 19,
+      "references": 19,
+      "physical_annotations": 46,
+      "linked_movements": 0
+    },
+    {
+      "dataset": "cefe_track3",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/cefe_track3/validation/char/hypothesis.T1.projection.char.m2",
+      "blocks": 19,
+      "references": 19,
+      "physical_annotations": 37,
+      "linked_movements": 1
+    },
+    {
+      "dataset": "cefe_track3",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/cefe_track3/validation/char/hypothesis.T2.projection.char.m2",
+      "blocks": 19,
+      "references": 19,
+      "physical_annotations": 37,
+      "linked_movements": 1
+    },
+    {
+      "dataset": "cefe_track3",
+      "unit": "character",
+      "file": "runs/projection_character_m2_eval_final/cefe_track3/validation/char/hypothesis.T3.projection.char.m2",
+      "blocks": 19,
+      "references": 19,
+      "physical_annotations": 37,
+      "linked_movements": 1
+    },
+    {
+      "dataset": "cefe_track3",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/cefe_track3/validation/word/reference.T0.projection.word.m2",
+      "blocks": 19,
+      "references": 19,
+      "physical_annotations": 44,
+      "linked_movements": 0
+    },
+    {
+      "dataset": "cefe_track3",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/cefe_track3/validation/word/reference.T1.projection.word.m2",
+      "blocks": 19,
+      "references": 19,
+      "physical_annotations": 44,
+      "linked_movements": 0
+    },
+    {
+      "dataset": "cefe_track3",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/cefe_track3/validation/word/reference.T2.projection.word.m2",
+      "blocks": 19,
+      "references": 19,
+      "physical_annotations": 44,
+      "linked_movements": 0
+    },
+    {
+      "dataset": "cefe_track3",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/cefe_track3/validation/word/reference.T3.projection.word.m2",
+      "blocks": 19,
+      "references": 19,
+      "physical_annotations": 44,
+      "linked_movements": 0
+    },
+    {
+      "dataset": "cefe_track3",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/cefe_track3/validation/word/hypothesis.T0.projection.word.m2",
+      "blocks": 19,
+      "references": 19,
+      "physical_annotations": 51,
+      "linked_movements": 0
+    },
+    {
+      "dataset": "cefe_track3",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/cefe_track3/validation/word/hypothesis.T1.projection.word.m2",
+      "blocks": 19,
+      "references": 19,
+      "physical_annotations": 46,
+      "linked_movements": 1
+    },
+    {
+      "dataset": "cefe_track3",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/cefe_track3/validation/word/hypothesis.T2.projection.word.m2",
+      "blocks": 19,
+      "references": 19,
+      "physical_annotations": 46,
+      "linked_movements": 1
+    },
+    {
+      "dataset": "cefe_track3",
+      "unit": "word",
+      "file": "runs/projection_word_m2_eval_final/cefe_track3/validation/word/hypothesis.T3.projection.word.m2",
+      "blocks": 19,
+      "references": 19,
+      "physical_annotations": 46,
+      "linked_movements": 1
+    }
+  ]
+}

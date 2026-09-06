@@ -1,0 +1,14 @@
+{
+  "dataset": "flacgec",
+  "split": "test",
+  "rows": 1325,
+  "average_references": 1.0,
+  "pipeline_input": "data/benchmarks/prepared/flacgec/test/pipeline.tsv",
+  "gold_para": "data/benchmarks/prepared/flacgec/test/gold.para",
+  "gold_m2": null,
+  "selection": "public test source-target pairs",
+  "evaluation": "ChERRANT char/span F0.5 for this iterative experiment",
+  "source_url": "https://github.com/hyDududu/FlaCGEC",
+  "source_path": "data/benchmarks/upstream/flacgec/data/test.json",
+  "run_note": "full T0-T10 run already completed in this workspace"
+}

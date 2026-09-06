@@ -1,0 +1,9 @@
+dataset	split	sentences	first_projection_changed	first_projection_changed_pct	stopped_after_direct	stopped_after_projected	reached_T3	second_projection_changed	two_cycles	T2_output_changed_given_S2_changed	T2_output_changed_pct	T3_output_changed_given_S3_changed	T3_output_changed_pct	splits_through_S3	merges_through_S3
+nlpcc2018	test	2000	184	9.20	1816	162	22	22	16	61	33.15	20	90.91	92	149
+mucgec	test	6000	613	10.22	5387	514	99	99	76	239	38.99	85	85.86	351	474
+yaclc	validation	1000	107	10.70	893	84	23	23	21	52	48.60	20	86.96	64	80
+flacgec	test	1325	149	11.25	1176	126	23	23	15	43	28.86	19	82.61	100	106
+fcgec	validation	2000	122	6.10	1878	102	20	20	16	28	22.95	14	70.00	83	96
+nacgec	test	5869	388	6.61	5481	342	46	46	37	76	19.59	40	86.96	249	308
+nasgec_exam	test	2000	102	5.10	1898	83	19	19	13	28	27.45	14	73.68	73	81
+cefe_track3	validation	19	1	5.26	18	1	0	0	0	0	0.00	0	0.00	4	1

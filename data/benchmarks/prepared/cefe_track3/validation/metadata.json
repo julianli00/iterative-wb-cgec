@@ -1,0 +1,14 @@
+{
+  "dataset": "cefe_track3",
+  "split": "validation",
+  "rows": 19,
+  "average_references": 1.0,
+  "pipeline_input": "data/benchmarks/prepared/cefe_track3/validation/pipeline.tsv",
+  "gold_para": "data/benchmarks/prepared/cefe_track3/validation/gold.para",
+  "gold_m2": null,
+  "selection": "only public Track 3 validation gold; test labels are unavailable",
+  "evaluation": "exploratory ChERRANT char/span F0.5",
+  "source_url": "https://github.com/cubenlp/2023CCL_CEFE",
+  "source_path": "data/benchmarks/upstream/cefe/track3/datas/val.json",
+  "comparability_note": "only 19 validation sentences; diagnostic, not a robust benchmark"
+}

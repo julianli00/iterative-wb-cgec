@@ -1,0 +1,10 @@
+dataset	split	sentences	api_calls	format_retries	filter_affected_sentences	filter_fallback_calls	converged_by_T3	stopped_after_direct	stopped_after_projected	reached_T3	S1_to_S2_changed	S2_to_S3_changed	T0_to_T1_changed	T1_to_T2_changed	T2_to_T3_changed	boundary_splits	boundary_merges
+nlpcc2018	test	2000	4229	0	0	0	1970	1801	169	30	199	30	1195	69	21	101	168
+mucgec	test	6000	12694	11	9	17	5893	5413	480	107	587	107	4006	266	77	357	463
+yaclc	validation	1000	2138	10	0	0	973	889	84	27	111	27	676	45	18	68	80
+flacgec	test	1325	2818	2	0	0	1299	1183	116	26	142	26	610	48	21	105	93
+fcgec	validation	2000	4147	2	13	24	1984	1869	115	16	131	16	1000	28	11	90	83
+nacgec	test	5869	12227	3	40	77	5801	5448	353	68	421	68	3232	112	44	280	307
+nasgec_exam	test	2000	4152	0	14	28	1980	1868	112	20	132	20	1060	34	11	92	92
+cefe_track3	validation	19	41	0	0	0	19	16	3	0	3	0	7	1	0	5	3
+TOTAL	mixed	20213	42446	28	76	146	19919	18487	1432	294	1726	294	11786	603	203	1098	1289

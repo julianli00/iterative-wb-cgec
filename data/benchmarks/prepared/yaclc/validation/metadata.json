@@ -1,0 +1,14 @@
+{
+  "dataset": "yaclc",
+  "split": "validation",
+  "rows": 1000,
+  "average_references": 8.931,
+  "pipeline_input": "data/benchmarks/prepared/yaclc/validation/pipeline.tsv",
+  "gold_para": "data/benchmarks/prepared/yaclc/validation/gold.para",
+  "gold_m2": null,
+  "selection": "validation gold; public test contains sources only",
+  "evaluation": "ChERRANT char/span F0.5 over grammatical-correction references only",
+  "source_url": "https://github.com/blcuicall/YACLC",
+  "source_path": "data/benchmarks/upstream/yaclc/valid.jsonl",
+  "comparability_note": "validation result, not an official hidden-test score"
+}

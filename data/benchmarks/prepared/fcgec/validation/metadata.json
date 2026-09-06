@@ -1,0 +1,15 @@
+{
+  "dataset": "fcgec",
+  "split": "validation",
+  "rows": 2000,
+  "average_references": 1.275,
+  "pipeline_input": "data/benchmarks/prepared/fcgec/validation/pipeline.tsv",
+  "gold_para": "data/benchmarks/prepared/fcgec/validation/gold.para",
+  "gold_m2": null,
+  "selection": "validation gold; test labels remain hidden behind CodaBench",
+  "evaluation": "ChERRANT char/span F0.5",
+  "source_url": "https://github.com/xlxwalex/FCGEC",
+  "evaluation_url": "https://www.codabench.org/competitions/15596/",
+  "source_path": "data/benchmarks/upstream/fcgec/data/FCGEC_valid.json",
+  "comparability_note": "validation result, not an official hidden-test score"
+}

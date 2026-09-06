@@ -1,0 +1,13 @@
+{
+  "dataset": "mucgec",
+  "split": "test",
+  "rows": 6000,
+  "average_references": 2.187,
+  "pipeline_input": "data/benchmarks/prepared/mucgec/test/pipeline.tsv",
+  "gold_para": "data/benchmarks/prepared/mucgec/test/gold.para",
+  "gold_m2": "data/benchmarks/prepared/mucgec/test/gold.m2",
+  "selection": "official public test gold released by CGECData",
+  "evaluation": "ChERRANT char/span F0.5",
+  "source_url": "https://github.com/SUDA-LA/CGECData",
+  "source_path": "data/benchmarks/upstream/cgecdata/MuCGEC/v1-NAACL22/mucgec.test.m2"
+}

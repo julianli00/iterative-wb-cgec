@@ -1,0 +1,13 @@
+{
+  "dataset": "nacgec",
+  "split": "test",
+  "rows": 5869,
+  "average_references": 1.189,
+  "pipeline_input": "data/benchmarks/prepared/nacgec/test/pipeline.tsv",
+  "gold_para": "data/benchmarks/prepared/nacgec/test/gold.para",
+  "gold_m2": null,
+  "selection": "official test ground truth released after the shared task",
+  "evaluation": "ChERRANT char/span F0.5; official final score also averages word-level M2",
+  "source_url": "https://github.com/masr2000/NaCGEC",
+  "source_path": "data/benchmarks/upstream/nacgec/data/nacgec.test.ref.para"
+}
