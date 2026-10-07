@@ -8,21 +8,166 @@ import csv
 from datetime import datetime, timezone
 import json
 from pathlib import Path
-from typing import Any, Iterable, Sequence
+from typing import Any, Iterable, Mapping, Sequence
 
-from movement_aware_compare import parse_block, scored_edits
-from projection_character_m2 import targets_from_m2_block
-from projection_word_m2 import targets_from_word_m2_block
-from standardize_m2_evaluation import ROUNDS, ROOT, load_specs
+if not __package__:
+    from movement_aware_compare import parse_block, scored_edits
+    from projection_character_m2 import targets_from_m2_block
+    from projection_word_m2 import targets_from_word_m2_block
+    from standardize_m2_evaluation import ROUNDS, ROOT, load_result_rows, load_specs
+    from word_gleu_protocol import (
+        CONDITION_SOURCE_COLUMNS,
+        SOURCE_POLICIES,
+        load_source_policy,
+        select_source_segmentation,
+    )
+else:
+    from .movement_aware_compare import parse_block, scored_edits
+    from .projection_character_m2 import targets_from_m2_block
+    from .projection_word_m2 import targets_from_word_m2_block
+    from .standardize_m2_evaluation import ROUNDS, ROOT, load_result_rows, load_specs
+    from .word_gleu_protocol import (
+        CONDITION_SOURCE_COLUMNS,
+        SOURCE_POLICIES,
+        load_source_policy,
+        select_source_segmentation,
+    )
 
 
 RUNS = ROOT / "runs"
 CHARACTER_ROOT = RUNS / "projection_character_m2_eval_final"
 WORD_ROOT = RUNS / "projection_word_m2_eval_final"
 CHARACTER_GLEU_ROOT = RUNS / "character_gleu_select_best"
-WORD_GLEU_ROOT = RUNS / "word_gleu_select_best_final"
+WORD_GLEU_ROOT = RUNS / "word_gleu_condition_select_best"
+LEGACY_WORD_GLEU_ROOT = RUNS / "word_gleu_select_best_final"
 FIXED_SEGMENTATION_ROOT = RUNS / "gold_fixed_source_segmentation"
 DEFAULT_OUTPUT = RUNS / "final_projection_audit"
+
+
+def add_word_gleu_arguments(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--word-gleu-root", type=Path)
+    parser.add_argument(
+        "--word-gleu-source-policy",
+        choices=SOURCE_POLICIES,
+        default="condition",
+        help=(
+            "Default: condition, using runs/word_gleu_condition_select_best. "
+            "fixed-gold explicitly reproduces the historical fixed-source run."
+        ),
+    )
+
+
+def resolve_word_gleu_root(
+    root: Path | None = None, *, source_policy: str = "condition"
+) -> Path:
+    if source_policy not in SOURCE_POLICIES:
+        raise ValueError(f"Unknown word-GLEU source policy: {source_policy}")
+    if root is not None:
+        return root
+    return WORD_GLEU_ROOT if source_policy == "condition" else LEGACY_WORD_GLEU_ROOT
+
+
+def word_gleu_source_metadata(root: Path, source_policy: str) -> dict[str, Any]:
+    resolve_word_gleu_root(root, source_policy=source_policy)
+    return {
+        "word_gleu_root": str(root.resolve()),
+        "word_gleu_source_policy": source_policy,
+        "word_gleu_source_stage_mapping": (
+            dict(CONDITION_SOURCE_COLUMNS) if source_policy == "condition" else None
+        ),
+    }
+
+
+def word_gleu_protocol_description(source_policy: str) -> str:
+    if source_policy == "condition":
+        return (
+            "Word GLEU uses condition-specific saved source segmentations: "
+            "R/T0 and D/T1 use S1 (direct LTP), P/T2 uses S2, and I/T3 uses S3. "
+            "Hypotheses and references remain LTP-segmented."
+        )
+    if source_policy == "fixed-gold":
+        return (
+            "Historical fixed-gold word GLEU uses one fixed gold-informed source "
+            "segmentation shared by T0--T3, matching word M2. "
+            "Hypotheses and references remain LTP-segmented."
+        )
+    raise ValueError(f"Unknown word-GLEU source policy: {source_policy}")
+
+
+def require_word_gleu_audit(
+    audit: Mapping[str, Any], *, source_policy: str, word_gleu_root: Path
+) -> None:
+    resolve_word_gleu_root(word_gleu_root, source_policy=source_policy)
+    if not isinstance(audit, Mapping):
+        raise ValueError("Expected an evaluation artifact audit object")
+    if audit.get("status") != "PASS":
+        raise ValueError("Evaluation artifact audit did not pass")
+    policy = audit.get("word_gleu_source_policy")
+    if policy is None and source_policy == "fixed-gold":
+        policy = "fixed-gold"
+    if policy != source_policy:
+        raise ValueError(
+            f"Word-GLEU audit policy mismatch: {policy!r} != {source_policy!r}"
+        )
+    recorded_root = audit.get("word_gleu_root")
+    if recorded_root is None:
+        if source_policy != "fixed-gold":
+            raise ValueError("Condition-specific word-GLEU audit has no input root")
+    elif not isinstance(recorded_root, str) or not recorded_root:
+        raise ValueError("Word-GLEU audit input root is invalid")
+    elif Path(recorded_root).resolve() != word_gleu_root.resolve():
+        raise ValueError("Word-GLEU audit input root does not match the report inputs")
+    if (
+        source_policy == "condition"
+        and audit.get("word_gleu_source_stage_mapping") != CONDITION_SOURCE_COLUMNS
+    ):
+        raise ValueError("Condition-specific word-GLEU audit has an invalid stage mapping")
+
+
+def assert_word_gleu_sources(
+    sources_by_stage: Mapping[str, Sequence[str]],
+    result_rows: Sequence[Mapping[str, str]],
+    *,
+    source_policy: str = "condition",
+    fixed_sources: Sequence[str] | None = None,
+    expected_rows: int | None = None,
+) -> int:
+    resolve_word_gleu_root(source_policy=source_policy)
+    row_count = len(result_rows) if expected_rows is None else expected_rows
+    if len(result_rows) != row_count or set(sources_by_stage) != set(ROUNDS):
+        raise ValueError("Word-GLEU source audit has incomplete saved rows or stages")
+    if any(len(values) != row_count for values in sources_by_stage.values()):
+        raise ValueError("Word-GLEU source audit found an unexpected row count")
+    if source_policy == "fixed-gold":
+        if fixed_sources is None or len(fixed_sources) != row_count:
+            raise ValueError("Fixed-gold word GLEU requires the fixed word-M2 sources")
+        baseline = list(sources_by_stage["T0"])
+        if any(list(values) != baseline for values in sources_by_stage.values()):
+            raise ValueError("Fixed-gold word-GLEU source segmentation varies by stage")
+        if baseline != list(fixed_sources):
+            raise ValueError("Fixed-gold word-GLEU sources differ from fixed word M2")
+    for stage in ROUNDS:
+        for index, (actual, row) in enumerate(
+            zip(sources_by_stage[stage], result_rows), start=1
+        ):
+            expected = select_source_segmentation(
+                row,
+                stage,
+                source_policy=source_policy,
+                fixed_source=(
+                    fixed_sources[index - 1] if source_policy == "fixed-gold" else None
+                ),
+            )
+            if " ".join(actual.replace("\ufeff", "").split()) != expected:
+                column = (
+                    CONDITION_SOURCE_COLUMNS[stage]
+                    if source_policy == "condition"
+                    else "fixed word-M2 source"
+                )
+                raise ValueError(
+                    f"Word-GLEU {stage} source does not match {column} at row {index}"
+                )
+    return row_count
 
 
 def read_tsv(path: Path) -> list[dict[str, str]]:
@@ -89,6 +234,7 @@ def assert_stage_invariant(paths: Sequence[Path], *, expected_rows: int) -> int:
 
 
 def assert_text_stage_invariant(paths: Sequence[Path], *, expected_rows: int) -> int:
+    """Check the historical fixed-gold word-GLEU source invariant."""
     contents = [path.read_text(encoding="utf-8-sig").splitlines() for path in paths]
     if any(len(lines) != expected_rows for lines in contents):
         raise ValueError("Stage-invariance audit found an unexpected text row count")
@@ -239,12 +385,17 @@ def add_markdown_table(
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    add_word_gleu_arguments(parser)
     args = parser.parse_args()
+    word_gleu_root = resolve_word_gleu_root(
+        args.word_gleu_root, source_policy=args.word_gleu_source_policy
+    )
+    load_source_policy(word_gleu_root, expected_policy=args.word_gleu_source_policy)
     args.output.mkdir(parents=True, exist_ok=True)
 
     specs = load_specs()
     m2_rows: list[dict[str, Any]] = []
-    fixed_rows = word_m2_invariant = word_gleu_invariant = 0
+    fixed_rows = word_m2_invariant = word_gleu_validated = 0
     for spec in specs:
         char_dir = CHARACTER_ROOT / spec.dataset / spec.split / "char"
         word_dir = WORD_ROOT / spec.dataset / spec.split / "word"
@@ -277,14 +428,19 @@ def main() -> None:
             + [word_dir / f"hypothesis.{stage}.projection.word.m2" for stage in ROUNDS],
             expected_rows=spec.rows,
         )
-        word_gleu_invariant += assert_text_stage_invariant(
-            [
-                WORD_GLEU_ROOT
-                / spec.dataset
-                / spec.split
-                / "inputs"
-                / f"source.{stage}.txt"
+        word_input_dir = word_gleu_root / spec.dataset / spec.split / "inputs"
+        word_gleu_validated += assert_word_gleu_sources(
+            {
+                stage: (word_input_dir / f"source.{stage}.txt")
+                .read_text(encoding="utf-8-sig")
+                .splitlines()
                 for stage in ROUNDS
+            },
+            load_result_rows(spec),
+            source_policy=args.word_gleu_source_policy,
+            fixed_sources=[
+                source_line(block)
+                for block in read_blocks(word_dir / "reference.T0.projection.word.m2")
             ],
             expected_rows=spec.rows,
         )
@@ -313,7 +469,7 @@ def main() -> None:
             CHARACTER_GLEU_ROOT / "scores.long.tsv", kind="gleu"
         ),
         "word_gleu": require_score_coverage(
-            WORD_GLEU_ROOT / "scores.long.tsv", kind="gleu"
+            word_gleu_root / "scores.long.tsv", kind="gleu"
         ),
     }
     model_runs = model_run_audit()
@@ -322,9 +478,13 @@ def main() -> None:
         "completed_utc": datetime.now(timezone.utc).isoformat(),
         "status": "PASS",
         "model_runs": model_runs,
+        **word_gleu_source_metadata(word_gleu_root, args.word_gleu_source_policy),
         "fixed_source_segmentations": fixed_rows,
         "word_m2_stage_invariant_sources": word_m2_invariant,
-        "word_gleu_stage_invariant_sources": word_gleu_invariant,
+        "word_gleu_source_rows_validated": word_gleu_validated,
+        "word_gleu_stage_invariant_sources": (
+            word_gleu_validated if args.word_gleu_source_policy == "fixed-gold" else None
+        ),
         "m2_files": len(m2_rows),
         "m2_blocks_validated": sum(row["blocks"] for row in m2_rows),
         "m2_physical_annotations_validated": sum(
@@ -361,7 +521,9 @@ def main() -> None:
         "- Every saved row has non-empty T0--T3 output and successful API metadata.",
         "- Every linked movement passed syntax, reciprocal-coordinate, material-identity, non-overlap, and reconstruction checks.",
         "- The fixed evaluation-side source segmentation preserves the learner characters.",
-        "- The word-M2 and word-GLEU source segmentation is byte-for-byte identical across T0--T3 for every sentence.",
+        "- The word-M2 source segmentation is byte-for-byte identical across T0--T3 for every sentence.",
+        "- " + word_gleu_protocol_description(args.word_gleu_source_policy),
+        "- Word-GLEU source inputs match the declared source policy and preserve learner text after BOM/whitespace normalization.",
         "- No BPE is used in any final result.",
         "",
         "## Threshold Sensitivity",

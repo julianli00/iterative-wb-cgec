@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""M2 correction scorer with strict linked-movement matching."""
+"""M2 correction scorer with strict linked-movement matching.
+
+Multi-reference evaluation selects the best reference independently for each
+sentence before aggregating TP/FP/FN.  ``corpus`` selection is retained only
+to audit results produced by the historical ERRANT greedy procedure.
+"""
 
 from __future__ import annotations
 
@@ -186,6 +191,13 @@ def compare_edits(
 
 
 def f_score(tp: int, fp: int, fn: int, beta: float) -> tuple[float, float, float]:
+    precision, recall, score = _f_score_unrounded(tp, fp, fn, beta)
+    return round(precision, 4), round(recall, 4), round(score, 4)
+
+
+def _f_score_unrounded(
+    tp: int, fp: int, fn: int, beta: float
+) -> tuple[float, float, float]:
     precision = float(tp) / (tp + fp) if fp else 1.0
     recall = float(tp) / (tp + fn) if fn else 1.0
     score = (
@@ -193,7 +205,7 @@ def f_score(tp: int, fp: int, fn: int, beta: float) -> tuple[float, float, float
         if precision + recall
         else 0.0
     )
-    return round(precision, 4), round(recall, 4), round(score, 4)
+    return precision, recall, score
 
 
 def _merge_categories(
@@ -210,7 +222,10 @@ def evaluate(
     reference_blocks: Sequence[M2Block],
     *,
     beta: float,
+    selection_mode: str = "sentence",
 ) -> tuple[Counter[str], dict[str, list[int]], list[dict[str, Any]]]:
+    if selection_mode not in {"sentence", "corpus"}:
+        raise ValueError(f"Unsupported selection mode: {selection_mode}")
     if len(hypothesis_blocks) != len(reference_blocks):
         raise ValueError(
             "Hypothesis/reference block count mismatch: "
@@ -232,10 +247,28 @@ def evaluate(
         for hypothesis_id, hypothesis in hypotheses.items():
             for reference_id, reference in references.items():
                 tp, fp, fn, categories = compare_edits(hypothesis, reference)
-                _p, _r, global_f = f_score(
-                    tp + best["tp"], fp + best["fp"], fn + best["fn"], beta
+                if selection_mode == "sentence":
+                    _p, _r, selection_score = _f_score_unrounded(
+                        tp, fp, fn, beta
+                    )
+                else:
+                    # Reproduce the historical ERRANT procedure exactly,
+                    # including its four-decimal score used for greedy choice.
+                    _p, _r, selection_score = f_score(
+                        tp + best["tp"],
+                        fp + best["fp"],
+                        fn + best["fn"],
+                        beta,
+                    )
+                candidate = (
+                    tp,
+                    fp,
+                    fn,
+                    selection_score,
+                    hypothesis_id,
+                    reference_id,
+                    categories,
                 )
-                candidate = (tp, fp, fn, global_f, hypothesis_id, reference_id, categories)
                 if selected is None or _is_better(candidate, selected):
                     selected = candidate
         if selected is None:
@@ -251,6 +284,7 @@ def evaluate(
                 "TP": tp,
                 "FP": fp,
                 "FN": fn,
+                "selection_score": selected[3],
             }
         )
     return best, category_totals, selections
@@ -321,6 +355,15 @@ def main() -> None:
     parser.add_argument("-ref", "--reference", type=Path, required=True)
     parser.add_argument("-b", "--beta", type=float, default=0.5)
     parser.add_argument("--unit", choices=("character", "word"), required=True)
+    parser.add_argument(
+        "--selection-mode",
+        choices=("sentence", "corpus"),
+        default="sentence",
+        help=(
+            "Select each reference by sentence-local F-score (paper protocol) "
+            "or reproduce the historical order-dependent corpus-greedy mode"
+        ),
+    )
     parser.add_argument("--start", type=int)
     parser.add_argument("--end", type=int)
     parser.add_argument("--json-output", type=Path)
@@ -332,7 +375,10 @@ def main() -> None:
     hypothesis_blocks = hypothesis_blocks[selection]
     reference_blocks = reference_blocks[selection]
     counts, categories, selections = evaluate(
-        hypothesis_blocks, reference_blocks, beta=args.beta
+        hypothesis_blocks,
+        reference_blocks,
+        beta=args.beta,
+        selection_mode=args.selection_mode,
     )
     output = format_results(counts, categories, args.beta)
     print(output)
@@ -346,6 +392,7 @@ def main() -> None:
                 {
                     "unit": args.unit,
                     "beta": args.beta,
+                    "selection_mode": args.selection_mode,
                     "TP": counts["tp"],
                     "FP": counts["fp"],
                     "FN": counts["fn"],

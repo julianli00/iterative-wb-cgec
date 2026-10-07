@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import argparse
 import csv
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -10,14 +11,31 @@ import json
 from pathlib import Path
 from typing import Any, Iterable, Sequence
 
-from standardize_m2_evaluation import ROOT, ROUNDS, load_specs, para_rows
+if not __package__:
+    from audit_final_projection_artifacts import (
+        add_word_gleu_arguments,
+        require_word_gleu_audit,
+        resolve_word_gleu_root,
+        word_gleu_protocol_description,
+    )
+    from standardize_m2_evaluation import ROOT, ROUNDS, load_specs, para_rows
+    from word_gleu_protocol import load_source_policy
+else:
+    from .audit_final_projection_artifacts import (
+        add_word_gleu_arguments,
+        require_word_gleu_audit,
+        resolve_word_gleu_root,
+        word_gleu_protocol_description,
+    )
+    from .standardize_m2_evaluation import ROOT, ROUNDS, load_specs, para_rows
+    from .word_gleu_protocol import load_source_policy
 
 
 RUNS = ROOT / "runs"
 CHARACTER_M2 = RUNS / "projection_character_m2_eval_final/scores.long.tsv"
 WORD_M2 = RUNS / "projection_word_m2_eval_final/scores.long.tsv"
 CHARACTER_GLEU = RUNS / "character_gleu_select_best/scores.long.tsv"
-WORD_GLEU = RUNS / "word_gleu_select_best_final/scores.long.tsv"
+WORD_GLEU = RUNS / "word_gleu_condition_select_best/scores.long.tsv"
 FIXED_CONFIG = RUNS / "gold_fixed_source_segmentation/run_config.json"
 AUDIT = RUNS / "final_projection_audit/audit.json"
 ALIGNMENT_EXAMPLES = RUNS / "final_alignment_examples/QUALITATIVE_ALIGNMENT_EXAMPLES.md"
@@ -392,7 +410,17 @@ def build_report(
     convergence: dict[str, Any],
     movements: dict[str, dict[str, int]],
     audit: dict[str, Any],
+    *,
+    word_gleu_source_policy: str = "condition",
+    word_gleu_root: Path | None = None,
 ) -> None:
+    require_word_gleu_audit(
+        audit,
+        source_policy=word_gleu_source_policy,
+        word_gleu_root=resolve_word_gleu_root(
+            word_gleu_root, source_policy=word_gleu_source_policy
+        ),
+    )
     total_sentences = sum(spec.rows for spec in load_specs())
     total_references = sum(row["references"] for row in refs.values())
     total_multi = sum(row["multi_reference_sentences"] for row in refs.values())
@@ -411,7 +439,7 @@ def build_report(
         "- Decoding used one sample, temperature `0.000001`, disabled thinking, and the paper's Chinese prompts.",
         "- Conditions: T0 Raw, T1 Direct-WB, T2 Projected-WB, and T3 Iterative Projected-WB.",
         "- Final numeric metrics: projection character M2, projection word M2, character GLEU, and word GLEU.",
-        "- Normalization: remove BOM and whitespace only; no OpenCC and no BPE.",
+        "- Character normalization removes BOM and whitespace; word inputs preserve normalized token boundaries. No OpenCC or BPE is used.",
         "- ChERRANT is retained only for qualitative alignment examples, not as a competing final score table.",
         "",
         "## Dataset Coverage",
@@ -442,12 +470,13 @@ def build_report(
             "## Final Evaluation Protocol",
             "",
             "- All available references are retained. M2 and GLEU independently apply sentence-level select-best; there is no three-reference cap.",
-            "- For word evaluation, the closest gold reference is selected by minimum raw-character Levenshtein distance after BOM/whitespace removal; ties use the earliest reference.",
-            "- Its LTP boundaries are projected to the learner source once. That fixed source segmentation is then shared by all T0-T3 hypotheses, every reference, and both word metrics.",
+            "- For word M2, the closest gold reference is selected by minimum raw-character Levenshtein distance after BOM/whitespace removal; ties use the earliest reference.",
+            "- Its LTP boundaries are projected to the learner source once. That fixed source segmentation is shared by all T0-T3 hypothesis/reference M2 files.",
+            "- " + word_gleu_protocol_description(word_gleu_source_policy),
             "- Ordinary edits use M/R/U/W. Pure reorderings with an envelope of at most three units use W. An unambiguous one-block movement beyond three units uses linked U-M, is scored once, and is reported separately as WO; ambiguous, mixed, or multi-block cases use a round-trippable fallback.",
             "- Linked movements match strictly on origin, destination, moved material, and evaluation unit. The local link identifier is not part of the cross-file key.",
             "",
-            "## Gold-informed Source Segmentation",
+            "## Gold-informed Source Segmentation for Word M2",
             "",
             f"The closest-reference selector chose a non-first reference for **{fixed['selected_nonfirst']:,}/{total_sentences:,}** sources ({100 * fixed['selected_nonfirst'] / total_sentences:.2f}%). Projection changed the direct LTP source segmentation for **{fixed['changed_from_ltp']:,}/{total_sentences:,}** sources ({100 * fixed['changed_from_ltp'] / total_sentences:.2f}%).",
             "",
@@ -511,7 +540,7 @@ def build_report(
             f"- `L_max_word = 3`: the maximum F0.5 range under 2, 3, and 4 is {sensitivity['word']['max_f0.5_x100_range']:.4f} points.",
             f"- The final files contain {movements['character']['total_linked']:,} character-level and {movements['word']['total_linked']:,} word-level linked movements across references and T0-T3 hypotheses.",
             f"- The artifact audit parsed/reconstructed {audit['m2_blocks_validated']:,} M2 blocks and validated {audit['linked_movements_validated']:,} linked-pair instances across all stored stage-specific files.",
-            "- All 60 repository tests pass.",
+            "- Repository test results are recorded separately; this report validates the supplied evaluation artifacts.",
             "",
             "## Qualitative Evidence",
             "",
@@ -519,7 +548,7 @@ def build_report(
             "",
             "## Pending Experiments",
             "",
-            "- GPT, Claude, Kimi, and Qwen have not yet been run; the same frozen pipeline should be applied after their outputs are available.",
+            "- Cross-model scores are outside this DeepSeek report and must come from each model's own saved outputs and policy-matched evaluations.",
             "- A C-based-LTP versus Python-LTP consistency comparison is not available in this workspace and is not used by the formal projection results.",
             "- Model 2 fields and cross-model interpretation in the current manuscript must remain pending rather than being inferred from DeepSeek.",
             "",
@@ -544,7 +573,17 @@ def build_paper_inputs(
     fixed: dict[str, Any],
     convergence: dict[str, Any],
     audit: dict[str, Any],
+    *,
+    word_gleu_source_policy: str = "condition",
+    word_gleu_root: Path | None = None,
 ) -> None:
+    require_word_gleu_audit(
+        audit,
+        source_policy=word_gleu_source_policy,
+        word_gleu_root=resolve_word_gleu_root(
+            word_gleu_root, source_policy=word_gleu_source_policy
+        ),
+    )
     total = sum(spec.rows for spec in load_specs())
     char_values = {key: score.f05 for key, score in character_m2.items()}
     word_values = {key: score.f05 for key, score in word_m2.items()}
@@ -571,12 +610,14 @@ def build_paper_inputs(
         )
         for spec in load_specs()
     )
-    direct_gleu_winners = [
-        DISPLAY_NAMES[spec.dataset]
+    direct_character_gleu_wins = sum(
+        character_gleu[(spec.dataset, "T1")] > character_gleu[(spec.dataset, "T0")]
         for spec in load_specs()
-        if character_gleu[(spec.dataset, "T1")] > character_gleu[(spec.dataset, "T0")]
-        and word_gleu[(spec.dataset, "T1")] > word_gleu[(spec.dataset, "T0")]
-    ]
+    )
+    direct_word_gleu_wins = sum(
+        word_gleu[(spec.dataset, "T1")] > word_gleu[(spec.dataset, "T0")]
+        for spec in load_specs()
+    )
     char_gleu_post = max(
         max(character_gleu[(spec.dataset, stage)] for stage in STAGES[1:])
         - min(character_gleu[(spec.dataset, stage)] for stage in STAGES[1:])
@@ -592,7 +633,7 @@ def build_paper_inputs(
         "",
         "This file answers the applicable red placeholders in the 2026-08-19 manuscript. Items requiring models or software not present in the workspace are marked pending rather than guessed.",
         "",
-        "## Section 5.2: Gold-informed Source Representation",
+        "## Section 5.2: Gold-informed Source Representation for Word M2",
         "",
         "Replace `[EXACT CHARACTER-SEQUENCE SIMILARITY MEASURE]` with:",
         "",
@@ -619,7 +660,9 @@ def build_paper_inputs(
         "",
         "Normalization statement:",
         "",
-        "> Byte-order marks and whitespace are removed. No BPE, word segmentation, or OpenCC conversion is applied to character evaluation. Word evaluation uses the fixed gold-informed source segmentation and LTP-segmented hypotheses/references, without BPE or OpenCC.",
+        "> Byte-order marks and whitespace are removed. No BPE, word segmentation, or OpenCC conversion is applied to character evaluation. Word M2 uses the fixed gold-informed source segmentation and LTP-segmented hypotheses/references. "
+        + word_gleu_protocol_description(word_gleu_source_policy)
+        + " Neither word metric uses BPE or OpenCC.",
         "",
         "## Section 6.1.5: Model and Inference Configuration",
         "",
@@ -639,7 +682,7 @@ def build_paper_inputs(
                 "1",
                 "3",
             ),
-            ("Other models", "pending", "pending", "pending", "pending", "pending", "pending", "pending", "pending"),
+            ("Other models", "outside this report", "", "", "", "", "", "", ""),
         ),
     )
     lines.extend(
@@ -716,7 +759,12 @@ def build_paper_inputs(
         [
             "Paste-ready GLEU interpretation:",
             "",
-            f"> Character- and word-based GLEU produce the same broad pattern. Direct-WB improves over Raw on {', '.join(direct_gleu_winners[:-1])}, and {direct_gleu_winners[-1]}, but decreases on the other {len(load_specs()) - len(direct_gleu_winners)} datasets. Once boundaries are displayed, projection and further iteration change corpus GLEU only slightly: the largest T1-T3 spread is {char_gleu_post:.2f} character points and {word_gleu_post:.2f} word points. The disagreement between GLEU and edit-based F0.5 is plausible because GLEU gives partial credit to reference-supported n-grams and penalizes retained source material, whereas edit scoring requires exact localized correction agreement and weights precision more heavily.",
+            f"> Direct-WB improves over Raw on {direct_character_gleu_wins}/{len(load_specs())} datasets in character GLEU and {direct_word_gleu_wins}/{len(load_specs())} in word GLEU. The largest T1-T3 spread is {char_gleu_post:.2f} character points and {word_gleu_post:.2f} word points. GLEU gives partial credit to reference-supported n-grams and penalizes retained source material, whereas edit scoring requires exact localized correction agreement and weights precision more heavily.",
+            (
+                "> For condition-specific word GLEU, P and I contrasts reflect the prescribed S2/S3 source boundaries as well as changes to the corrected text; hypotheses and references retain LTP segmentation. Word M2 remains fixed-gold."
+                if word_gleu_source_policy == "condition"
+                else "> These historical fixed-gold word-GLEU contrasts hold the source segmentation constant across all four conditions."
+            ),
             "",
             "## Additional Section 7 Facts Available Now",
             "",
@@ -729,7 +777,7 @@ def build_paper_inputs(
             "",
             "## Red Items That Remain Pending",
             "",
-            "- Model 2 and cross-model results: GPT, Claude, Kimi, and Qwen outputs do not yet exist.",
+            "- Model 2 and cross-model results are outside this DeepSeek report; do not infer scores or output availability from this report.",
             "- C-based LTP versus Python LTP consistency: no C-based segmentation output or runnable dependency is present; the formal experiments use Python `ltp` 4.2.14.",
             "- Any cross-system comparison table requiring published scores under exactly the same unit, reference set, normalization, and comparator must remain pending unless comparability is established.",
             "",
@@ -739,30 +787,43 @@ def build_paper_inputs(
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    add_word_gleu_arguments(parser)
+    parser.add_argument("--audit", type=Path, default=AUDIT)
+    args = parser.parse_args()
+    word_gleu_root = resolve_word_gleu_root(
+        args.word_gleu_root, source_policy=args.word_gleu_source_policy
+    )
+    load_source_policy(word_gleu_root, expected_policy=args.word_gleu_source_policy)
+    word_gleu_path = word_gleu_root / "scores.long.tsv"
     required = (
         CHARACTER_M2,
         WORD_M2,
         CHARACTER_GLEU,
-        WORD_GLEU,
+        word_gleu_path,
+        word_gleu_root / "run_config.json",
         FIXED_CONFIG,
-        AUDIT,
+        args.audit,
         ALIGNMENT_EXAMPLES,
     )
-    missing = [str(path.relative_to(ROOT)) for path in required if not path.exists()]
+    missing = [str(path) for path in required if not path.exists()]
     if missing:
         raise FileNotFoundError("Missing final inputs: " + ", ".join(missing))
 
+    audit = json.loads(args.audit.read_text(encoding="utf-8"))
+    require_word_gleu_audit(
+        audit,
+        source_policy=args.word_gleu_source_policy,
+        word_gleu_root=word_gleu_root,
+    )
     character_m2 = load_m2_scores(CHARACTER_M2, alignment="projection")
     word_m2 = load_m2_scores(WORD_M2)
     character_gleu = load_gleu_scores(CHARACTER_GLEU)
-    word_gleu = load_gleu_scores(WORD_GLEU)
+    word_gleu = load_gleu_scores(word_gleu_path)
     refs = reference_metadata()
     fixed = fixed_segmentation_stats()
     convergence = convergence_stats()
     movements = movement_stats()
-    audit = json.loads(AUDIT.read_text(encoding="utf-8"))
-    if audit.get("status") != "PASS":
-        raise ValueError("Final artifact audit did not pass")
 
     expected = {(spec.dataset, stage) for spec in load_specs() for stage in STAGES}
     for name, values in (
@@ -785,6 +846,8 @@ def main() -> None:
         convergence,
         movements,
         audit,
+        word_gleu_source_policy=args.word_gleu_source_policy,
+        word_gleu_root=word_gleu_root,
     )
     build_paper_inputs(
         character_m2,
@@ -794,6 +857,8 @@ def main() -> None:
         fixed,
         convergence,
         audit,
+        word_gleu_source_policy=args.word_gleu_source_policy,
+        word_gleu_root=word_gleu_root,
     )
     print(OUTPUT_MD)
     print(OUTPUT_TSV)

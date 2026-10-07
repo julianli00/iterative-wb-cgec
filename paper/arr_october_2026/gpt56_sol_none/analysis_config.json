@@ -1,0 +1,118 @@
+{
+  "analysis": "paired bootstrap and practical-equivalence analysis",
+  "bootstrap_chunk_size": 1000,
+  "bootstrap_replicates": 50000,
+  "boundary_endpoint_convention": "a span [start,end) contributes inter-character positions start through end, including both edges; an insertion contributes start",
+  "conditions": {
+    "T0": "R",
+    "T1": "D",
+    "T2": "P",
+    "T3": "I"
+  },
+  "contrasts": [
+    "D-R",
+    "P-D",
+    "I-P"
+  ],
+  "descriptive_only": [
+    "cefe_track3"
+  ],
+  "equivalence_interval": "paired 90% BCa bootstrap",
+  "equivalence_margin": 0.5,
+  "estimation_interval": "paired 95% BCa bootstrap",
+  "historical_run_invariants": "skipped for custom model configuration",
+  "inferential_datasets": [
+    "fcgec",
+    "flacgec",
+    "mucgec",
+    "nacgec",
+    "nasgec_exam",
+    "nlpcc2018",
+    "yaclc"
+  ],
+  "model_config": "runs/gpt_5_6_sol_copilot_nothinking/analysis_model.json",
+  "models": [
+    {
+      "access_date": "2026-09-20 to 2026-09-21 (UTC)",
+      "cached_selector_policy": "sentence",
+      "char_gleu": "runs/gpt_5_6_sol_copilot_nothinking/character_gleu/sentence_scores.tsv",
+      "char_root": "runs/gpt_5_6_sol_copilot_nothinking/projection_character_m2",
+      "display": "GPT-5.6 Sol (none)",
+      "identifier": "gpt-5.6-sol",
+      "key": "gpt56sol",
+      "max_output": "provider default; capability override empirically ignored in the interface probe",
+      "provider": "GitHub Copilot (OpenAI)",
+      "raw_root": "runs/gpt_5_6_sol_copilot_nothinking/artifacts",
+      "run_names": {
+        "cefe_track3": "cefe_track3_validation_all_T3_gpt_5_6_sol_copilot_nothinking_paper_converged",
+        "fcgec": "fcgec_validation_all_T3_gpt_5_6_sol_copilot_nothinking_paper_converged",
+        "flacgec": "flacgec_test_all_T3_gpt_5_6_sol_copilot_nothinking_paper_converged",
+        "mucgec": "mucgec_test_all_T3_gpt_5_6_sol_copilot_nothinking_paper_converged",
+        "nacgec": "nacgec_test_all_T3_gpt_5_6_sol_copilot_nothinking_paper_converged",
+        "nasgec_exam": "nasgec_exam_test_all_T3_gpt_5_6_sol_copilot_nothinking_paper_converged",
+        "nlpcc2018": "nlpcc2018_test_all_T3_gpt_5_6_sol_copilot_nothinking_paper_converged",
+        "yaclc": "yaclc_validation_all_T3_gpt_5_6_sol_copilot_nothinking_paper_converged"
+      },
+      "temperature": "provider default (omitted; not claimed to be minimum)",
+      "thinking": "disabled; requested and reported none; reasoning tokens verified zero",
+      "top_p": "provider default (omitted)",
+      "word_gleu": "runs/gpt_5_6_sol_copilot_nothinking/word_gleu_condition/sentence_scores.tsv",
+      "word_gleu_source_policy": "condition",
+      "word_root": "runs/gpt_5_6_sol_copilot_nothinking/projection_word_m2"
+    }
+  ],
+  "primary_metric": "projection-based character-level micro F0.5",
+  "reference_selection": {
+    "edit": "highest unrounded sentence-level F0.5; ties: TP desc, FP asc, FN asc, then first annotator order",
+    "gleu": "highest sentence-level GLEU across complete references; independent by unit and metric"
+  },
+  "resampling": {
+    "cluster_limitation": "reliable document/learner identifiers are unavailable; source sentences are resampled",
+    "pairing": "same multinomial source weights for all conditions and metrics within each model-dataset block",
+    "unit": "source sentence"
+  },
+  "scale": "0--100 metric points",
+  "secondary_metrics": [
+    "projection-based word-level micro F0.5",
+    "character GLEU select-best",
+    "word GLEU select-best"
+  ],
+  "seed": 20260915,
+  "sensitivity_margins": [
+    0.25,
+    0.5,
+    1.0
+  ],
+  "software": {
+    "evaluator": "scripts/movement_aware_compare.py",
+    "numpy": "2.0.2",
+    "python": "3.9.23",
+    "scipy": "1.13.1"
+  },
+  "source_outputs": "saved T0--T3 GPT-5.6 Sol (none) runs; no new API calls",
+  "word_gleu_segmentation": {
+    "hypotheses_and_references": "LTP",
+    "required_artifact_checks": [
+      "completed run_config.json with matching declared policy",
+      "sentence and summary policy labels (identifiable legacy fixed-gold excepted)",
+      "exported source inputs match saved condition or fixed-gold boundaries"
+    ],
+    "retokenized_by_analysis": false,
+    "source_policy_by_model": {
+      "gpt56sol": "condition"
+    },
+    "source_stage_mapping_by_model": {
+      "gpt56sol": {
+        "T0": "S1",
+        "T1": "S1",
+        "T2": "S2",
+        "T3": "S3"
+      }
+    }
+  },
+  "word_m2_segmentation": {
+    "fixed_source_root": "runs/gold_fixed_source_segmentation",
+    "source": "shared fixed gold-informed source segmentation for all conditions",
+    "source_policy": "fixed-gold"
+  }
+}

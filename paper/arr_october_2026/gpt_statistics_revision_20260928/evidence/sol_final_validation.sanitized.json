@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "validated_primary_word_and_four_metric_tables": true,
+  "formal_metric_cells": 128,
+  "exact_original_prediction_hashes_verified": 8,
+  "prior_artifact_hashes_unchanged": 1324,
+  "generation_status": "completed",
+  "evaluation_status": "completed",
+  "published_report_status": "completed",
+  "prior_revised_kimi_deepseek_private_artifacts_unchanged": 239,
+  "prior_revised_kimi_deepseek_public_artifacts_unchanged": 6,
+  "generation_implementation_unchanged_after_resume": true
+}

@@ -17,7 +17,14 @@ try:
 except ImportError:
     _fast_levenshtein = None
 
-try:
+if not __package__:
+    from audit_final_projection_artifacts import (
+        add_word_gleu_arguments,
+        assert_word_gleu_sources,
+        resolve_word_gleu_root,
+        word_gleu_protocol_description,
+        word_gleu_source_metadata,
+    )
     from movement_aware_compare import evaluate, f_score, parse_file
     from projection_character_m2 import normalize_text
     from run_character_gleu_evaluation import load_gleu_module, normalize_character_text
@@ -28,27 +35,36 @@ try:
         load_specs,
         para_rows,
     )
-except ModuleNotFoundError:
-    from scripts.movement_aware_compare import evaluate, f_score, parse_file
-    from scripts.projection_character_m2 import normalize_text
-    from scripts.run_character_gleu_evaluation import (
+    from word_gleu_protocol import load_source_policy
+else:
+    from .audit_final_projection_artifacts import (
+        add_word_gleu_arguments,
+        assert_word_gleu_sources,
+        resolve_word_gleu_root,
+        word_gleu_protocol_description,
+        word_gleu_source_metadata,
+    )
+    from .movement_aware_compare import evaluate, f_score, parse_file
+    from .projection_character_m2 import normalize_text
+    from .run_character_gleu_evaluation import (
         load_gleu_module,
         normalize_character_text,
     )
-    from scripts.standardize_m2_evaluation import (
+    from .standardize_m2_evaluation import (
         ROUNDS,
         ROOT,
         load_result_rows,
         load_specs,
         para_rows,
     )
+    from .word_gleu_protocol import load_source_policy
 
 
 RUNS = ROOT / "runs"
 CHARACTER_M2_ROOT = RUNS / "projection_character_m2_eval_final"
 WORD_M2_ROOT = RUNS / "projection_word_m2_eval_final"
 CHARACTER_GLEU_ROOT = RUNS / "character_gleu_select_best"
-WORD_GLEU_ROOT = RUNS / "word_gleu_select_best_final"
+WORD_GLEU_ROOT = RUNS / "word_gleu_condition_select_best"
 DEFAULT_OUTPUT = RUNS / "tables_5_6_evaluation_audit"
 
 METRIC_LABELS = {
@@ -292,8 +308,14 @@ def main() -> None:
     parser.add_argument(
         "--character-gleu-root", type=Path, default=CHARACTER_GLEU_ROOT
     )
-    parser.add_argument("--word-gleu-root", type=Path, default=WORD_GLEU_ROOT)
+    add_word_gleu_arguments(parser)
     args = parser.parse_args()
+    args.word_gleu_root = resolve_word_gleu_root(
+        args.word_gleu_root, source_policy=args.word_gleu_source_policy
+    )
+    load_source_policy(
+        args.word_gleu_root, expected_policy=args.word_gleu_source_policy
+    )
     args.output.mkdir(parents=True, exist_ok=True)
 
     specs = load_specs()
@@ -320,6 +342,7 @@ def main() -> None:
         for stage in ROUNDS
     }
     total_rows = 0
+    word_source_rows_validated = 0
     converged_after_direct = converged_after_projected = reached_t3 = 0
     gleu = load_gleu_module()
 
@@ -414,6 +437,15 @@ def main() -> None:
             )
             for stage in ROUNDS
         }
+        fixed_word_sources = [
+            " ".join(block.source_units) for block in word_reference_blocks["T0"]
+        ]
+        for stage in ROUNDS:
+            for blocks in (word_reference_blocks[stage], word_hypotheses[stage]):
+                if [" ".join(block.source_units) for block in blocks] != fixed_word_sources:
+                    issues.append(
+                        f"{spec.dataset}/{stage}: word M2 source segmentation varies"
+                    )
 
         for stage in ROUNDS:
             for metric, hypothesis_blocks, reference_blocks in (
@@ -554,13 +586,16 @@ def main() -> None:
                 }
             )
 
-        baseline_word_sources = word_sources_by_stage["T0"]
-        if any(
-            values != baseline_word_sources
-            for stage, values in word_sources_by_stage.items()
-            if stage != "T0"
-        ):
-            issues.append(f"{spec.dataset}: word GLEU source segmentation varies by stage")
+        try:
+            word_source_rows_validated += assert_word_gleu_sources(
+                word_sources_by_stage,
+                result_rows,
+                source_policy=args.word_gleu_source_policy,
+                fixed_sources=fixed_word_sources,
+                expected_rows=spec.rows,
+            )
+        except ValueError as error:
+            issues.append(f"{spec.dataset}: {error}")
 
         for before, after, indices in (
             ("T1", "T2", first_changed),
@@ -638,6 +673,10 @@ def main() -> None:
         "completed_utc": datetime.now(timezone.utc).isoformat(),
         "status": status,
         "scope": f"Manuscript Tables 5 and 6, {args.model_label} T0-T3",
+        **word_gleu_source_metadata(
+            args.word_gleu_root, args.word_gleu_source_policy
+        ),
+        "word_gleu_source_rows_validated": word_source_rows_validated,
         "published_cells_recomputed": len(cell_rows),
         "issues": issues,
         "rankings_after_two_decimal_rounding": rankings,
@@ -670,6 +709,9 @@ def main() -> None:
         "",
         "The audit reconstructs every M2 score from the final hypothesis/reference files and every GLEU score from the saved source, hypothesis, and all-reference text inputs.",
         "",
+        word_gleu_protocol_description(args.word_gleu_source_policy),
+        "Word M2 continues to use one fixed gold-informed source segmentation across T0--T3.",
+        "",
     ]
     append_table(
         lines,
@@ -685,7 +727,11 @@ def main() -> None:
     )
     lines.extend(
         [
-            "The stage-to-input mapping also passes: T0 is the Raw output, T1 is Direct-WB, T2 is the first projected-boundary output, and T3 is the next iterative output. Whenever a projected segmentation is unchanged, the previous correction is carried forward without a new generation.",
+            (
+                "The stage-to-input mapping also passes: T0 is the Raw output, T1 is Direct-WB, T2 is the first projected-boundary output, and T3 is the next iterative output. Whenever a projected segmentation is unchanged, the previous correction is carried forward without a new generation."
+                if not issues
+                else "Stage mapping, source-policy, and carry-forward checks found issues; see the issue list below."
+            ),
             "",
             "## What The Tables Show",
             "",
@@ -757,6 +803,11 @@ def main() -> None:
             "## Projection-affected Rows",
             "",
             "The following deltas re-evaluate only rows where the first projection actually changes S1 into S2. Positive values favor Projected-WB over Direct-WB.",
+            (
+                "Under condition word GLEU, these contrasts include the prescribed source-boundary changes as well as any changed hypotheses; hypotheses and references remain LTP-segmented."
+                if args.word_gleu_source_policy == "condition"
+                else "Historical fixed-gold word GLEU holds the source segmentation constant across the compared stages."
+            ),
             "",
         ]
     )
@@ -784,8 +835,12 @@ def main() -> None:
             "",
             "## Conclusion",
             "",
-            "The Table 5 and Table 6 values are correctly evaluated under the manuscript's stated protocol. "
-            f"The current {args.model_label} results do not support a universal claim that "
+            (
+                "The Table 5 and Table 6 values are correctly evaluated under the selected protocol. "
+                if not issues
+                else "The Table 5 and Table 6 values have not passed validation under the selected protocol. "
+            )
+            + f"The current {args.model_label} results do not support a universal claim that "
             "Direct-WB, Projected-WB, or further Iterative Projected-WB is better than Raw. "
             "The appropriate interpretation is a model- and dataset-dependent empirical result, "
             "rather than an evaluator problem.",

@@ -1,0 +1,30 @@
+{
+  "status": "completed",
+  "datasets": 8,
+  "source_sentences": 20213,
+  "complete_references": 38000,
+  "stages": [
+    "T0",
+    "T1",
+    "T2",
+    "T3"
+  ],
+  "new_model_calls_during_evaluation": 0,
+  "original_sol_predictions_unchanged": true,
+  "prior_protected_files_unchanged": 1324,
+  "word_gleu_source_policy": "condition",
+  "word_gleu_source_stage_mapping": {
+    "T0": "S1",
+    "T1": "S1",
+    "T2": "S2",
+    "T3": "S3"
+  },
+  "independently_recomputed_gleu_sentence_conditions": 161704,
+  "independently_reconstructed_hypothesis_m2_blocks": 161704,
+  "all_formal_reasoning_efforts_none": true,
+  "all_formal_reasoning_tokens_zero": true,
+  "reasoning_verification_scope": "All successful formal completions supplying benchmark predictions; aborted attempts without provider usage remain explicitly unknown.",
+  "unknown_usage_attempts": 2,
+  "formal_cells": 128,
+  "published_utc": "2026-09-21T02:33:18.403220+00:00"
+}

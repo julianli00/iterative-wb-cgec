@@ -25,6 +25,16 @@ class FakeWBModule:
 
 
 class IterativeConvergenceTest(unittest.TestCase):
+    def test_segmentation_signature_ignores_whitespace_formatting(self) -> None:
+        self.assertEqual(
+            run_iterative_gec.segmentation_signature("进入 餐厅 问\u3000 『 几 个 人 』"),
+            run_iterative_gec.segmentation_signature("进入 餐厅 问 \u3000 『 几 个 人 』"),
+        )
+        self.assertNotEqual(
+            run_iterative_gec.segmentation_signature("研究 生命"),
+            run_iterative_gec.segmentation_signature("研究生 命"),
+        )
+
     def test_call_llm_can_omit_temperature_for_provider_fixed_models(self) -> None:
         response = mock.Mock(status_code=200)
         response.json.return_value = {

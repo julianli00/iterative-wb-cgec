@@ -1,0 +1,168 @@
+{
+  "model": "gpt-5.6-sol",
+  "primary_rows": 24,
+  "primary_formal_rows": 21,
+  "primary_descriptive_cefe_rows": 3,
+  "sol": {
+    "D-R": {
+      "formal_comparisons": 7,
+      "positive_ci95_bca": 6,
+      "negative_ci95_bca": 0,
+      "inconclusive_ci95_bca": 1,
+      "equivalent_ci90": 0,
+      "meaningful_gain_excluded_ci90": 0,
+      "direction_fragile": 0,
+      "equivalence_fragile": 0
+    },
+    "P-D": {
+      "formal_comparisons": 7,
+      "positive_ci95_bca": 1,
+      "negative_ci95_bca": 0,
+      "inconclusive_ci95_bca": 6,
+      "equivalent_ci90": 4,
+      "meaningful_gain_excluded_ci90": 4,
+      "direction_fragile": 1,
+      "equivalence_fragile": 0
+    },
+    "I-P": {
+      "formal_comparisons": 7,
+      "positive_ci95_bca": 0,
+      "negative_ci95_bca": 1,
+      "inconclusive_ci95_bca": 6,
+      "equivalent_ci90": 5,
+      "meaningful_gain_excluded_ci90": 7,
+      "direction_fragile": 0,
+      "equivalence_fragile": 0
+    },
+    "incremental_totals": {
+      "formal_comparisons": 14,
+      "positive_ci95_bca": 1,
+      "negative_ci95_bca": 1,
+      "inconclusive_ci95_bca": 12,
+      "equivalent_ci90": 9,
+      "meaningful_gain_excluded_ci90": 11,
+      "direction_fragile": 1,
+      "equivalence_fragile": 0
+    }
+  },
+  "prior_deepseek_kimi": {
+    "D-R": {
+      "formal_comparisons": 14,
+      "positive_ci95_bca": 6,
+      "negative_ci95_bca": 4,
+      "inconclusive_ci95_bca": 4,
+      "equivalent_ci90": 0,
+      "meaningful_gain_excluded_ci90": 0,
+      "direction_fragile": 0,
+      "equivalence_fragile": 0
+    },
+    "P-D": {
+      "formal_comparisons": 14,
+      "positive_ci95_bca": 2,
+      "negative_ci95_bca": 2,
+      "inconclusive_ci95_bca": 10,
+      "equivalent_ci90": 8,
+      "meaningful_gain_excluded_ci90": 10,
+      "direction_fragile": 1,
+      "equivalence_fragile": 0
+    },
+    "I-P": {
+      "formal_comparisons": 14,
+      "positive_ci95_bca": 0,
+      "negative_ci95_bca": 1,
+      "inconclusive_ci95_bca": 13,
+      "equivalent_ci90": 12,
+      "meaningful_gain_excluded_ci90": 13,
+      "direction_fragile": 0,
+      "equivalence_fragile": 1
+    },
+    "incremental_totals": {
+      "formal_comparisons": 28,
+      "positive_ci95_bca": 2,
+      "negative_ci95_bca": 3,
+      "inconclusive_ci95_bca": 23,
+      "equivalent_ci90": 20,
+      "meaningful_gain_excluded_ci90": 23,
+      "direction_fragile": 1,
+      "equivalence_fragile": 1
+    }
+  },
+  "three_models_combined": {
+    "D-R": {
+      "formal_comparisons": 21,
+      "positive_ci95_bca": 12,
+      "negative_ci95_bca": 4,
+      "inconclusive_ci95_bca": 5,
+      "equivalent_ci90": 0,
+      "meaningful_gain_excluded_ci90": 0,
+      "direction_fragile": 0,
+      "equivalence_fragile": 0
+    },
+    "P-D": {
+      "formal_comparisons": 21,
+      "positive_ci95_bca": 3,
+      "negative_ci95_bca": 2,
+      "inconclusive_ci95_bca": 16,
+      "equivalent_ci90": 12,
+      "meaningful_gain_excluded_ci90": 14,
+      "direction_fragile": 2,
+      "equivalence_fragile": 0
+    },
+    "I-P": {
+      "formal_comparisons": 21,
+      "positive_ci95_bca": 0,
+      "negative_ci95_bca": 2,
+      "inconclusive_ci95_bca": 19,
+      "equivalent_ci90": 17,
+      "meaningful_gain_excluded_ci90": 20,
+      "direction_fragile": 0,
+      "equivalence_fragile": 1
+    },
+    "incremental_totals": {
+      "formal_comparisons": 42,
+      "positive_ci95_bca": 3,
+      "negative_ci95_bca": 4,
+      "inconclusive_ci95_bca": 35,
+      "equivalent_ci90": 29,
+      "meaningful_gain_excluded_ci90": 34,
+      "direction_fragile": 2,
+      "equivalence_fragile": 1
+    }
+  },
+  "boundary_aggregates": [
+    {
+      "model": "GPT-5.6 Sol (none)",
+      "scope": "all8splits including descriptive CEFE",
+      "contrast": "P-D",
+      "source_sentences": 20213,
+      "changed_sources": 2511,
+      "changed_source_percent": 12.42269826349379,
+      "changed_corrections_among_changed_sources": 1362,
+      "changed_correction_percent_within_changed_sources": 54.241338112305854,
+      "closer": 1073,
+      "tied": 48,
+      "farther": 1390,
+      "correction_relevant_overlap_positions": 744,
+      "changed_boundary_positions": 3019,
+      "overlap_position_percent": 24.643921828420005
+    },
+    {
+      "model": "GPT-5.6 Sol (none)",
+      "scope": "all8splits including descriptive CEFE",
+      "contrast": "I-P",
+      "source_sentences": 20213,
+      "changed_sources": 558,
+      "changed_source_percent": 2.7605996141097315,
+      "changed_corrections_among_changed_sources": 445,
+      "changed_correction_percent_within_changed_sources": 79.74910394265233,
+      "closer": 376,
+      "tied": 13,
+      "farther": 169,
+      "correction_relevant_overlap_positions": 110,
+      "changed_boundary_positions": 677,
+      "overlap_position_percent": 16.248153618906944
+    }
+  ],
+  "cefe_note": "No inferential CI or E for CEFE; aggregates descriptive across all20213sources",
+  "operation": "Read existing results; arithmetic only; no scoring or resampling"
+}

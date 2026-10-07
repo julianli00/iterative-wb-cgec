@@ -110,6 +110,51 @@ class MovementAwareCompareTests(unittest.TestCase):
             },
         )
 
+    def test_sentence_local_selection_is_not_order_dependent_corpus_greedy(self) -> None:
+        first_hypothesis = parse_block(
+            "S 甲 乙 丙 丁 戊\n"
+            "A 0 1|||R|||一|||-REQUIRED-|||NONE|||0\n"
+            "A 1 2|||R|||二|||-REQUIRED-|||NONE|||0\n"
+            "A 2 3|||R|||三|||-REQUIRED-|||NONE|||0\n"
+            "A 3 4|||R|||四|||-REQUIRED-|||NONE|||0\n"
+            "A 4 5|||R|||五|||-REQUIRED-|||NONE|||0",
+            unit="character",
+        )
+        first_reference = first_hypothesis
+        second_hypothesis = parse_block(
+            "S 甲 乙 丙 丁 戊 己\n"
+            "A 0 1|||R|||一|||-REQUIRED-|||NONE|||0",
+            unit="character",
+        )
+        second_reference = parse_block(
+            "S 甲 乙 丙 丁 戊 己\n"
+            "A 0 1|||R|||一|||-REQUIRED-|||NONE|||0\n"
+            "A 1 2|||R|||二|||-REQUIRED-|||NONE|||0\n"
+            "A 2 3|||R|||三|||-REQUIRED-|||NONE|||0\n"
+            "A 3 4|||R|||四|||-REQUIRED-|||NONE|||0\n"
+            "A 4 5|||R|||五|||-REQUIRED-|||NONE|||0\n"
+            "A 5 6|||R|||六|||-REQUIRED-|||NONE|||0\n"
+            "A -1 -1|||noop|||-NONE-|||-REQUIRED-|||NONE|||1",
+            unit="character",
+        )
+
+        sentence_counts, _categories, sentence_selections = evaluate(
+            [first_hypothesis, second_hypothesis],
+            [first_reference, second_reference],
+            beta=0.5,
+        )
+        corpus_counts, _categories, corpus_selections = evaluate(
+            [first_hypothesis, second_hypothesis],
+            [first_reference, second_reference],
+            beta=0.5,
+            selection_mode="corpus",
+        )
+
+        self.assertEqual(sentence_selections[1]["reference"], 0)
+        self.assertEqual(dict(sentence_counts), {"tp": 6, "fp": 0, "fn": 5})
+        self.assertEqual(corpus_selections[1]["reference"], 1)
+        self.assertEqual(dict(corpus_counts), {"tp": 5, "fp": 1, "fn": 0})
+
 
 if __name__ == "__main__":
     unittest.main()

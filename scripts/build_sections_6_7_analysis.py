@@ -7,6 +7,7 @@ artifacts. It never calls an LLM or a remote API.
 
 from __future__ import annotations
 
+import argparse
 from collections import defaultdict
 import csv
 from dataclasses import replace
@@ -15,7 +16,15 @@ import math
 from pathlib import Path
 from typing import Any, Iterable, Sequence
 
-try:
+if not __package__:
+    from audit_final_projection_artifacts import (
+        add_word_gleu_arguments,
+        assert_word_gleu_sources,
+        require_word_gleu_audit,
+        resolve_word_gleu_root,
+        word_gleu_protocol_description,
+        word_gleu_source_metadata,
+    )
     from movement_aware_compare import (
         M2Block,
         evaluate,
@@ -32,30 +41,40 @@ try:
         load_specs,
         para_rows,
     )
-except ModuleNotFoundError:
-    from scripts.movement_aware_compare import (
+    from word_gleu_protocol import load_source_policy
+else:
+    from .audit_final_projection_artifacts import (
+        add_word_gleu_arguments,
+        assert_word_gleu_sources,
+        require_word_gleu_audit,
+        resolve_word_gleu_root,
+        word_gleu_protocol_description,
+        word_gleu_source_metadata,
+    )
+    from .movement_aware_compare import (
         M2Block,
         evaluate,
         f_score,
         parse_block,
         parse_file,
     )
-    from scripts.projection_character_m2 import normalize_text
-    from scripts.run_character_gleu_evaluation import load_gleu_module
-    from scripts.standardize_m2_evaluation import (
+    from .projection_character_m2 import normalize_text
+    from .run_character_gleu_evaluation import load_gleu_module
+    from .standardize_m2_evaluation import (
         ROOT,
         ROUNDS,
         load_result_rows,
         load_specs,
         para_rows,
     )
+    from .word_gleu_protocol import load_source_policy
 
 
 RUNS = ROOT / "runs"
 CHARACTER_M2_ROOT = RUNS / "projection_character_m2_eval_final"
 WORD_M2_ROOT = RUNS / "projection_word_m2_eval_final"
 CHARACTER_GLEU_ROOT = RUNS / "character_gleu_select_best"
-WORD_GLEU_ROOT = RUNS / "word_gleu_select_best_final"
+WORD_GLEU_ROOT = RUNS / "word_gleu_condition_select_best"
 TABLE_AUDIT = RUNS / "tables_5_6_evaluation_audit"
 ALIGNMENT_EXAMPLES = RUNS / "final_alignment_examples/QUALITATIVE_ALIGNMENT_EXAMPLES.md"
 DEFAULT_OUTPUT = RUNS / "sections_6_7_analysis"
@@ -450,7 +469,22 @@ def select_prompting_cases(
     return selected
 
 
-def build_analysis(output: Path) -> None:
+def build_analysis(
+    output: Path,
+    *,
+    word_gleu_root: Path | None = None,
+    word_gleu_source_policy: str = "condition",
+    table_audit: Path = TABLE_AUDIT,
+) -> None:
+    word_gleu_root = resolve_word_gleu_root(
+        word_gleu_root, source_policy=word_gleu_source_policy
+    )
+    load_source_policy(word_gleu_root, expected_policy=word_gleu_source_policy)
+    require_word_gleu_audit(
+        json.loads((table_audit / "audit.json").read_text(encoding="utf-8")),
+        source_policy=word_gleu_source_policy,
+        word_gleu_root=word_gleu_root,
+    )
     output.mkdir(parents=True, exist_ok=True)
     specs = load_specs()
     manual = manual_scorer_validation(output)
@@ -458,7 +492,7 @@ def build_analysis(output: Path) -> None:
         CHARACTER_GLEU_ROOT / "sentence_scores.tsv"
     )
     word_gleu_groups = load_gleu_sentence_groups(
-        WORD_GLEU_ROOT / "sentence_scores.tsv"
+        word_gleu_root / "sentence_scores.tsv"
     )
 
     operation_rows: list[dict[str, Any]] = []
@@ -503,6 +537,19 @@ def build_analysis(output: Path) -> None:
             )
             for stage in STAGES
         }
+        word_input_dir = word_gleu_root / spec.dataset / spec.split / "inputs"
+        assert_word_gleu_sources(
+            {
+                stage: read_lines(word_input_dir / f"source.{stage}.txt")
+                for stage in STAGES
+            },
+            results,
+            source_policy=word_gleu_source_policy,
+            fixed_sources=[
+                " ".join(block.source_units) for block in word_references["T0"]
+            ],
+            expected_rows=spec.rows,
+        )
 
         for unit, hypotheses_by_stage, references_by_stage in (
             (
@@ -699,7 +746,11 @@ def build_analysis(output: Path) -> None:
     )
 
     prompting_cases = select_prompting_cases(specs, char_gleu_groups, output)
-    incremental_rows = build_yaclc_incremental(output)
+    incremental_rows = build_yaclc_incremental(
+        output,
+        word_gleu_root=word_gleu_root,
+        word_gleu_source_policy=word_gleu_source_policy,
+    )
     build_operation_markdown(output, aggregate_categories, operation_rows)
     build_reference_markdown(output, density_rows, incremental_rows)
     build_convergence_markdown(output, convergence_rows)
@@ -709,10 +760,35 @@ def build_analysis(output: Path) -> None:
         aggregate_categories,
         convergence_rows,
         prompting_cases,
+        word_gleu_root=word_gleu_root,
+        word_gleu_source_policy=word_gleu_source_policy,
+        table_audit=table_audit,
+    )
+    (output / "run_config.json").write_text(
+        json.dumps(
+            {
+                "status": "completed",
+                **word_gleu_source_metadata(word_gleu_root, word_gleu_source_policy),
+                "table_audit": str(table_audit.resolve()),
+            },
+            ensure_ascii=False,
+            indent=2,
+        )
+        + "\n",
+        encoding="utf-8",
     )
 
 
-def build_yaclc_incremental(output: Path) -> list[dict[str, Any]]:
+def build_yaclc_incremental(
+    output: Path,
+    *,
+    word_gleu_root: Path | None = None,
+    word_gleu_source_policy: str = "condition",
+) -> list[dict[str, Any]]:
+    word_gleu_root = resolve_word_gleu_root(
+        word_gleu_root, source_policy=word_gleu_source_policy
+    )
+    load_source_policy(word_gleu_root, expected_policy=word_gleu_source_policy)
     spec = next(spec for spec in load_specs() if spec.dataset == "yaclc")
     gold_rows = para_rows(spec.gold_para)
     ref_counts = [len(row) - 2 for row in gold_rows]
@@ -744,6 +820,19 @@ def build_yaclc_incremental(output: Path) -> list[dict[str, Any]]:
         )
         for stage in STAGES
     }
+    word_input_dir = word_gleu_root / spec.dataset / spec.split / "inputs"
+    word_sources_by_stage = {
+        stage: read_lines(word_input_dir / f"source.{stage}.txt") for stage in STAGES
+    }
+    assert_word_gleu_sources(
+        word_sources_by_stage,
+        load_result_rows(spec),
+        source_policy=word_gleu_source_policy,
+        fixed_sources=[
+            " ".join(block.source_units) for block in word_references["T0"]
+        ],
+        expected_rows=spec.rows,
+    )
     rows: list[dict[str, Any]] = []
     for unit, hypotheses_by_stage, references_by_stage in (
         (
@@ -782,7 +871,7 @@ def build_yaclc_incremental(output: Path) -> list[dict[str, Any]]:
     gleu = load_gleu_module()
     for unit, root, tokenization in (
         ("character", CHARACTER_GLEU_ROOT, "char"),
-        ("word", WORD_GLEU_ROOT, "word"),
+        ("word", word_gleu_root, "word"),
     ):
         input_dir = root / spec.dataset / spec.split / "inputs"
         for stage in STAGES:
@@ -791,7 +880,7 @@ def build_yaclc_incremental(output: Path) -> list[dict[str, Any]]:
                 hypotheses = read_lines(input_dir / f"hypothesis.{stage}.txt")
                 references = read_reference_lines(input_dir / "references.tsv")
             else:
-                sources = read_lines(input_dir / f"source.{stage}.txt")
+                sources = word_sources_by_stage[stage]
                 hypotheses = read_lines(input_dir / f"hypothesis.{stage}.txt")
                 references = read_reference_lines(input_dir / f"references.{stage}.tsv")
             per_sentence: list[list[float]] = []
@@ -1083,7 +1172,22 @@ def build_paper_report(
     aggregate: dict[tuple[str, str, str], list[int]],
     convergence_rows: Sequence[dict[str, Any]],
     cases: Sequence[dict[str, Any]],
+    *,
+    word_gleu_root: Path | None = None,
+    word_gleu_source_policy: str = "condition",
+    table_audit: Path = TABLE_AUDIT,
 ) -> None:
+    word_gleu_root = resolve_word_gleu_root(
+        word_gleu_root, source_policy=word_gleu_source_policy
+    )
+    audit_metadata = json.loads(
+        (table_audit / "audit.json").read_text(encoding="utf-8")
+    )
+    require_word_gleu_audit(
+        audit_metadata,
+        source_policy=word_gleu_source_policy,
+        word_gleu_root=word_gleu_root,
+    )
     total = sum(int(row["sentences"]) for row in convergence_rows)
     first_changed = sum(int(row["first_projection_changed"]) for row in convergence_rows)
     stop_direct = sum(int(row["stopped_after_direct"]) for row in convergence_rows)
@@ -1117,11 +1221,15 @@ def build_paper_report(
         for category in CATEGORIES
     }
 
-    audit = (TABLE_AUDIT / "AUDIT.md").read_text(encoding="utf-8")
+    audit = (table_audit / "AUDIT.md").read_text(encoding="utf-8")
     if "**Status: PASS.**" not in audit:
         raise AssertionError("Tables 5/6 audit does not report PASS")
     if not ALIGNMENT_EXAMPLES.exists():
         raise FileNotFoundError(ALIGNMENT_EXAMPLES)
+    rankings = audit_metadata["rankings_after_two_decimal_rounding"]
+    stage_summary = {row["stage"]: row for row in audit_metadata["stage_summary"]}
+    raw_summary, direct_summary = stage_summary["T0"], stage_summary["T1"]
+    dataset_count = len(audit_metadata["dataset_diagnostics"])
 
     lines = [
         "# Sections 6-7 Analysis Package",
@@ -1130,7 +1238,9 @@ def build_paper_report(
         "",
         "## 1. Evaluation correctness",
         "",
-        "All 128 reported Table 5-6 cells were independently reconstructed from final M2 and GLEU inputs. Maximum discrepancies are 0 for character/word F0.5, below 5e-7 points for character GLEU, and 0 for word GLEU. Stage mapping, carry-forward convergence, multi-reference use, fixed word segmentation, and no-BPE normalization also pass. The surprising ranking is therefore present in the saved outputs under the stated protocol, rather than being caused by a table transcription or scorer invocation error.",
+        f"The Tables 5-6 audit independently reconstructed {audit_metadata['published_cells_recomputed']} cells from final M2 and GLEU inputs and passed its score tolerances. Stage mapping, carry-forward convergence, multi-reference use, fixed word-M2 source segmentation, and the declared word-GLEU source policy were checked. Exact discrepancies remain available in that audit rather than being copied from historical fixed-source results.",
+        "",
+        word_gleu_protocol_description(word_gleu_source_policy),
         "",
         "## 2. Manual comparator validation",
         "",
@@ -1138,9 +1248,14 @@ def build_paper_report(
         "",
         "## 3. Main result interpretation",
         "",
-        "Direct-WB improves character F0.5 on 7/8 datasets and word F0.5 on 6/8 datasets. The change is precision-driven and accompanied by lower recall, so visible boundaries make DeepSeek substantially more conservative. Raw outputs have a source-copy rate of only 5.83% and a mean character distance of 3.646, compared with 33.53% and 1.773 for Direct-WB. Raw is therefore more aggressive, not more conservative.",
+        f"Direct-WB improves character F0.5 on {rankings['character_m2']['direct_beats_raw']}/{dataset_count} datasets and word F0.5 on {rankings['word_m2']['direct_beats_raw']}/{dataset_count}. Raw outputs have a source-copy rate of {raw_summary['source_copy_percent']:.2f}% and a mean character distance of {raw_summary['mean_character_distance_from_source']:.3f}, compared with {direct_summary['source_copy_percent']:.2f}% and {direct_summary['mean_character_distance_from_source']:.3f} for Direct-WB.",
         "",
-        "GLEU favors Raw on 5/8 datasets at both character and word levels. This does not contradict the edit scorer mechanically: GLEU rewards reference-supported n-gram overlap and can reward aggressive partially correct rewriting, whereas exact edit F0.5 rewards localized agreement and weights precision more heavily. Projection-affected rows are mixed across datasets, so dilution by converged carry-forward rows is not the sole explanation.",
+        f"At printed table precision, at least one WB-aware condition exceeds Raw on {rankings['character_gleu']['structured_beats_raw']}/{dataset_count} datasets in character GLEU and {rankings['word_gleu']['structured_beats_raw']}/{dataset_count} in word GLEU. GLEU rewards reference-supported n-gram overlap, whereas exact edit F0.5 rewards localized agreement and weights precision more heavily.",
+        (
+            "Condition-specific word-GLEU contrasts include the prescribed changes from S1 to S2/S3 as well as any hypothesis changes. They must not be interpreted as fixed-source contrasts; word M2 remains fixed-gold."
+            if word_gleu_source_policy == "condition"
+            else "These historical word-GLEU contrasts hold the fixed gold-informed source segmentation constant, as does word M2."
+        ),
         "",
         "## 4. Projection and convergence",
         "",
@@ -1162,11 +1277,11 @@ def build_paper_report(
         "",
         "## Manuscript-ready conclusion",
         "",
-        "> Under the DeepSeek setting, explicit direct word boundaries consistently make correction more precise and conservative, improving edit-based F0.5 on most datasets. Projection repairs the source representation intrinsically, but it changes only 8.24% of source boundary sequences and does not yield consistent downstream gains; additional iteration is similarly small and non-monotonic. GLEU often favors the more aggressive Raw outputs, demonstrating that exact edit agreement and source-aware n-gram overlap capture different aspects of correction behavior. These findings support a mixed-result interpretation: direct boundary display is useful for precision-oriented CGEC, while automatically projected and iterative refinement require error analysis rather than a universal improvement claim.",
+        f"> In these saved DeepSeek outputs, projection changes {first_changed / total * 100:.2f}% of source boundary sequences. Edit-based comparisons retain fixed word-M2 sources; word-GLEU comparisons follow the explicitly validated `{word_gleu_source_policy}` source policy. Exact edit agreement and source-aware n-gram overlap capture different aspects of correction behavior, so the policy-matched tables and error analyses should guide interpretation rather than a universal improvement claim.",
         "",
         "## Remaining work outside tasks 1-6",
         "",
-        "- Run the frozen pipeline on GPT, Claude, Kimi, and Qwen to test whether the DeepSeek pattern generalizes.",
+        "- Compare additional models only using their own saved outputs and completed, policy-matched evaluations; generation availability is tracked outside this DeepSeek report.",
         "- Perform the C-based-LTP versus Python-LTP comparison (the separately assigned task 7).",
         "- Insert model identifiers/configurations and cross-model tables once those runs exist.",
         "",
@@ -1185,8 +1300,18 @@ def build_paper_report(
 
 
 def main() -> None:
-    build_analysis(DEFAULT_OUTPUT)
-    print(DEFAULT_OUTPUT)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--table-audit", type=Path, default=TABLE_AUDIT)
+    add_word_gleu_arguments(parser)
+    args = parser.parse_args()
+    build_analysis(
+        args.output,
+        word_gleu_root=args.word_gleu_root,
+        word_gleu_source_policy=args.word_gleu_source_policy,
+        table_audit=args.table_audit,
+    )
+    print(args.output)
 
 
 if __name__ == "__main__":

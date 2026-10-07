@@ -1,0 +1,5 @@
+stage,successful_calls,attempts_including_aborted,unknown_usage_attempts,input_tokens_reported,output_tokens_reported,reasoning_tokens_reported,cache_read_tokens_reported,cache_write_tokens_reported,total_tokens_reported,format_retries,content_filter_identity_fallbacks
+T0,20213,20213,0,2506847,788144,0,0,0,3294991,0,0
+T1,20213,20214,1,3331345,787053,0,0,0,4118398,0,0
+T2,2511,2512,1,432662,111078,0,0,0,543740,0,0
+T3,558,558,0,99094,26713,0,0,0,125807,0,0
