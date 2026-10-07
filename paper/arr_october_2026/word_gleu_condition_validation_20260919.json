@@ -1,0 +1,55 @@
+{
+  "reused_corrected_m2_cells": 128,
+  "reused_character_gleu_cells": 64,
+  "new_word_gleu_cells": 64,
+  "sentence_condition_rows": 161704,
+  "validated_m2_reference_blocks": 202130,
+  "validated_complete_serialized_references": 380000,
+  "validated_m2_hypothesis_blocks_against_jsonl": 323408,
+  "unchanged_metric_interval_rows_reproduced": 144,
+  "word_gleu_inferential_contrasts": 42,
+  "word_gleu_descriptive_contrasts": 6,
+  "word_gleu_percentile_direction_disagreements": 1,
+  "bootstrap_replicates": 50000,
+  "seed": 20260915,
+  "chunk_size": 1000,
+  "protected_files_unchanged": 1324,
+  "new_model_calls": 0,
+  "protocol_revision": "2026-09-19",
+  "source_stage_mapping": {
+    "T0": "S1",
+    "T1": "S1",
+    "T2": "S2",
+    "T3": "S3"
+  },
+  "original_jsonl_files": 16,
+  "original_jsonl_rows": 40426,
+  "complete_references_per_model": 38000,
+  "tests": {
+    "full_tests": 73,
+    "focused_adapter_tests": 11,
+    "focused_upstream_tests": 14
+  },
+  "total_tests": 98,
+  "unchanged_prediction_but_changed_word_gleu_sentence_transitions": 918,
+  "later_word_gleu_direction_counts": {
+    "inconclusive": 13,
+    "evidence of deterioration": 15
+  },
+  "new_ltp_inference_calls": 0,
+  "published_utc": "2026-09-20T14:29:35.782216+00:00",
+  "artifacts_sha256": {
+    "KIMI_DEEPSEEK_REVISED_WORD_GLEU_20260919.md": "17697965f715568f56c01aa3bed1ba94af1c0572a3338c79559236548860eb72",
+    "KIMI_DEEPSEEK_FOUR_METRICS_REVISED_WORD_GLEU_20260919.md": "7e87e312e11c1fea09583b5c29b3974ecf077baeeb657566af8393320adbb598",
+    "word_gleu_condition_20260919.tsv": "d3d1da849946ef8a5ca88585ea38e433d5e4c8fd49cabcf30bc86856606faccf",
+    "four_metrics_condition_word_gleu_20260919.tsv": "760c06eb362d1c3daa2888d6142cb3bb96f5f1067225a36bb7bdbf281f95e28d",
+    "word_gleu_condition_paired_bootstrap_20260919.csv": "05f225a583931ea631d1a6bc6d20c670cb21ded6d62d20b2ed025f3301c2a483",
+    "word_gleu_condition_input_manifest_20260919.json": "b451662f9e0ea148538c32060a91eeb238e1393470e7bbe5fad265c61af4e1ee"
+  },
+  "task_driver_sha256": {
+    "analyze_revision.py": "68f02b1be453ef4737228a3bc445402af6ea185d32a7cdec472694962739476d",
+    "evaluate_revision.py": "a83777ccd0d4e81fbec38d74536919d89e7fb35c8000ac93f30c21d7e8320375",
+    "publish_revision.py": "f03abc5de366decb63506d405a12bd9bd028c1afcf93cf8f4e864edfa966dbdf",
+    "test_revision.py": "a445c9b13f2543da385a0991d65f4d26570a440b3c32a6cd4e8e6c3253b82617"
+  }
+}

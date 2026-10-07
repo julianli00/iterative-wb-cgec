@@ -1,0 +1,10 @@
+dataset	dataset_key	split	sentences	references	multi_reference_sentences	sentences_over_3_references	max_references
+NLPCC2018	nlpcc2018	test	2000	2183	183	0	2
+MuCGEC	mucgec	test	6000	13119	4268	557	8
+YACLC	yaclc	validation	1000	8931	1000	1000	11
+FlaCGEC	flacgec	test	1325	1325	0	0	1
+FCGEC	fcgec	validation	2000	2550	351	47	8
+NaCGEC	nacgec	test	5869	6978	1083	4	5
+NaSGEC-Exam	nasgec_exam	test	2000	2895	819	5	4
+CEFE Track 3	cefe_track3	validation	19	19	0	0	1
+Total			20213	38000	7704	1613	11

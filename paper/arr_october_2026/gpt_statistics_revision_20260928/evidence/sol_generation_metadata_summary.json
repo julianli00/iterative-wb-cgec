@@ -1,0 +1,105 @@
+{
+  "model": "gpt-5.6-sol",
+  "declared_generation_started_utc": "2026-09-20T16:09:23.254896+00:00",
+  "declared_generation_completed_utc": "2026-09-21T02:06:17.820532+00:00",
+  "first_formal_request_started_utc": "2026-09-20T16:09:36.593642+00:00",
+  "last_formal_request_started_utc": "2026-09-21T02:06:12.539804+00:00",
+  "formal_access_dates_utc": [
+    "2026-09-20",
+    "2026-09-21"
+  ],
+  "date_evidence": "timestamp fields of formal *.requests.jsonl; excludes pilot/interface probes; request-start times, not invented response-finish timestamps",
+  "formal_successful_calls": 43495,
+  "formal_attempts": 43497,
+  "unknown_usage_aborted_attempts": [
+    {
+      "dataset": "mucgec",
+      "request_key": "mucgec_test_all_T3_gpt_5_6_sol_copilot_nothinking_paper_converged:3752:T2",
+      "stage": "T2",
+      "request_started_utc": "2026-09-20T17:13:00.707880+00:00",
+      "error": "Timeout after 180000ms waiting for session.idle",
+      "returned_completion": false,
+      "provider_usage_returned": false,
+      "request_succeeded_on_recovery": true
+    },
+    {
+      "dataset": "flacgec",
+      "request_key": "flacgec_test_all_T3_gpt_5_6_sol_copilot_nothinking_paper_converged:112:T1",
+      "stage": "T1",
+      "request_started_utc": "2026-09-20T19:29:20.980663+00:00",
+      "error": "Timeout after 300000ms waiting for session.idle",
+      "returned_completion": false,
+      "provider_usage_returned": false,
+      "request_succeeded_on_recovery": true
+    }
+  ],
+  "finish_reason_counts": {
+    "stop": 43495
+  },
+  "returned_reasoning_effort_counts": {
+    "none": 43495
+  },
+  "returned_max_output_tokens_counts": {
+    "not returned": 43495
+  },
+  "input_cap_explicit_and_returned": 8192,
+  "maximum_input_tokens_observed": 429,
+  "maximum_output_tokens_observed": 212,
+  "temperature": "provider default; omitted/unexposed, not asserted minimum",
+  "top_p": "provider default; omitted/unexposed",
+  "output_limit": "provider default; no explicit verified cap; historical capability override was ignored",
+  "per_successful_generation_settings": {
+    "reasoningEffort": "none",
+    "maxPromptTokens": 8192
+  },
+  "all_known_reasoning_tokens": 0,
+  "format_retries": 0,
+  "content_filter_identity_fallbacks": 0,
+  "unique_source_stage_keys": 43495,
+  "unique_completion_ids": 43495,
+  "unique_sessions": 43495,
+  "missing_reported_token_fields": {},
+  "formal_totals": {
+    "successful_calls": 43495,
+    "attempts_including_aborted": 43497,
+    "unknown_usage_attempts": 2,
+    "input_tokens_reported": 6369948,
+    "output_tokens_reported": 1712988,
+    "reasoning_tokens_reported": 0,
+    "cache_read_tokens_reported": 0,
+    "cache_write_tokens_reported": 0,
+    "total_tokens_reported": 8082936,
+    "format_retries": 0,
+    "content_filter_identity_fallbacks": 0
+  },
+  "stopping": {
+    "stopped_after_direct": 17702,
+    "stopped_after_projected": 1953,
+    "reached_iterative": 558,
+    "projection_calls_added_total": 3069
+  },
+  "added_calls_percent_of_direct": 15.183297877603522,
+  "unknown_attempt_note": "Two aborted attempts have no returned completion or usage; their tokens/reasoning/finish reason are unknown, not zero. Both missing source-stage requests were subsequently recovered; no completed successful call was regenerated.",
+  "existing_timeout_recovery_evidence": [
+    {
+      "request_key": "mucgec_test_all_T3_gpt_5_6_sol_copilot_nothinking_paper_converged:3752:T2",
+      "state": "unknown_reserved",
+      "error": "Timeout after 180000ms waiting for session.idle",
+      "recovery_utc": "2026-09-20T17:27:23.793823+00:00",
+      "closed_without_completion_or_usage": true,
+      "source_events_path": "runs/gpt_5_6_sol_copilot_nothinking/artifacts/copilot_state/mucgec_test_all_T3_gpt_5_6_sol_copilot_nothinking_paper_converged/session-state/eaec3a0a-9438-42d8-b21b-a8e174b49bdd/events.jsonl",
+      "source_events_sha256": "72ce08ce1d0789634eb43aff2a4b09cdb9c924854c991cc82a3700ae1bd68489",
+      "source_events_not_copied": true
+    },
+    {
+      "request_key": "flacgec_test_all_T3_gpt_5_6_sol_copilot_nothinking_paper_converged:112:T1",
+      "state": "unknown_reserved",
+      "error": "Timeout after 300000ms waiting for session.idle",
+      "recovery_utc": "2026-09-20T19:34:21.019230+00:00",
+      "closed_without_completion_or_usage": true,
+      "source_events_path": "runs/gpt_5_6_sol_copilot_nothinking/artifacts/copilot_state/flacgec_test_all_T3_gpt_5_6_sol_copilot_nothinking_paper_converged/session-state/46df6bee-00eb-4df6-b942-3545bfd558cd/events.jsonl",
+      "source_events_sha256": "e106a1a874b6902e0f94372979d3e2ee4c53d2efb17875a816e26d64c4e13676",
+      "source_events_not_copied": true
+    }
+  ]
+}

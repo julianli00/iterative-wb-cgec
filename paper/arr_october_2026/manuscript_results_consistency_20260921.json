@@ -1,0 +1,223 @@
+{
+  "pdf": "_ARR_October_2026__prompting_CGEC (2).pdf",
+  "pdf_sha256": "8f968a0a6a943486f6aaf6c6f7c9420f69f0be7440690111c9deed2dc1a06609",
+  "physical_pdf_pages": 15,
+  "scope": "Current evaluation results and invocation settings for Kimi, DeepSeek, and GPT-5.6 Sol. No new model calls or metric recomputation. Intrinsic word-boundary experiments are distinguished from downstream CGEC and are not independently revalidated here.",
+  "score_reference": "User-supplied KIMI_DEEPSEEK_FOUR_METRICS_REVISED_WORD_GLEU_20260919.txt, cross-checked against the previously verified result records.",
+  "current_default_report_verification": {
+    "models_in_order": ["Kimi", "DeepSeek", "GPT-5.6 Sol"],
+    "layout": "One independent model section, calling-parameter table, and 32-row evaluation table per model.",
+    "word_gleu_values_matching_completed_condition_artifacts": 96,
+    "unchanged_other_metric_values": 288,
+    "legacy_fixed_source_word_gleu_values_in_default_report": 0,
+    "metric_values_changed_by_presentation_update": 0,
+    "note": "The current report was already using the new word-GLEU scores. The PDF is a separate, still-outdated artifact; keeping historical experiment files is not the same as using their old scores in the current report."
+  },
+  "model_configuration_check": {
+    "pdf_locations": "Appendix D, pages 8-10; Table 4, page 10",
+    "Kimi": "Matches the recorded baseline: kimi-k2.6, thinking disabled, temperature omitted in request/provider-fixed at 0.6, explicit max_tokens=512.",
+    "DeepSeek": "Matches the recorded baseline: deepseek-v4-pro, explicit temperature=0.000001, thinking disabled, max_tokens omitted/provider default.",
+    "GPT-5.6 Sol": "No downstream invocation configuration appears in Table 4. The current GEC experiment uses gpt-5.6-sol, explicit reasoningEffort=none and verified maxPromptTokens=8192 input cap; temperature/top-p and effective output cap are provider-default and unexposed. These are not necessarily the settings of the separate intrinsic segmentation experiment in Table 2."
+  },
+  "numerical_checks": {
+    "table_1_page_3": {
+      "total_score_cells": 256,
+      "current_matching_cells": 192,
+      "historical_word_gleu_cells_requiring_replacement": 64
+    },
+    "table_6_page_13": {
+      "total_score_cells": 128,
+      "current_matching_cells": 128
+    },
+    "table_7_page_14": {
+      "total_score_cells": 128,
+      "current_matching_character_gleu_cells": 64,
+      "historical_word_gleu_cells_requiring_replacement": 64
+    },
+    "distinct_stale_word_gleu_cells": 64,
+    "repeated_stale_word_gleu_entries_across_tables_1_and_7": 128,
+    "all_stale_values_match_historical_fixed_source_scores": true,
+    "table_5_page_13_matching_primary_numbers": 132,
+    "table_5_matching_equivalence_flags": 20,
+    "table_3_page_9_matching_dataset_statistic_cells": 45,
+    "raw_best_gleu_dataset_counts_unchanged": {
+      "DeepSeek": 5,
+      "Kimi": 8
+    }
+  },
+  "findings": [
+    {
+      "id": "stale-word-gleu-tables",
+      "status": "confirmed",
+      "pages": [3, 14],
+      "location": "Tables 1 and 7, word-level GLEU columns",
+      "issue": "The PDF still uses all 64 old shared-fixed-source word-GLEU scores, repeated in both tables. The other three metrics agree with the verified results.",
+      "examples": [
+        {
+          "model": "DeepSeek",
+          "dataset": "NLPCC2018",
+          "conditions": ["R", "D", "P", "I"],
+          "pdf": ["64.35", "60.87", "60.87", "60.85"],
+          "current": ["63.86", "60.07", "59.93", "59.89"]
+        },
+        {
+          "model": "Kimi",
+          "dataset": "YACLC",
+          "conditions": ["R", "D", "P", "I"],
+          "pdf": ["74.35", "73.29", "73.06", "73.04"],
+          "current": ["74.15", "73.06", "72.73", "72.57"]
+        }
+      ],
+      "best_score_highlighting_changes": [
+        {
+          "model": "DeepSeek",
+          "dataset": "YACLC",
+          "old_best": "I: 74.87",
+          "new_best": "D: 74.54"
+        },
+        {
+          "model": "DeepSeek",
+          "dataset": "FCGEC",
+          "old_best": "P: 88.98",
+          "new_best": "D: 88.57"
+        },
+        {
+          "model": "DeepSeek",
+          "dataset": "NaSGEC-Exam",
+          "old_best": "I: 87.34",
+          "new_best": "D: 86.95"
+        }
+      ],
+      "action": "Replace both sets of word-GLEU columns from the current condition-source TSV and recompute any bolding within those groups. Do not alter the matched M2 or character-GLEU cells."
+    },
+    {
+      "id": "stale-word-gleu-method",
+      "status": "confirmed",
+      "pages": [10],
+      "location": "Appendix E.1",
+      "issue": "The text states that evaluation segmentation is independent of prompting and that word evaluation shares a fixed gold-informed source across models/conditions. That remains true for word M2, but not for revised word GLEU.",
+      "action": "Describe word M2 and word GLEU separately. Word GLEU uses R/D=S1, P=S2, I=S3; all hypotheses and complete references use LTP. Character GLEU stays character-based."
+    },
+    {
+      "id": "missing-sol-downstream-results",
+      "status": "confirmed",
+      "pages": [1, 2, 3, 4, 8, 9, 10, 11, 13, 14],
+      "location": "Downstream model scope, model configuration, and Tables 1/4/5/6/7",
+      "issue": "Downstream CGEC covers only DeepSeek and Kimi, while the current default report includes GPT-5.6 Sol as a third model. Sol's appearance in Table 2 is the distinct 1,079-source intrinsic segmentation experiment, not the 20,213-source downstream GEC experiment.",
+      "action": "If the manuscript is to cover the current three-model experiment, add Sol's downstream scores and verified settings and update model/comparison counts. Do not interpret the intrinsic segmentation table as Sol's downstream results."
+    },
+    {
+      "id": "obsolete-quarter-point-gleu-claim",
+      "status": "confirmed",
+      "pages": [2],
+      "location": "Section 2: Projected and Iterative remain within 0.25 GLEU points of Direct throughout",
+      "issue": "The claim no longer holds for revised word GLEU.",
+      "examples": [
+        {
+          "model": "DeepSeek",
+          "dataset": "FlaCGEC",
+          "Direct": "72.78",
+          "Projected": "72.48",
+          "displayed_difference": "-0.30"
+        },
+        {
+          "model": "Kimi",
+          "dataset": "YACLC",
+          "Direct": "73.06",
+          "Iterative": "72.57",
+          "displayed_difference": "-0.49"
+        }
+      ],
+      "action": "Revise the sentence or restrict the bound to the metric it actually describes. State that word-GLEU changes can arise from source-boundary changes even with an identical correction."
+    },
+    {
+      "id": "edit-reference-tie-break",
+      "status": "confirmed",
+      "pages": [11],
+      "location": "Appendix E.4",
+      "issue": "The PDF specifies precision, then recall, then reference order for equal sentence F0.5. The actual scorer uses more TP, fewer FP, fewer FN, then first encountered reference.",
+      "evidence": "scripts/movement_aware_compare.py::_is_better. Two candidates with counts TP/FP/FN=0/1/2 and 0/1/1 both have F0.5=P=R=0, but the implementation chooses the latter, whereas the PDF's rule would select the first by reference order.",
+      "action": "Correct the method description to match the existing scorer. Do not change the scorer or verified score cells."
+    },
+    {
+      "id": "long-distance-operation-label",
+      "status": "confirmed",
+      "pages": [11],
+      "location": "Figure 1 and Appendix E.5",
+      "issue": "The PDF says bounded and linked movements are both reported under W. The implementation distinguishes ordinary W from linked movement reported as WO, with internal logical key W-LD. Both already count a linked U-M pair once.",
+      "evidence": "scripts/movement_aware_compare.py::compare_edits maps W-LD to the reporting category WO.",
+      "action": "Align the labels and operation-level reporting description. The aggregate edit score need not change."
+    },
+    {
+      "id": "response-cleaning-description",
+      "status": "clarification_needed",
+      "pages": [9],
+      "location": "Appendix D.3",
+      "issue": "The text mentions only BOM/whitespace removal and otherwise unchanged generated characters. The generation pipeline also strips response wrappers such as code fences, known answer prefixes, explanation tails, and surrounding quotation marks before saving the correction.",
+      "evidence": "scripts/run_iterative_gec.py::strip_llm_response.",
+      "action": "Distinguish generation-time wrapper cleaning from evaluation-time normalization. Evaluation of already saved corrections still removes only BOM/whitespace."
+    },
+    {
+      "id": "secondary-interval-sensitivity-count",
+      "status": "confirmed",
+      "pages": [12],
+      "location": "Appendix F.4: six secondary-metric directional classifications differ",
+      "issue": "The old fixed-source analysis has six interval-sensitive secondary directional contrasts. The revised two-model analysis has five across the 126 formal secondary contrasts: zero word-F0.5, four character-GLEU, and one word-GLEU contrasts.",
+      "evidence": "Original-directory session cross-checked percentile_conclusion_differs flags and actual interval endpoint directions from the existing unchanged bootstrap_secondary.csv and revised bootstrap_word_gleu.csv, then confirmed against bootstrap_all_metrics.csv. No resampling.",
+      "affected_contrasts": [
+        {
+          "model": "DeepSeek",
+          "dataset": "NaCGEC",
+          "metric": "Character GLEU",
+          "contrast": "P-D",
+          "delta": "0.019249",
+          "ci95_bca": ["0.000539", "0.040585"],
+          "ci95_percentile": ["-0.000251", "0.039655"]
+        },
+        {
+          "model": "DeepSeek",
+          "dataset": "NaSGEC-Exam",
+          "metric": "Character GLEU",
+          "contrast": "I-P",
+          "delta": "0.033965",
+          "ci95_bca": ["0.001401", "0.091454"],
+          "ci95_percentile": ["-0.004329", "0.079512"]
+        },
+        {
+          "model": "Kimi",
+          "dataset": "YACLC",
+          "metric": "Character GLEU",
+          "contrast": "P-D",
+          "delta": "-0.240134",
+          "ci95_bca": ["-0.625065", "-0.033337"],
+          "ci95_percentile": ["-0.536999", "0.006604"]
+        },
+        {
+          "model": "Kimi",
+          "dataset": "FCGEC",
+          "metric": "Character GLEU",
+          "contrast": "P-D",
+          "delta": "0.051607",
+          "ci95_bca": ["0.006411", "0.148151"],
+          "ci95_percentile": ["-0.003363", "0.121635"]
+        },
+        {
+          "model": "Kimi",
+          "dataset": "YACLC",
+          "metric": "Word GLEU revised",
+          "contrast": "P-D",
+          "delta": "-0.328893",
+          "ci95_bca": ["-0.787853", "-0.015766"],
+          "ci95_percentile": ["-0.725628", "0.024685"]
+        }
+      ],
+      "action": "For the two models currently in the PDF, change six to five and update the affected-contrast list. The primary-character robustness discussion remains unchanged. If adding Sol, recompute the expanded cross-model count rather than reusing five."
+    }
+  ],
+  "limitations": [
+    "The new PDF was inspected but not modified or recompiled.",
+    "Numeric equality is checked at the precision displayed by the PDF.",
+    "The primary character-F0.5 conclusions remain correct for the two models currently included. Adding a third model requires separate updates to the experiment scope and aggregate counts.",
+    "No claim is made that every intrinsic word-boundary score or cited external result was independently reproduced."
+  ]
+}

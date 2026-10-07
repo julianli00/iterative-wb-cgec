@@ -1,0 +1,81 @@
+{
+  "scope": "Existing completed ID/source/reference audits and current digest checks, not regeneration or rescoring",
+  "source_sentences_per_model": 20213,
+  "complete_references_per_model": 38000,
+  "rows": [
+    {
+      "dataset": "nlpcc2018",
+      "rows_per_model": 2000,
+      "references_per_model": 2183,
+      "same_gold_file_hash_all_three": "ad4081267dd4706dbd1a85470a8c1d7d01beddfd69396ff118e695d724f47917",
+      "sol_prediction_sha256": "59d32c377968ca92ce870a07bcbacd6b59a47822c29144b5509b4072f90d60fd",
+      "existing_peer_id_source_alignment_audits": "passed",
+      "existing_sol_source_and_reference_verification": "passed; recorded in verification_summary and validation.log"
+    },
+    {
+      "dataset": "mucgec",
+      "rows_per_model": 6000,
+      "references_per_model": 13119,
+      "same_gold_file_hash_all_three": "c55f810b60537b74cfefe74f0a70fd4dce20b97a9c52c6d43daca0dd13ed8018",
+      "sol_prediction_sha256": "b04a8fba926906e7f4b9f49eef123a1e0e536980f8a885657f1928aba7746f65",
+      "existing_peer_id_source_alignment_audits": "passed",
+      "existing_sol_source_and_reference_verification": "passed; recorded in verification_summary and validation.log"
+    },
+    {
+      "dataset": "yaclc",
+      "rows_per_model": 1000,
+      "references_per_model": 8931,
+      "same_gold_file_hash_all_three": "346733356acfbb62a86608d5169b64498c384f91c7d4a191657d2715b13421f2",
+      "sol_prediction_sha256": "1ff26ec7df2f6db6af7ba879a6f7c3b9f2a4215a90a692f333970844d8063ebf",
+      "existing_peer_id_source_alignment_audits": "passed",
+      "existing_sol_source_and_reference_verification": "passed; recorded in verification_summary and validation.log"
+    },
+    {
+      "dataset": "flacgec",
+      "rows_per_model": 1325,
+      "references_per_model": 1325,
+      "same_gold_file_hash_all_three": "9cabec8a56964910e1689073e5f50341a1b26f85e053e57febb09bb53be416f5",
+      "sol_prediction_sha256": "b6cd19b9babadca03319fa6640c10bcb97bcb457c79334b59feb87a9562454f9",
+      "existing_peer_id_source_alignment_audits": "passed",
+      "existing_sol_source_and_reference_verification": "passed; recorded in verification_summary and validation.log"
+    },
+    {
+      "dataset": "fcgec",
+      "rows_per_model": 2000,
+      "references_per_model": 2550,
+      "same_gold_file_hash_all_three": "c19eb3033e83e11e0a3d31f63ac113e8aee286c89cb3d7619818bfdb9bd9f2ef",
+      "sol_prediction_sha256": "3f348373043d97897b8243f77e4b9a77fb08b3aac7c4e0dc2eff2dd88a8c77d0",
+      "existing_peer_id_source_alignment_audits": "passed",
+      "existing_sol_source_and_reference_verification": "passed; recorded in verification_summary and validation.log"
+    },
+    {
+      "dataset": "nacgec",
+      "rows_per_model": 5869,
+      "references_per_model": 6978,
+      "same_gold_file_hash_all_three": "6dee1c468bb118faf78740d2a30aa517d15dfd976cb6bfb5339c3ea8a0d4cd0f",
+      "sol_prediction_sha256": "3a69e18e2367c014ee9b876da20c6d684e3273239f1a674e183c85435651778b",
+      "existing_peer_id_source_alignment_audits": "passed",
+      "existing_sol_source_and_reference_verification": "passed; recorded in verification_summary and validation.log"
+    },
+    {
+      "dataset": "nasgec_exam",
+      "rows_per_model": 2000,
+      "references_per_model": 2895,
+      "same_gold_file_hash_all_three": "ac9b2bbfefc12056028d6acd5fdbbfde36f90fdf9479e23133e3d7b9359d7327",
+      "sol_prediction_sha256": "1043db1ab0f5e489206384d287cc078a1f31dd90f6d96005387232fe7ffd7b15",
+      "existing_peer_id_source_alignment_audits": "passed",
+      "existing_sol_source_and_reference_verification": "passed; recorded in verification_summary and validation.log"
+    },
+    {
+      "dataset": "cefe_track3",
+      "rows_per_model": 19,
+      "references_per_model": 19,
+      "same_gold_file_hash_all_three": "cbd9af158c72af3118bf5c24ba22114dadfd44d52f45b33675f42e6c9d6941cc",
+      "sol_prediction_sha256": "4cc0ec5f248e539f958cc41fda01812235ac7d768595333af512bee8b376e4f8",
+      "existing_peer_id_source_alignment_audits": "passed",
+      "existing_sol_source_and_reference_verification": "passed; recorded in verification_summary and validation.log"
+    }
+  ],
+  "ids_convention": "Saved source IDs are zero-based; complete gold IDs are one-based; order/text equality was verified by the completed evaluators",
+  "no_raw_sentence_content_exported": true
+}

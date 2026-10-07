@@ -1,0 +1,190 @@
+{
+  "formal_secondary_contrasts": 189,
+  "cefe_excluded": true,
+  "three_models_secondary_direction_fragile_count": 5,
+  "fragile_by_model": {
+    "DeepSeek": 2,
+    "Kimi": 3,
+    "GPT-5.6 Sol (none)": 0
+  },
+  "fragile_by_metric": {
+    "word_f05": 0,
+    "character_gleu": 4,
+    "word_gleu": 1
+  },
+  "fragile_contrasts": [
+    {
+      "model": "DeepSeek",
+      "dataset": "NaCGEC",
+      "dataset_key": "nacgec",
+      "metric": "character_gleu",
+      "contrast": "P-D",
+      "delta_points": "0.01924908376592782",
+      "ci95_bca_low": "0.0005390944484680022",
+      "ci95_bca_high": "0.040585172226004954",
+      "ci95_percentile_low": "-0.00025114698484324086",
+      "ci95_percentile_high": "0.039654765109372124",
+      "percentile_conclusion_differs": "True"
+    },
+    {
+      "model": "DeepSeek",
+      "dataset": "NaSGEC-Exam",
+      "dataset_key": "nasgec_exam",
+      "metric": "character_gleu",
+      "contrast": "I-P",
+      "delta_points": "0.03396473832701474",
+      "ci95_bca_low": "0.0014011037325835187",
+      "ci95_bca_high": "0.09145423955403642",
+      "ci95_percentile_low": "-0.00432938345452",
+      "ci95_percentile_high": "0.079512394343915",
+      "percentile_conclusion_differs": "True"
+    },
+    {
+      "model": "Kimi",
+      "dataset": "YACLC",
+      "dataset_key": "yaclc",
+      "metric": "character_gleu",
+      "contrast": "P-D",
+      "delta_points": "-0.2401340933575966",
+      "ci95_bca_low": "-0.6250654201442769",
+      "ci95_bca_high": "-0.03333716321891307",
+      "ci95_percentile_low": "-0.5369992311163777",
+      "ci95_percentile_high": "0.006604465233530015",
+      "percentile_conclusion_differs": "True"
+    },
+    {
+      "model": "Kimi",
+      "dataset": "YACLC",
+      "dataset_key": "yaclc",
+      "metric": "word_gleu",
+      "contrast": "P-D",
+      "delta_points": "-0.32889284913117933",
+      "ci95_bca_low": "-0.7878531824683066",
+      "ci95_bca_high": "-0.015765605905899795",
+      "ci95_percentile_low": "-0.7256283173841149",
+      "ci95_percentile_high": "0.024685230372810094",
+      "percentile_conclusion_differs": "True"
+    },
+    {
+      "model": "Kimi",
+      "dataset": "FCGEC",
+      "dataset_key": "fcgec",
+      "metric": "character_gleu",
+      "contrast": "P-D",
+      "delta_points": "0.0516071431978844",
+      "ci95_bca_low": "0.006411320272866672",
+      "ci95_bca_high": "0.14815053169498155",
+      "ci95_percentile_low": "-0.0033631507696724986",
+      "ci95_percentile_high": "0.12163491327530997",
+      "percentile_conclusion_differs": "True"
+    }
+  ],
+  "sol_edit_comparisons": {
+    "character_f05": {
+      "D-R": {
+        "all8_point_positive": 7,
+        "all8_point_negative": 1,
+        "all8_point_equal": 0,
+        "formal7_bca_positive": [
+          "nlpcc2018",
+          "mucgec",
+          "yaclc",
+          "fcgec",
+          "nacgec",
+          "nasgec_exam"
+        ],
+        "formal7_bca_negative": [],
+        "formal7_bca_inconclusive": [
+          "flacgec"
+        ]
+      },
+      "P-D": {
+        "all8_point_positive": 6,
+        "all8_point_negative": 2,
+        "all8_point_equal": 0,
+        "formal7_bca_positive": [
+          "fcgec"
+        ],
+        "formal7_bca_negative": [],
+        "formal7_bca_inconclusive": [
+          "nlpcc2018",
+          "mucgec",
+          "yaclc",
+          "flacgec",
+          "nacgec",
+          "nasgec_exam"
+        ]
+      },
+      "I-P": {
+        "all8_point_positive": 0,
+        "all8_point_negative": 8,
+        "all8_point_equal": 0,
+        "formal7_bca_positive": [],
+        "formal7_bca_negative": [
+          "fcgec"
+        ],
+        "formal7_bca_inconclusive": [
+          "nlpcc2018",
+          "mucgec",
+          "yaclc",
+          "flacgec",
+          "nacgec",
+          "nasgec_exam"
+        ]
+      }
+    },
+    "word_f05": {
+      "D-R": {
+        "all8_point_positive": 7,
+        "all8_point_negative": 1,
+        "all8_point_equal": 0,
+        "formal7_bca_positive": [
+          "nlpcc2018",
+          "mucgec",
+          "yaclc",
+          "fcgec",
+          "nacgec",
+          "nasgec_exam"
+        ],
+        "formal7_bca_negative": [],
+        "formal7_bca_inconclusive": [
+          "flacgec"
+        ]
+      },
+      "P-D": {
+        "all8_point_positive": 6,
+        "all8_point_negative": 1,
+        "all8_point_equal": 1,
+        "formal7_bca_positive": [
+          "fcgec",
+          "nacgec",
+          "nasgec_exam"
+        ],
+        "formal7_bca_negative": [],
+        "formal7_bca_inconclusive": [
+          "nlpcc2018",
+          "mucgec",
+          "yaclc",
+          "flacgec"
+        ]
+      },
+      "I-P": {
+        "all8_point_positive": 0,
+        "all8_point_negative": 8,
+        "all8_point_equal": 0,
+        "formal7_bca_positive": [],
+        "formal7_bca_negative": [
+          "fcgec",
+          "nacgec"
+        ],
+        "formal7_bca_inconclusive": [
+          "nlpcc2018",
+          "mucgec",
+          "yaclc",
+          "flacgec",
+          "nasgec_exam"
+        ]
+      }
+    }
+  }
+}

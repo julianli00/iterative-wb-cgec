@@ -8,7 +8,7 @@ S1 = LTP(S0) -> T1
 S2 = project WB from LTP(T1) onto S1 -> T2
 S3 = project WB from LTP(T2) onto S2 -> T3
 
-When a projected segmentation no longer changes (S_i == S_{i-1}), the
+When the normalized projected boundary vector no longer changes, the
 iteration has reached a fixed point. T_i and all later requested rounds are
 then carried forward from T_{i-1} without another LLM call.
 """
@@ -27,7 +27,7 @@ import re
 import sys
 import threading
 import time
-from typing import Any
+from typing import Any, Callable
 
 import requests
 
@@ -99,6 +99,18 @@ class RequestRateLimiter:
 
 
 _API_RATE_LIMITER = RequestRateLimiter()
+
+
+def segmentation_signature(segmented: str) -> tuple[str, tuple[int, ...]]:
+    """Return source text and inter-character word-boundary positions."""
+
+    tokens = segmented.split()
+    positions: list[int] = []
+    cursor = 0
+    for token in tokens[:-1]:
+        cursor += len(token)
+        positions.append(cursor)
+    return "".join(tokens), tuple(positions)
 
 
 def http_session() -> requests.Session:
@@ -267,6 +279,7 @@ def call_llm(
     timeout: int,
     retries: int,
     sleep_seconds: float,
+    request_key: str = "",
 ) -> tuple[str, dict[str, Any]]:
     headers = {
         "Authorization": auth_header(api_key),
@@ -449,7 +462,9 @@ def resume_run(
     thinking_disabled: bool,
     jsonl_path: Path,
     tsv_path: Path,
+    call_model: Callable[..., tuple[str, dict[str, Any]]] | None = None,
 ) -> None:
+    call_model = call_model or call_llm
     previous_rows = read_jsonl(resume_jsonl, args.limit)
     if not previous_rows:
         raise RuntimeError(f"No rows found in resume file: {resume_jsonl}")
@@ -516,7 +531,9 @@ def resume_run(
                         {"S": t_idx, **projection["stats"]}
                     )
 
-                    if s_values[t_idx] == previous_s:
+                    if segmentation_signature(s_values[t_idx]) == segmentation_signature(
+                        previous_s
+                    ):
                         t_values[t_idx] = t_values[t_idx - 1]
                         result[f"T{t_idx}"] = t_values[t_idx]
 
@@ -538,7 +555,7 @@ def resume_run(
                         break
 
                     prompt = segmented_prompt_template.format(sentence=s_values[t_idx])
-                    t_values[t_idx], meta = call_llm(
+                    t_values[t_idx], meta = call_model(
                         prompt=prompt,
                         api_key=api_key,
                         base_url=base_url,
@@ -549,6 +566,7 @@ def resume_run(
                         timeout=args.timeout,
                         retries=args.retries,
                         sleep_seconds=args.sleep,
+                        request_key=f"{args.run_name}:{result['id']}:T{t_idx}",
                     )
                     result["meta"]["api"].append({"T": t_idx, **meta})
                     result[f"T{t_idx}"] = t_values[t_idx]
@@ -590,35 +608,65 @@ def resume_run(
 
 
 def run(args: argparse.Namespace) -> None:
+    if getattr(args, "backend", "http") == "copilot":
+        try:
+            from copilot_llm import CopilotClient
+        except ModuleNotFoundError:
+            from scripts.copilot_llm import CopilotClient
+        with CopilotClient(
+            model=args.model,
+            state_dir=args.out_dir / "copilot_state" / args.run_name,
+            journal=args.out_dir / f"{args.run_name}.requests.jsonl",
+            clean=strip_llm_response,
+            validate=gec_output_format_error,
+            source_from_prompt=sentence_from_prompt,
+            rate_limit=_API_RATE_LIMITER.wait,
+        ) as client:
+            _run(args, copilot_client=client)
+    else:
+        _run(args)
+
+
+def _run(args: argparse.Namespace, *, copilot_client: Any = None) -> None:
     if args.max_t < 1:
         raise ValueError("--max-t must be at least 1")
 
-    env = {**load_env(ROOT / ".env"), **os.environ}
-    api_key = env.get("LLM_API_KEY") or env.get("DEEPSEEK_API_KEY", "")
-    if not api_key:
-        raise RuntimeError("LLM_API_KEY or DEEPSEEK_API_KEY is missing")
-
-    base_url = env.get(
-        "LLM_BASE_URL",
-        env.get("DEEPSEEK_BASE_URL", "https://api.deepseek.com/v1"),
-    )
-    model = env.get("LLM_MODEL", env.get("DEEPSEEK_MODEL", "deepseek-v4-pro"))
-    temperature_value = env.get(
-        "LLM_TEMPERATURE",
-        env.get("DEEPSEEK_TEMPERATURE", "0.000001"),
-    ).strip()
-    temperature = (
-        None
-        if temperature_value.lower() in {"", "none", "omit"}
-        else float(temperature_value)
-    )
-    max_tokens_value = env.get("LLM_MAX_TOKENS", "").strip()
-    max_tokens = int(max_tokens_value) if max_tokens_value else None
-    thinking_value = env.get(
-        "LLM_THINKING",
-        env.get("DEEPSEEK_THINKING", ""),
-    )
-    thinking_disabled = thinking_value.lower() == "disabled"
+    if copilot_client is not None:
+        env = dict(os.environ)
+        api_key = ""
+        base_url = "copilot-sdk"
+        model = copilot_client.model
+        temperature = None
+        max_tokens = None
+        thinking_disabled = False
+        call_model = copilot_client.call_llm
+    else:
+        env = {**load_env(ROOT / ".env"), **os.environ}
+        api_key = env.get("LLM_API_KEY") or env.get("DEEPSEEK_API_KEY", "")
+        if not api_key:
+            raise RuntimeError("LLM_API_KEY or DEEPSEEK_API_KEY is missing")
+        base_url = env.get(
+            "LLM_BASE_URL",
+            env.get("DEEPSEEK_BASE_URL", "https://api.deepseek.com/v1"),
+        )
+        model = env.get("LLM_MODEL", env.get("DEEPSEEK_MODEL", "deepseek-v4-pro"))
+        temperature_value = env.get(
+            "LLM_TEMPERATURE",
+            env.get("DEEPSEEK_TEMPERATURE", "0.000001"),
+        ).strip()
+        temperature = (
+            None
+            if temperature_value.lower() in {"", "none", "omit"}
+            else float(temperature_value)
+        )
+        max_tokens_value = env.get("LLM_MAX_TOKENS", "").strip()
+        max_tokens = int(max_tokens_value) if max_tokens_value else None
+        thinking_value = env.get(
+            "LLM_THINKING",
+            env.get("DEEPSEEK_THINKING", ""),
+        )
+        thinking_disabled = thinking_value.lower() == "disabled"
+        call_model = call_llm
     max_rpm = float(env.get("LLM_MAX_RPM", "0"))
     _API_RATE_LIMITER.configure(max_rpm)
 
@@ -672,6 +720,7 @@ def run(args: argparse.Namespace) -> None:
             thinking_disabled=thinking_disabled,
             jsonl_path=jsonl_path,
             tsv_path=tsv_path,
+            call_model=call_model,
         )
         return
 
@@ -728,7 +777,7 @@ def run(args: argparse.Namespace) -> None:
             t_values: dict[int, str] = {}
 
             prompt = raw_prompt_template.format(sentence=source)
-            t_values[0], meta = call_llm(
+            t_values[0], meta = call_model(
                 prompt=prompt,
                 api_key=api_key,
                 base_url=base_url,
@@ -739,6 +788,7 @@ def run(args: argparse.Namespace) -> None:
                 timeout=args.timeout,
                 retries=args.retries,
                 sleep_seconds=args.sleep,
+                request_key=f"{args.run_name}:{row['id']}:T0",
             )
             result["meta"]["api"].append({"T": 0, **meta})
             result["T0"] = t_values[0]
@@ -748,7 +798,7 @@ def run(args: argparse.Namespace) -> None:
             result["S1"] = s_values[1]
 
             prompt = segmented_prompt_template.format(sentence=s_values[1])
-            t_values[1], meta = call_llm(
+            t_values[1], meta = call_model(
                 prompt=prompt,
                 api_key=api_key,
                 base_url=base_url,
@@ -759,6 +809,7 @@ def run(args: argparse.Namespace) -> None:
                 timeout=args.timeout,
                 retries=args.retries,
                 sleep_seconds=args.sleep,
+                request_key=f"{args.run_name}:{row['id']}:T1",
             )
             result["meta"]["api"].append({"T": 1, **meta})
             result["T1"] = t_values[1]
@@ -778,7 +829,9 @@ def run(args: argparse.Namespace) -> None:
                 result[f"S{t_idx}"] = s_values[t_idx]
                 result["meta"]["projection"].append({"S": t_idx, **projection["stats"]})
 
-                if s_values[t_idx] == previous_s:
+                if segmentation_signature(s_values[t_idx]) == segmentation_signature(
+                    previous_s
+                ):
                     t_values[t_idx] = t_values[t_idx - 1]
                     result[f"T{t_idx}"] = t_values[t_idx]
 
@@ -800,7 +853,7 @@ def run(args: argparse.Namespace) -> None:
                     break
 
                 prompt = segmented_prompt_template.format(sentence=s_values[t_idx])
-                t_values[t_idx], meta = call_llm(
+                t_values[t_idx], meta = call_model(
                     prompt=prompt,
                     api_key=api_key,
                     base_url=base_url,
@@ -811,6 +864,7 @@ def run(args: argparse.Namespace) -> None:
                     timeout=args.timeout,
                     retries=args.retries,
                     sleep_seconds=args.sleep,
+                    request_key=f"{args.run_name}:{row['id']}:T{t_idx}",
                 )
                 result["meta"]["api"].append({"T": t_idx, **meta})
                 result[f"T{t_idx}"] = t_values[t_idx]
@@ -905,6 +959,8 @@ def run(args: argparse.Namespace) -> None:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
+    parser.add_argument("--backend", choices=("http", "copilot"), default="http")
+    parser.add_argument("--model", default="gpt-6-astra", help="Model for the Copilot backend")
     parser.add_argument("--input", type=Path, default=DEFAULT_DATA)
     parser.add_argument(
         "--resume-jsonl",

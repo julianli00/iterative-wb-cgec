@@ -744,10 +744,10 @@ def write_global_outputs(
     markdown = [
         "# Projection-based Character M2 Evaluation",
         "",
-        "Both methods use the same source-target pairs, all textual gold "
-        "references, character offsets without BPE, the same ChERRANT "
-        "comparator, and corpus-level F0.5 x 100. Only the character alignment "
-        "and resulting M2 edits differ.",
+        "Projection scores use all complete references, character offsets "
+        "without BPE, sentence-local select-best, and the movement-aware "
+        "comparator. Scores are corpus-level F0.5 x 100. Optional "
+        "ChERRANT-aligned baselines are included only when available.",
         "",
         "| Dataset | Split | N | Stage | ChERRANT | Projection | Delta |",
         "| --- | --- | ---: | --- | ---: | ---: | ---: |",
@@ -778,8 +778,20 @@ def write_global_outputs(
         ("cherrant", "ChERRANT-generated M2"),
         ("projection", "WB projection M2"),
     ):
-        matrix_rows: list[dict[str, Any]] = []
+        method_specs: list[DatasetSpec] = []
         for spec in specs:
+            present = [
+                (spec.dataset, method, round_name, 0.5) in indexed
+                for round_name in rounds
+            ]
+            if any(present):
+                if not all(present):
+                    raise ValueError(f"Incomplete {method} scores for {spec.dataset}")
+                method_specs.append(spec)
+        if not method_specs:
+            continue
+        matrix_rows: list[dict[str, Any]] = []
+        for spec in method_specs:
             row: dict[str, Any] = {
                 "dataset": spec.dataset,
                 "split": spec.split,

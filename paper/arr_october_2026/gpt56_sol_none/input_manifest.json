@@ -1,0 +1,74 @@
+[
+  {
+    "dataset": "nlpcc2018",
+    "split": "test",
+    "rows": 2000,
+    "prediction_path": "runs/gpt_5_6_sol_copilot_nothinking/artifacts/nlpcc2018_test_all_T3_gpt_5_6_sol_copilot_nothinking_paper_converged.jsonl",
+    "prediction_sha256": "59d32c377968ca92ce870a07bcbacd6b59a47822c29144b5509b4072f90d60fd",
+    "gold_path": "data/benchmarks/prepared/nlpcc2018/test/gold.para",
+    "gold_sha256": "ad4081267dd4706dbd1a85470a8c1d7d01beddfd69396ff118e695d724f47917"
+  },
+  {
+    "dataset": "mucgec",
+    "split": "test",
+    "rows": 6000,
+    "prediction_path": "runs/gpt_5_6_sol_copilot_nothinking/artifacts/mucgec_test_all_T3_gpt_5_6_sol_copilot_nothinking_paper_converged.jsonl",
+    "prediction_sha256": "b04a8fba926906e7f4b9f49eef123a1e0e536980f8a885657f1928aba7746f65",
+    "gold_path": "data/benchmarks/prepared/mucgec/test/gold.para",
+    "gold_sha256": "c55f810b60537b74cfefe74f0a70fd4dce20b97a9c52c6d43daca0dd13ed8018"
+  },
+  {
+    "dataset": "yaclc",
+    "split": "validation",
+    "rows": 1000,
+    "prediction_path": "runs/gpt_5_6_sol_copilot_nothinking/artifacts/yaclc_validation_all_T3_gpt_5_6_sol_copilot_nothinking_paper_converged.jsonl",
+    "prediction_sha256": "1ff26ec7df2f6db6af7ba879a6f7c3b9f2a4215a90a692f333970844d8063ebf",
+    "gold_path": "data/benchmarks/prepared/yaclc/validation/gold.para",
+    "gold_sha256": "346733356acfbb62a86608d5169b64498c384f91c7d4a191657d2715b13421f2"
+  },
+  {
+    "dataset": "flacgec",
+    "split": "test",
+    "rows": 1325,
+    "prediction_path": "runs/gpt_5_6_sol_copilot_nothinking/artifacts/flacgec_test_all_T3_gpt_5_6_sol_copilot_nothinking_paper_converged.jsonl",
+    "prediction_sha256": "b6cd19b9babadca03319fa6640c10bcb97bcb457c79334b59feb87a9562454f9",
+    "gold_path": "data/benchmarks/prepared/flacgec/test/gold.para",
+    "gold_sha256": "9cabec8a56964910e1689073e5f50341a1b26f85e053e57febb09bb53be416f5"
+  },
+  {
+    "dataset": "fcgec",
+    "split": "validation",
+    "rows": 2000,
+    "prediction_path": "runs/gpt_5_6_sol_copilot_nothinking/artifacts/fcgec_validation_all_T3_gpt_5_6_sol_copilot_nothinking_paper_converged.jsonl",
+    "prediction_sha256": "3f348373043d97897b8243f77e4b9a77fb08b3aac7c4e0dc2eff2dd88a8c77d0",
+    "gold_path": "data/benchmarks/prepared/fcgec/validation/gold.para",
+    "gold_sha256": "c19eb3033e83e11e0a3d31f63ac113e8aee286c89cb3d7619818bfdb9bd9f2ef"
+  },
+  {
+    "dataset": "nacgec",
+    "split": "test",
+    "rows": 5869,
+    "prediction_path": "runs/gpt_5_6_sol_copilot_nothinking/artifacts/nacgec_test_all_T3_gpt_5_6_sol_copilot_nothinking_paper_converged.jsonl",
+    "prediction_sha256": "3a69e18e2367c014ee9b876da20c6d684e3273239f1a674e183c85435651778b",
+    "gold_path": "data/benchmarks/prepared/nacgec/test/gold.para",
+    "gold_sha256": "6dee1c468bb118faf78740d2a30aa517d15dfd976cb6bfb5339c3ea8a0d4cd0f"
+  },
+  {
+    "dataset": "nasgec_exam",
+    "split": "test",
+    "rows": 2000,
+    "prediction_path": "runs/gpt_5_6_sol_copilot_nothinking/artifacts/nasgec_exam_test_all_T3_gpt_5_6_sol_copilot_nothinking_paper_converged.jsonl",
+    "prediction_sha256": "1043db1ab0f5e489206384d287cc078a1f31dd90f6d96005387232fe7ffd7b15",
+    "gold_path": "data/benchmarks/prepared/nasgec_exam/test/gold.para",
+    "gold_sha256": "ac9b2bbfefc12056028d6acd5fdbbfde36f90fdf9479e23133e3d7b9359d7327"
+  },
+  {
+    "dataset": "cefe_track3",
+    "split": "validation",
+    "rows": 19,
+    "prediction_path": "runs/gpt_5_6_sol_copilot_nothinking/artifacts/cefe_track3_validation_all_T3_gpt_5_6_sol_copilot_nothinking_paper_converged.jsonl",
+    "prediction_sha256": "4cc0ec5f248e539f958cc41fda01812235ac7d768595333af512bee8b376e4f8",
+    "gold_path": "data/benchmarks/prepared/cefe_track3/validation/gold.para",
+    "gold_sha256": "cbd9af158c72af3118bf5c24ba22114dadfd44d52f45b33675f42e6c9d6941cc"
+  }
+]
