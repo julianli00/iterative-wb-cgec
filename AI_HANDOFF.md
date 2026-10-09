@@ -4,6 +4,14 @@ Historical handoff prepared on 2026-09-18, with later result updates.
 This public copy contains compact evidence, not the original local research
 workspace, raw generations, full manuscript, or private records.
 
+> **Dataset publication update (2026-10-09):** only the FCGEC validation
+> `pipeline.tsv` and `gold.para` are included, with 2,000 sources and 2,550
+> references, under the upstream license and noncommercial academic data-use
+> conditions. All eight pairs exist in the original research workspace, but
+> the other 14 files are not redistributed. Read the
+> [dataset availability and licensing guide](data/benchmarks/README.md) before
+> obtaining or sharing any dataset; do not infer permission from public access.
+
 > **Default result presentation (user instruction, 2026-09-21):** compare only
 > Kimi, DeepSeek, and GPT-5.6 Sol, and present evaluation results plus their
 > recorded calling parameters. Give each model its own chapter and result table. Use
@@ -46,7 +54,7 @@ workspace, raw generations, full manuscript, or private records.
 2. Inspect `git status` and the latest commit before changing anything.
 3. Treat `.env` as private. Never print, quote, or commit API keys.
 4. Reuse the saved model outputs. Do not make new LLM calls unless the user explicitly asks for a new generation experiment.
-5. The large source corpora, per-sentence generations, M2 files, and bootstrap draws remain in the original local research workspace under `runs/` and `data/benchmarks/prepared/`. They are not supplied by this public clone; do not assume they exist here.
+5. Except for the published FCGEC validation source/reference pair, source corpora, per-sentence generations, M2 files, and bootstrap draws remain in the original local research workspace under `runs/` and `data/benchmarks/prepared/`. They are not supplied by this public clone; do not assume they exist here.
 
 ## Research goal and pipeline
 
