@@ -46,16 +46,35 @@ combines these new scores with unchanged corrected M2 and character GLEU.
 
 ## Reproduce the current evaluation
 
+### Dataset availability
+
+All eight prepared source/reference pairs exist in the original local research
+workspace: 20,213 sources and 38,000 complete references in 16 files.
+**Only the two FCGEC validation files are published here**:
+[source plus first reference](data/benchmarks/prepared/fcgec/validation/pipeline.tsv)
+and [all references](data/benchmarks/prepared/fcgec/validation/gold.para),
+covering 2,000 sources and 2,550 complete references.
+
+FCGEC retains its upstream Apache 2.0 license and its separate
+**noncommercial, academic-research-only data-use conditions**. The other
+seven datasets' 14 prepared files are not published: redistribution is
+restricted or permission has not been established. See the
+[dataset availability, publisher access, and licensing guide](data/benchmarks/README.md).
+Public download access alone is not redistribution permission.
+
+### Local prerequisites
+
 The current runner uses condition-specific word GLEU with S1/S1/S2/S3.
 Historical fixed-source outputs remain separate; reproducing that policy
 requires explicitly selecting `--source-policy fixed-gold` in the word-GLEU
 evaluator and `--word-gleu-source-policy fixed-gold` in its audits/reports.
 Do not mix the two policies.
 
-These commands require the separately obtained benchmark data, saved model
+These commands require the remaining separately obtained benchmark data, saved model
 outputs, cached model assets, and an environment containing LTP, PyTorch,
 Transformers, and the local WB alignment dependencies. A fresh public clone
-does not include those research artifacts:
+includes the FCGEC validation source/reference pair, but not those other
+research artifacts:
 
 ```bash
 PYTHON_BIN=/path/to/python \
@@ -170,10 +189,12 @@ python3 scripts/run_model_scoreboard_t3.py \
 
 The prepared benchmark manifest and per-split metadata are versioned, together
 with source, tests, compact aggregate scores, calling parameters, and statistical
-summaries. Historical compact artifacts already in Git are retained separately
-from the current three-model presentation.
+summaries. The two FCGEC validation source/reference files are the sole
+newly published dataset pair and retain their upstream license and data-use
+conditions. Historical compact artifacts already in Git are retained
+separately from the current three-model presentation.
 
-Raw corpora and gold text, full per-sentence generations and score exports,
+Other raw corpora and gold text, full per-sentence generations and score exports,
 third-party repositories, alignment caches, model weights, request logs,
 credentials, financial records, original PDFs, full manuscript sources, and
 delivery archives are not added to this public snapshot. Paths under `runs/`

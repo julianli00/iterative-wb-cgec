@@ -32,6 +32,10 @@ data/benchmarks/prepared/**/pipeline.tsv
 data/benchmarks/prepared/**/gold.para
 data/benchmarks/prepared/**/gold.m2
 
+# Only the redistribution-cleared FCGEC validation pair is published.
+!data/benchmarks/prepared/fcgec/validation/pipeline.tsv
+!data/benchmarks/prepared/fcgec/validation/gold.para
+
 # Private working material and locally supplied papers
 meeting record *
 ScreenShot_*.png
