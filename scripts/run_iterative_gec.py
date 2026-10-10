@@ -267,6 +267,28 @@ def sentence_from_prompt(prompt: str) -> str:
     return re.sub(r"\s+", "", prompt.rsplit("句子如下：", 1)[-1])
 
 
+class LLMConfigurationError(RuntimeError):
+    """A non-retryable provider or generation-setting failure."""
+
+
+def validate_response_settings(
+    data: dict[str, Any], *, model: str, thinking_disabled: bool,
+) -> None:
+    if data.get("model") != model:
+        raise LLMConfigurationError(
+            f"Provider returned model {data.get('model')!r}; requested {model!r}"
+        )
+    choice = data["choices"][0]
+    if choice.get("finish_reason") != "stop":
+        raise LLMConfigurationError(
+            f"Unexpected finish_reason: {choice.get('finish_reason')!r}"
+        )
+    # Empty reasoning_content can coexist with nonzero reported reasoning_tokens.
+    # Preserve usage verbatim rather than interpreting that counter as a mode flag.
+    if thinking_disabled and choice["message"].get("reasoning_content"):
+        raise LLMConfigurationError("Provider returned reasoning with thinking disabled")
+
+
 def call_llm(
     *,
     prompt: str,
@@ -280,6 +302,8 @@ def call_llm(
     retries: int,
     sleep_seconds: float,
     request_key: str = "",
+    strict_settings: bool = False,
+    response_observer: Callable[[dict[str, Any]], None] | None = None,
 ) -> tuple[str, dict[str, Any]]:
     headers = {
         "Authorization": auth_header(api_key),
@@ -299,6 +323,14 @@ def call_llm(
     last_error: str | None = None
     used_fallback_without_thinking = False
     format_retries = 0
+
+    def record_response(event: dict[str, Any]) -> None:
+        if response_observer is not None:
+            try:
+                response_observer(event)
+            except OSError as exc:
+                raise LLMConfigurationError("Unable to persist provider response receipt") from exc
+
     for attempt in range(retries + 1):
         current_payload = dict(payload)
         if used_fallback_without_thinking:
@@ -313,6 +345,11 @@ def call_llm(
             )
             if response.status_code >= 400:
                 body = response.text[:1000]
+                record_response({
+                    "attempt": attempt + 1,
+                    "http_status": response.status_code,
+                    "error_body": body.replace(api_key, "[REDACTED]"),
+                })
                 if response.status_code == 400 and (
                     "content_filter" in body or "high risk" in body.lower()
                 ):
@@ -323,6 +360,12 @@ def call_llm(
                         "format_retries": format_retries,
                         "content_filter_fallback": True,
                     }
+                if strict_settings and 400 <= response.status_code < 500 and (
+                    response.status_code not in {408, 409, 429}
+                ):
+                    raise LLMConfigurationError(
+                        f"HTTP {response.status_code}: {body.replace(api_key, '[REDACTED]')}"
+                    )
                 if (
                     "thinking" in current_payload
                     and response.status_code == 400
@@ -333,6 +376,14 @@ def call_llm(
                     continue
                 raise RuntimeError(f"HTTP {response.status_code}: {body}")
             data = response.json()
+            record_response({
+                "attempt": attempt + 1,
+                "http_status": response.status_code,
+                "response": data,
+            })
+            if strict_settings:
+                validate_response_settings(data, model=model, thinking_disabled=thinking_disabled)
+            choice = data["choices"][0]
             content = data["choices"][0]["message"]["content"]
             cleaned_content = strip_llm_response(content)
             format_error = gec_output_format_error(prompt, content, cleaned_content)
@@ -349,9 +400,14 @@ def call_llm(
                 "fallback_without_thinking": used_fallback_without_thinking,
                 "format_retries": format_retries,
                 "content_filter_fallback": False,
+                "raw_content": content,
+                "finish_reason": choice.get("finish_reason"),
+                "response_id": data.get("id"),
             }
             return cleaned_content, meta
         except Exception as exc:  # noqa: BLE001
+            if isinstance(exc, LLMConfigurationError):
+                raise
             last_error = str(exc)
             if attempt >= retries:
                 break

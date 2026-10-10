@@ -4,6 +4,24 @@ Historical handoff prepared on 2026-09-18, with later result updates.
 This public copy contains compact evidence, not the original local research
 workspace, raw generations, full manuscript, or private records.
 
+> **First additional experiment completed (2026-10-10):** see the
+> [MuCGEC dev aggregate report](paper/arr_october_2026/mucgec_dev_gold_first/MuCGEC_Dev_First_Additional_Experiment_Results.md)
+> and [experiment protocol](docs/MUCGEC_GOLD_REFERENCE_EXPERIMENT.md).
+> DeepSeek/Kimi R/D/P cover 1,079 selected single-reference dev pairs.
+> Generation D_input remains LTP/small; P_input retains projection from the
+> supplied Target boundaries, not from a model output. Evaluation of all
+> 6,474 saved outputs now uses Python 3.11.9 / ltp 4.2.14 / LTP/base, which
+> reproduces all 1,079 Target tokenizations. All 634 exact-Target outputs now
+> share Target WB, resolving the old 113 mismatched records across 35 sources.
+> Generation inputs/outputs and character metrics are unchanged.
+> No significance or equivalence test was added for this dev subset.
+> The paper retains its negative-result framing; do not run the proposed
+> second R_output-projection experiment under the current plan.
+> Human-annotated Target WB is not currently feasible and remains future work.
+> Publication adds only reviewed code, synthetic tests, and aggregate records,
+> with no new GEC, LTP, or BERT inference. The private MuCGEC CSV, predictions,
+> tokenizations, M2 files, and request receipts are not included.
+
 > **Dataset publication update (2026-10-09):** only the FCGEC validation
 > `pipeline.tsv` and `gold.para` are included, with 2,000 sources and 2,550
 > references, under the upstream license and noncommercial academic data-use
