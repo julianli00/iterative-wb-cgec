@@ -1,0 +1,15 @@
+{
+  "scope": "Already-saved separate synthetic interface-cap probe; excluded from formal experiment counts",
+  "model": "gpt-5.6-sol",
+  "requested_max_output_tokens": 1,
+  "observed_output_tokens": 23,
+  "returned_max_output_tokens": null,
+  "finish_reason": "stop",
+  "reasoning_effort": "none",
+  "reasoning_tokens": 0,
+  "input_cap_returned": 8192,
+  "conclusion": "This provider route did not enforce the requested one-token capability override. The formal run therefore did not claim a numeric output cap; 8192 is the input cap.",
+  "new_probe_calls": 0,
+  "source_path": "runs/gpt_5_6_sol_copilot_nothinking/interface_probe.json",
+  "source_sha256": "f23b085c38ddfc1dc31000eb34fb04df4126948298dc44612c4973934526e89c"
+}

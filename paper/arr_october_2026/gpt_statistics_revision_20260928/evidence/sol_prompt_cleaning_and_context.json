@@ -1,0 +1,26 @@
+{
+  "prompt_variant": "paper",
+  "generic_templates_without_learner_text": {
+    "PROMPT_RAW_PAPER": "请改正下列句子的语法错误，并尽量只做最小限度的修改。仅输出修改后的句子（正常语句格式，不含分词），不要输出其他内容。句子如下：{sentence}",
+    "PROMPT_SEGMENTED_PAPER": "以下句子是已分词的结构化输入。请在保持原有词语边界的基础上改正语法错误，并尽量只做最小限度的修改。输出时请将修改后的句子以正常语句格式（不含分词）呈现，不要输出其他内容。句子如下：{sentence}"
+  },
+  "response_wrapper_cleaning_function": "def strip_llm_response(text: str) -> str:\n    text = text.replace(\"\\r\", \"\\n\").strip()\n    text = re.sub(r\"^```(?:text|txt|中文)?\\s*\", \"\", text, flags=re.I)\n    text = re.sub(r\"\\s*```$\", \"\", text)\n\n    split_patterns = [\n        r\"修改后的句子[：:]\\s*\",\n        r\"修改后[：:]\\s*\",\n        r\"改正后[：:]\\s*\",\n        r\"最终输出(?:（[^）]*）)?[：:]\\s*\",\n        r\"修改为[：:]\\s*\",\n        r\"修正后[：:]\\s*\",\n    ]\n    for pattern in split_patterns:\n        parts = re.split(pattern, text, flags=re.I)\n        if len(parts) > 1:\n            text = parts[-1]\n            break\n\n    text = re.split(r\"\\n+\\s*(?:修改说明|说明|理由|解释)[：:]\", text, maxsplit=1)[0]\n    text = re.sub(r\"\\s+\", \"\", text)\n    return text.strip(\" \\t\\n\\r\\\"'“”\")",
+  "generation_cleaning": "Before saving: remove code fences/known answer prefixes/explanation tails, whitespace and surrounding quotes. The saved corrections are then held fixed for evaluation.",
+  "evaluation_normalization": "BOM and whitespace only; no OpenCC, BPE, or new correction generation.",
+  "system_prompt": "You are a helpful assistant.",
+  "context": "fresh tool-free session per source and stage; no history, repository instructions, or gold references",
+  "samples_per_executed_condition": 1,
+  "converged_conditions": "carry preceding output forward with no new sample",
+  "convergence": "normalized source character sequence and inter-character boundary vector",
+  "seed": "No exposed/configured generation seed; bootstrap seed20260915 is only statistical",
+  "source_files": [
+    {
+      "path": "runs/gpt_5_6_sol_copilot_nothinking/implementation/scripts/run_iterative_gec.py",
+      "sha256": "b9c365d5a1a2b77afa5ac9fddc14b60a2d59319eb6e0aea681e1275a454cc54f"
+    },
+    {
+      "path": "runs/gpt_5_6_sol_copilot_nothinking/implementation/scripts/copilot/gec_bridge.mjs",
+      "sha256": "327366bd3ed17977ca839e4a4db492b5bce03fe2c46eae6ce54351210d35a142"
+    }
+  ]
+}

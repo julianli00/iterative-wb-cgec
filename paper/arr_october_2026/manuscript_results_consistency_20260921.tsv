@@ -1,0 +1,513 @@
+pdf_page	table	model	dataset	metric	condition	pdf_value	current_value	matches_current
+3	Table 1	DeepSeek	NLPCC2018	character_f05	R	34.22	34.22	True
+3	Table 1	DeepSeek	NLPCC2018	character_f05	D	39.87	39.87	True
+3	Table 1	DeepSeek	NLPCC2018	character_f05	P	39.76	39.76	True
+3	Table 1	DeepSeek	NLPCC2018	character_f05	I	39.72	39.72	True
+3	Table 1	DeepSeek	NLPCC2018	word_f05	R	33.19	33.19	True
+3	Table 1	DeepSeek	NLPCC2018	word_f05	D	37.78	37.78	True
+3	Table 1	DeepSeek	NLPCC2018	word_f05	P	37.70	37.70	True
+3	Table 1	DeepSeek	NLPCC2018	word_f05	I	37.71	37.71	True
+3	Table 1	DeepSeek	NLPCC2018	character_gleu	R	73.20	73.20	True
+3	Table 1	DeepSeek	NLPCC2018	character_gleu	D	70.66	70.66	True
+3	Table 1	DeepSeek	NLPCC2018	character_gleu	P	70.62	70.62	True
+3	Table 1	DeepSeek	NLPCC2018	character_gleu	I	70.63	70.63	True
+3	Table 1	DeepSeek	NLPCC2018	word_gleu	R	64.35	63.86	False
+3	Table 1	DeepSeek	NLPCC2018	word_gleu	D	60.87	60.07	False
+3	Table 1	DeepSeek	NLPCC2018	word_gleu	P	60.87	59.93	False
+3	Table 1	DeepSeek	NLPCC2018	word_gleu	I	60.85	59.89	False
+3	Table 1	DeepSeek	MuCGEC	character_f05	R	41.21	41.21	True
+3	Table 1	DeepSeek	MuCGEC	character_f05	D	48.17	48.17	True
+3	Table 1	DeepSeek	MuCGEC	character_f05	P	48.14	48.14	True
+3	Table 1	DeepSeek	MuCGEC	character_f05	I	48.11	48.11	True
+3	Table 1	DeepSeek	MuCGEC	word_f05	R	41.01	41.01	True
+3	Table 1	DeepSeek	MuCGEC	word_f05	D	47.02	47.02	True
+3	Table 1	DeepSeek	MuCGEC	word_f05	P	46.97	46.97	True
+3	Table 1	DeepSeek	MuCGEC	word_f05	I	47.00	47.00	True
+3	Table 1	DeepSeek	MuCGEC	character_gleu	R	75.92	75.92	True
+3	Table 1	DeepSeek	MuCGEC	character_gleu	D	74.36	74.36	True
+3	Table 1	DeepSeek	MuCGEC	character_gleu	P	74.31	74.31	True
+3	Table 1	DeepSeek	MuCGEC	character_gleu	I	74.37	74.37	True
+3	Table 1	DeepSeek	MuCGEC	word_gleu	R	67.84	67.54	False
+3	Table 1	DeepSeek	MuCGEC	word_gleu	D	65.32	64.73	False
+3	Table 1	DeepSeek	MuCGEC	word_gleu	P	65.25	64.48	False
+3	Table 1	DeepSeek	MuCGEC	word_gleu	I	65.30	64.50	False
+3	Table 1	DeepSeek	YACLC	character_f05	R	57.59	57.59	True
+3	Table 1	DeepSeek	YACLC	character_f05	D	62.96	62.96	True
+3	Table 1	DeepSeek	YACLC	character_f05	P	63.05	63.05	True
+3	Table 1	DeepSeek	YACLC	character_f05	I	62.97	62.97	True
+3	Table 1	DeepSeek	YACLC	word_f05	R	59.17	59.17	True
+3	Table 1	DeepSeek	YACLC	word_f05	D	64.74	64.74	True
+3	Table 1	DeepSeek	YACLC	word_f05	P	64.74	64.74	True
+3	Table 1	DeepSeek	YACLC	word_f05	I	64.73	64.73	True
+3	Table 1	DeepSeek	YACLC	character_gleu	R	79.86	79.86	True
+3	Table 1	DeepSeek	YACLC	character_gleu	D	81.44	81.44	True
+3	Table 1	DeepSeek	YACLC	character_gleu	P	81.39	81.39	True
+3	Table 1	DeepSeek	YACLC	character_gleu	I	81.42	81.42	True
+3	Table 1	DeepSeek	YACLC	word_gleu	R	73.12	73.07	False
+3	Table 1	DeepSeek	YACLC	word_gleu	D	74.86	74.54	False
+3	Table 1	DeepSeek	YACLC	word_gleu	P	74.82	74.38	False
+3	Table 1	DeepSeek	YACLC	word_gleu	I	74.87	74.35	False
+3	Table 1	DeepSeek	FlaCGEC	character_f05	R	43.10	43.10	True
+3	Table 1	DeepSeek	FlaCGEC	character_f05	D	43.89	43.89	True
+3	Table 1	DeepSeek	FlaCGEC	character_f05	P	44.06	44.06	True
+3	Table 1	DeepSeek	FlaCGEC	character_f05	I	44.04	44.04	True
+3	Table 1	DeepSeek	FlaCGEC	word_f05	R	41.07	41.07	True
+3	Table 1	DeepSeek	FlaCGEC	word_f05	D	41.34	41.34	True
+3	Table 1	DeepSeek	FlaCGEC	word_f05	P	41.61	41.61	True
+3	Table 1	DeepSeek	FlaCGEC	word_f05	I	41.66	41.66	True
+3	Table 1	DeepSeek	FlaCGEC	character_gleu	R	84.13	84.13	True
+3	Table 1	DeepSeek	FlaCGEC	character_gleu	D	80.94	80.94	True
+3	Table 1	DeepSeek	FlaCGEC	character_gleu	P	80.92	80.92	True
+3	Table 1	DeepSeek	FlaCGEC	character_gleu	I	81.03	81.03	True
+3	Table 1	DeepSeek	FlaCGEC	word_gleu	R	77.68	77.30	False
+3	Table 1	DeepSeek	FlaCGEC	word_gleu	D	73.28	72.78	False
+3	Table 1	DeepSeek	FlaCGEC	word_gleu	P	73.34	72.48	False
+3	Table 1	DeepSeek	FlaCGEC	word_gleu	I	73.40	72.51	False
+3	Table 1	DeepSeek	FCGEC	character_f05	R	20.46	20.46	True
+3	Table 1	DeepSeek	FCGEC	character_f05	D	23.63	23.63	True
+3	Table 1	DeepSeek	FCGEC	character_f05	P	23.79	23.79	True
+3	Table 1	DeepSeek	FCGEC	character_f05	I	23.69	23.69	True
+3	Table 1	DeepSeek	FCGEC	word_f05	R	17.91	17.91	True
+3	Table 1	DeepSeek	FCGEC	word_f05	D	19.69	19.69	True
+3	Table 1	DeepSeek	FCGEC	word_f05	P	19.76	19.76	True
+3	Table 1	DeepSeek	FCGEC	word_f05	I	19.69	19.69	True
+3	Table 1	DeepSeek	FCGEC	character_gleu	R	91.77	91.77	True
+3	Table 1	DeepSeek	FCGEC	character_gleu	D	92.76	92.76	True
+3	Table 1	DeepSeek	FCGEC	character_gleu	P	92.78	92.78	True
+3	Table 1	DeepSeek	FCGEC	character_gleu	I	92.77	92.77	True
+3	Table 1	DeepSeek	FCGEC	word_gleu	R	87.45	87.27	False
+3	Table 1	DeepSeek	FCGEC	word_gleu	D	88.92	88.57	False
+3	Table 1	DeepSeek	FCGEC	word_gleu	P	88.98	88.39	False
+3	Table 1	DeepSeek	FCGEC	word_gleu	I	88.95	88.36	False
+3	Table 1	DeepSeek	NaCGEC	character_f05	R	31.76	31.76	True
+3	Table 1	DeepSeek	NaCGEC	character_f05	D	32.75	32.75	True
+3	Table 1	DeepSeek	NaCGEC	character_f05	P	33.03	33.03	True
+3	Table 1	DeepSeek	NaCGEC	character_f05	I	32.83	32.83	True
+3	Table 1	DeepSeek	NaCGEC	word_f05	R	29.69	29.69	True
+3	Table 1	DeepSeek	NaCGEC	word_f05	D	28.87	28.87	True
+3	Table 1	DeepSeek	NaCGEC	word_f05	P	29.10	29.10	True
+3	Table 1	DeepSeek	NaCGEC	word_f05	I	28.92	28.92	True
+3	Table 1	DeepSeek	NaCGEC	character_gleu	R	89.67	89.67	True
+3	Table 1	DeepSeek	NaCGEC	character_gleu	D	88.91	88.91	True
+3	Table 1	DeepSeek	NaCGEC	character_gleu	P	88.93	88.93	True
+3	Table 1	DeepSeek	NaCGEC	character_gleu	I	88.92	88.92	True
+3	Table 1	DeepSeek	NaCGEC	word_gleu	R	85.02	84.71	False
+3	Table 1	DeepSeek	NaCGEC	word_gleu	D	83.79	83.20	False
+3	Table 1	DeepSeek	NaCGEC	word_gleu	P	83.83	83.06	False
+3	Table 1	DeepSeek	NaCGEC	word_gleu	I	83.80	83.01	False
+3	Table 1	DeepSeek	NaSGEC-Exam	character_f05	R	29.32	29.32	True
+3	Table 1	DeepSeek	NaSGEC-Exam	character_f05	D	33.90	33.90	True
+3	Table 1	DeepSeek	NaSGEC-Exam	character_f05	P	33.66	33.66	True
+3	Table 1	DeepSeek	NaSGEC-Exam	character_f05	I	33.95	33.95	True
+3	Table 1	DeepSeek	NaSGEC-Exam	word_f05	R	28.71	28.71	True
+3	Table 1	DeepSeek	NaSGEC-Exam	word_f05	D	32.01	32.01	True
+3	Table 1	DeepSeek	NaSGEC-Exam	word_f05	P	32.15	32.15	True
+3	Table 1	DeepSeek	NaSGEC-Exam	word_f05	I	32.34	32.34	True
+3	Table 1	DeepSeek	NaSGEC-Exam	character_gleu	R	90.95	90.95	True
+3	Table 1	DeepSeek	NaSGEC-Exam	character_gleu	D	91.27	91.27	True
+3	Table 1	DeepSeek	NaSGEC-Exam	character_gleu	P	91.24	91.24	True
+3	Table 1	DeepSeek	NaSGEC-Exam	character_gleu	I	91.27	91.27	True
+3	Table 1	DeepSeek	NaSGEC-Exam	word_gleu	R	86.63	86.40	False
+3	Table 1	DeepSeek	NaSGEC-Exam	word_gleu	D	87.33	86.95	False
+3	Table 1	DeepSeek	NaSGEC-Exam	word_gleu	P	87.33	86.81	False
+3	Table 1	DeepSeek	NaSGEC-Exam	word_gleu	I	87.34	86.81	False
+3	Table 1	DeepSeek	CEFE Track 3	character_f05	R	46.67	46.67	True
+3	Table 1	DeepSeek	CEFE Track 3	character_f05	D	43.35	43.35	True
+3	Table 1	DeepSeek	CEFE Track 3	character_f05	P	43.35	43.35	True
+3	Table 1	DeepSeek	CEFE Track 3	character_f05	I	43.35	43.35	True
+3	Table 1	DeepSeek	CEFE Track 3	word_f05	R	40.98	40.98	True
+3	Table 1	DeepSeek	CEFE Track 3	word_f05	D	37.04	37.04	True
+3	Table 1	DeepSeek	CEFE Track 3	word_f05	P	37.04	37.04	True
+3	Table 1	DeepSeek	CEFE Track 3	word_f05	I	37.04	37.04	True
+3	Table 1	DeepSeek	CEFE Track 3	character_gleu	R	82.74	82.74	True
+3	Table 1	DeepSeek	CEFE Track 3	character_gleu	D	81.00	81.00	True
+3	Table 1	DeepSeek	CEFE Track 3	character_gleu	P	81.00	81.00	True
+3	Table 1	DeepSeek	CEFE Track 3	character_gleu	I	81.00	81.00	True
+3	Table 1	DeepSeek	CEFE Track 3	word_gleu	R	75.95	74.31	False
+3	Table 1	DeepSeek	CEFE Track 3	word_gleu	D	71.35	68.67	False
+3	Table 1	DeepSeek	CEFE Track 3	word_gleu	P	71.35	68.59	False
+3	Table 1	DeepSeek	CEFE Track 3	word_gleu	I	71.35	68.59	False
+3	Table 1	Kimi	NLPCC2018	character_f05	R	36.67	36.67	True
+3	Table 1	Kimi	NLPCC2018	character_f05	D	36.73	36.73	True
+3	Table 1	Kimi	NLPCC2018	character_f05	P	36.66	36.66	True
+3	Table 1	Kimi	NLPCC2018	character_f05	I	36.80	36.80	True
+3	Table 1	Kimi	NLPCC2018	word_f05	R	35.66	35.66	True
+3	Table 1	Kimi	NLPCC2018	word_f05	D	34.95	34.95	True
+3	Table 1	Kimi	NLPCC2018	word_f05	P	35.08	35.08	True
+3	Table 1	Kimi	NLPCC2018	word_f05	I	35.18	35.18	True
+3	Table 1	Kimi	NLPCC2018	character_gleu	R	73.01	73.01	True
+3	Table 1	Kimi	NLPCC2018	character_gleu	D	70.54	70.54	True
+3	Table 1	Kimi	NLPCC2018	character_gleu	P	70.41	70.41	True
+3	Table 1	Kimi	NLPCC2018	character_gleu	I	70.47	70.47	True
+3	Table 1	Kimi	NLPCC2018	word_gleu	R	63.74	63.31	False
+3	Table 1	Kimi	NLPCC2018	word_gleu	D	60.30	59.53	False
+3	Table 1	Kimi	NLPCC2018	word_gleu	P	60.18	59.31	False
+3	Table 1	Kimi	NLPCC2018	word_gleu	I	60.24	59.30	False
+3	Table 1	Kimi	MuCGEC	character_f05	R	43.17	43.17	True
+3	Table 1	Kimi	MuCGEC	character_f05	D	44.12	44.12	True
+3	Table 1	Kimi	MuCGEC	character_f05	P	44.19	44.19	True
+3	Table 1	Kimi	MuCGEC	character_f05	I	44.09	44.09	True
+3	Table 1	Kimi	MuCGEC	word_f05	R	42.78	42.78	True
+3	Table 1	Kimi	MuCGEC	word_f05	D	43.07	43.07	True
+3	Table 1	Kimi	MuCGEC	word_f05	P	43.10	43.10	True
+3	Table 1	Kimi	MuCGEC	word_f05	I	43.05	43.05	True
+3	Table 1	Kimi	MuCGEC	character_gleu	R	75.54	75.54	True
+3	Table 1	Kimi	MuCGEC	character_gleu	D	73.13	73.13	True
+3	Table 1	Kimi	MuCGEC	character_gleu	P	73.07	73.07	True
+3	Table 1	Kimi	MuCGEC	character_gleu	I	73.09	73.09	True
+3	Table 1	Kimi	MuCGEC	word_gleu	R	67.13	66.70	False
+3	Table 1	Kimi	MuCGEC	word_gleu	D	63.52	62.96	False
+3	Table 1	Kimi	MuCGEC	word_gleu	P	63.45	62.71	False
+3	Table 1	Kimi	MuCGEC	word_gleu	I	63.45	62.65	False
+3	Table 1	Kimi	YACLC	character_f05	R	60.16	60.16	True
+3	Table 1	Kimi	YACLC	character_f05	D	60.86	60.86	True
+3	Table 1	Kimi	YACLC	character_f05	P	60.39	60.39	True
+3	Table 1	Kimi	YACLC	character_f05	I	60.39	60.39	True
+3	Table 1	Kimi	YACLC	word_f05	R	61.20	61.20	True
+3	Table 1	Kimi	YACLC	word_f05	D	62.01	62.01	True
+3	Table 1	Kimi	YACLC	word_f05	P	61.69	61.69	True
+3	Table 1	Kimi	YACLC	word_f05	I	61.64	61.64	True
+3	Table 1	Kimi	YACLC	character_gleu	R	81.22	81.22	True
+3	Table 1	Kimi	YACLC	character_gleu	D	80.42	80.42	True
+3	Table 1	Kimi	YACLC	character_gleu	P	80.18	80.18	True
+3	Table 1	Kimi	YACLC	character_gleu	I	80.19	80.19	True
+3	Table 1	Kimi	YACLC	word_gleu	R	74.35	74.15	False
+3	Table 1	Kimi	YACLC	word_gleu	D	73.29	73.06	False
+3	Table 1	Kimi	YACLC	word_gleu	P	73.06	72.73	False
+3	Table 1	Kimi	YACLC	word_gleu	I	73.04	72.57	False
+3	Table 1	Kimi	FlaCGEC	character_f05	R	34.71	34.71	True
+3	Table 1	Kimi	FlaCGEC	character_f05	D	32.17	32.17	True
+3	Table 1	Kimi	FlaCGEC	character_f05	P	32.84	32.84	True
+3	Table 1	Kimi	FlaCGEC	character_f05	I	32.89	32.89	True
+3	Table 1	Kimi	FlaCGEC	word_f05	R	31.98	31.98	True
+3	Table 1	Kimi	FlaCGEC	word_f05	D	29.97	29.97	True
+3	Table 1	Kimi	FlaCGEC	word_f05	P	30.60	30.60	True
+3	Table 1	Kimi	FlaCGEC	word_f05	I	30.60	30.60	True
+3	Table 1	Kimi	FlaCGEC	character_gleu	R	81.12	81.12	True
+3	Table 1	Kimi	FlaCGEC	character_gleu	D	78.48	78.48	True
+3	Table 1	Kimi	FlaCGEC	character_gleu	P	78.48	78.48	True
+3	Table 1	Kimi	FlaCGEC	character_gleu	I	78.53	78.53	True
+3	Table 1	Kimi	FlaCGEC	word_gleu	R	73.50	73.11	False
+3	Table 1	Kimi	FlaCGEC	word_gleu	D	69.49	68.94	False
+3	Table 1	Kimi	FlaCGEC	word_gleu	P	69.48	68.57	False
+3	Table 1	Kimi	FlaCGEC	word_gleu	I	69.51	68.57	False
+3	Table 1	Kimi	FCGEC	character_f05	R	18.52	18.52	True
+3	Table 1	Kimi	FCGEC	character_f05	D	15.44	15.44	True
+3	Table 1	Kimi	FCGEC	character_f05	P	15.63	15.63	True
+3	Table 1	Kimi	FCGEC	character_f05	I	15.48	15.48	True
+3	Table 1	Kimi	FCGEC	word_f05	R	16.42	16.42	True
+3	Table 1	Kimi	FCGEC	word_f05	D	13.68	13.68	True
+3	Table 1	Kimi	FCGEC	word_f05	P	13.83	13.83	True
+3	Table 1	Kimi	FCGEC	word_f05	I	13.73	13.73	True
+3	Table 1	Kimi	FCGEC	character_gleu	R	90.95	90.95	True
+3	Table 1	Kimi	FCGEC	character_gleu	D	90.81	90.81	True
+3	Table 1	Kimi	FCGEC	character_gleu	P	90.86	90.86	True
+3	Table 1	Kimi	FCGEC	character_gleu	I	90.85	90.85	True
+3	Table 1	Kimi	FCGEC	word_gleu	R	86.34	86.12	False
+3	Table 1	Kimi	FCGEC	word_gleu	D	86.14	85.83	False
+3	Table 1	Kimi	FCGEC	word_gleu	P	86.21	85.66	False
+3	Table 1	Kimi	FCGEC	word_gleu	I	86.20	85.63	False
+3	Table 1	Kimi	NaCGEC	character_f05	R	28.70	28.70	True
+3	Table 1	Kimi	NaCGEC	character_f05	D	23.43	23.43	True
+3	Table 1	Kimi	NaCGEC	character_f05	P	23.44	23.44	True
+3	Table 1	Kimi	NaCGEC	character_f05	I	23.48	23.48	True
+3	Table 1	Kimi	NaCGEC	word_f05	R	27.42	27.42	True
+3	Table 1	Kimi	NaCGEC	word_f05	D	22.18	22.18	True
+3	Table 1	Kimi	NaCGEC	word_f05	P	22.14	22.14	True
+3	Table 1	Kimi	NaCGEC	word_f05	I	22.26	22.26	True
+3	Table 1	Kimi	NaCGEC	character_gleu	R	88.99	88.99	True
+3	Table 1	Kimi	NaCGEC	character_gleu	D	87.13	87.13	True
+3	Table 1	Kimi	NaCGEC	character_gleu	P	87.15	87.15	True
+3	Table 1	Kimi	NaCGEC	character_gleu	I	87.16	87.16	True
+3	Table 1	Kimi	NaCGEC	word_gleu	R	83.99	83.70	False
+3	Table 1	Kimi	NaCGEC	word_gleu	D	81.11	80.58	False
+3	Table 1	Kimi	NaCGEC	word_gleu	P	81.13	80.44	False
+3	Table 1	Kimi	NaCGEC	word_gleu	I	81.15	80.43	False
+3	Table 1	Kimi	NaSGEC-Exam	character_f05	R	27.35	27.35	True
+3	Table 1	Kimi	NaSGEC-Exam	character_f05	D	22.25	22.25	True
+3	Table 1	Kimi	NaSGEC-Exam	character_f05	P	22.04	22.04	True
+3	Table 1	Kimi	NaSGEC-Exam	character_f05	I	22.16	22.16	True
+3	Table 1	Kimi	NaSGEC-Exam	word_f05	R	27.23	27.23	True
+3	Table 1	Kimi	NaSGEC-Exam	word_f05	D	22.46	22.46	True
+3	Table 1	Kimi	NaSGEC-Exam	word_f05	P	22.37	22.37	True
+3	Table 1	Kimi	NaSGEC-Exam	word_f05	I	22.43	22.43	True
+3	Table 1	Kimi	NaSGEC-Exam	character_gleu	R	90.43	90.43	True
+3	Table 1	Kimi	NaSGEC-Exam	character_gleu	D	89.40	89.40	True
+3	Table 1	Kimi	NaSGEC-Exam	character_gleu	P	89.40	89.40	True
+3	Table 1	Kimi	NaSGEC-Exam	character_gleu	I	89.40	89.40	True
+3	Table 1	Kimi	NaSGEC-Exam	word_gleu	R	85.89	85.73	False
+3	Table 1	Kimi	NaSGEC-Exam	word_gleu	D	84.38	84.11	False
+3	Table 1	Kimi	NaSGEC-Exam	word_gleu	P	84.40	83.93	False
+3	Table 1	Kimi	NaSGEC-Exam	word_gleu	I	84.38	83.89	False
+3	Table 1	Kimi	CEFE Track 3	character_f05	R	40.67	40.67	True
+3	Table 1	Kimi	CEFE Track 3	character_f05	D	40.46	40.46	True
+3	Table 1	Kimi	CEFE Track 3	character_f05	P	37.57	37.57	True
+3	Table 1	Kimi	CEFE Track 3	character_f05	I	37.57	37.57	True
+3	Table 1	Kimi	CEFE Track 3	word_f05	R	33.73	33.73	True
+3	Table 1	Kimi	CEFE Track 3	word_f05	D	33.65	33.65	True
+3	Table 1	Kimi	CEFE Track 3	word_f05	P	31.25	31.25	True
+3	Table 1	Kimi	CEFE Track 3	word_f05	I	31.25	31.25	True
+3	Table 1	Kimi	CEFE Track 3	character_gleu	R	81.54	81.54	True
+3	Table 1	Kimi	CEFE Track 3	character_gleu	D	80.57	80.57	True
+3	Table 1	Kimi	CEFE Track 3	character_gleu	P	80.45	80.45	True
+3	Table 1	Kimi	CEFE Track 3	character_gleu	I	80.45	80.45	True
+3	Table 1	Kimi	CEFE Track 3	word_gleu	R	72.30	70.55	False
+3	Table 1	Kimi	CEFE Track 3	word_gleu	D	70.46	68.64	False
+3	Table 1	Kimi	CEFE Track 3	word_gleu	P	70.29	68.05	False
+3	Table 1	Kimi	CEFE Track 3	word_gleu	I	70.29	68.05	False
+14	Table 7	DeepSeek	NLPCC2018	character_gleu	R	73.20	73.20	True
+14	Table 7	DeepSeek	NLPCC2018	character_gleu	D	70.66	70.66	True
+14	Table 7	DeepSeek	NLPCC2018	character_gleu	P	70.62	70.62	True
+14	Table 7	DeepSeek	NLPCC2018	character_gleu	I	70.63	70.63	True
+14	Table 7	DeepSeek	NLPCC2018	word_gleu	R	64.35	63.86	False
+14	Table 7	DeepSeek	NLPCC2018	word_gleu	D	60.87	60.07	False
+14	Table 7	DeepSeek	NLPCC2018	word_gleu	P	60.87	59.93	False
+14	Table 7	DeepSeek	NLPCC2018	word_gleu	I	60.85	59.89	False
+14	Table 7	DeepSeek	MuCGEC	character_gleu	R	75.92	75.92	True
+14	Table 7	DeepSeek	MuCGEC	character_gleu	D	74.36	74.36	True
+14	Table 7	DeepSeek	MuCGEC	character_gleu	P	74.31	74.31	True
+14	Table 7	DeepSeek	MuCGEC	character_gleu	I	74.37	74.37	True
+14	Table 7	DeepSeek	MuCGEC	word_gleu	R	67.84	67.54	False
+14	Table 7	DeepSeek	MuCGEC	word_gleu	D	65.32	64.73	False
+14	Table 7	DeepSeek	MuCGEC	word_gleu	P	65.25	64.48	False
+14	Table 7	DeepSeek	MuCGEC	word_gleu	I	65.30	64.50	False
+14	Table 7	DeepSeek	YACLC	character_gleu	R	79.86	79.86	True
+14	Table 7	DeepSeek	YACLC	character_gleu	D	81.44	81.44	True
+14	Table 7	DeepSeek	YACLC	character_gleu	P	81.39	81.39	True
+14	Table 7	DeepSeek	YACLC	character_gleu	I	81.42	81.42	True
+14	Table 7	DeepSeek	YACLC	word_gleu	R	73.12	73.07	False
+14	Table 7	DeepSeek	YACLC	word_gleu	D	74.86	74.54	False
+14	Table 7	DeepSeek	YACLC	word_gleu	P	74.82	74.38	False
+14	Table 7	DeepSeek	YACLC	word_gleu	I	74.87	74.35	False
+14	Table 7	DeepSeek	FlaCGEC	character_gleu	R	84.13	84.13	True
+14	Table 7	DeepSeek	FlaCGEC	character_gleu	D	80.94	80.94	True
+14	Table 7	DeepSeek	FlaCGEC	character_gleu	P	80.92	80.92	True
+14	Table 7	DeepSeek	FlaCGEC	character_gleu	I	81.03	81.03	True
+14	Table 7	DeepSeek	FlaCGEC	word_gleu	R	77.68	77.30	False
+14	Table 7	DeepSeek	FlaCGEC	word_gleu	D	73.28	72.78	False
+14	Table 7	DeepSeek	FlaCGEC	word_gleu	P	73.34	72.48	False
+14	Table 7	DeepSeek	FlaCGEC	word_gleu	I	73.40	72.51	False
+14	Table 7	DeepSeek	FCGEC	character_gleu	R	91.77	91.77	True
+14	Table 7	DeepSeek	FCGEC	character_gleu	D	92.76	92.76	True
+14	Table 7	DeepSeek	FCGEC	character_gleu	P	92.78	92.78	True
+14	Table 7	DeepSeek	FCGEC	character_gleu	I	92.77	92.77	True
+14	Table 7	DeepSeek	FCGEC	word_gleu	R	87.45	87.27	False
+14	Table 7	DeepSeek	FCGEC	word_gleu	D	88.92	88.57	False
+14	Table 7	DeepSeek	FCGEC	word_gleu	P	88.98	88.39	False
+14	Table 7	DeepSeek	FCGEC	word_gleu	I	88.95	88.36	False
+14	Table 7	DeepSeek	NaCGEC	character_gleu	R	89.67	89.67	True
+14	Table 7	DeepSeek	NaCGEC	character_gleu	D	88.91	88.91	True
+14	Table 7	DeepSeek	NaCGEC	character_gleu	P	88.93	88.93	True
+14	Table 7	DeepSeek	NaCGEC	character_gleu	I	88.92	88.92	True
+14	Table 7	DeepSeek	NaCGEC	word_gleu	R	85.02	84.71	False
+14	Table 7	DeepSeek	NaCGEC	word_gleu	D	83.79	83.20	False
+14	Table 7	DeepSeek	NaCGEC	word_gleu	P	83.83	83.06	False
+14	Table 7	DeepSeek	NaCGEC	word_gleu	I	83.80	83.01	False
+14	Table 7	DeepSeek	NaSGEC-Exam	character_gleu	R	90.95	90.95	True
+14	Table 7	DeepSeek	NaSGEC-Exam	character_gleu	D	91.27	91.27	True
+14	Table 7	DeepSeek	NaSGEC-Exam	character_gleu	P	91.24	91.24	True
+14	Table 7	DeepSeek	NaSGEC-Exam	character_gleu	I	91.27	91.27	True
+14	Table 7	DeepSeek	NaSGEC-Exam	word_gleu	R	86.63	86.40	False
+14	Table 7	DeepSeek	NaSGEC-Exam	word_gleu	D	87.33	86.95	False
+14	Table 7	DeepSeek	NaSGEC-Exam	word_gleu	P	87.33	86.81	False
+14	Table 7	DeepSeek	NaSGEC-Exam	word_gleu	I	87.34	86.81	False
+14	Table 7	DeepSeek	CEFE Track 3	character_gleu	R	82.74	82.74	True
+14	Table 7	DeepSeek	CEFE Track 3	character_gleu	D	81.00	81.00	True
+14	Table 7	DeepSeek	CEFE Track 3	character_gleu	P	81.00	81.00	True
+14	Table 7	DeepSeek	CEFE Track 3	character_gleu	I	81.00	81.00	True
+14	Table 7	DeepSeek	CEFE Track 3	word_gleu	R	75.95	74.31	False
+14	Table 7	DeepSeek	CEFE Track 3	word_gleu	D	71.35	68.67	False
+14	Table 7	DeepSeek	CEFE Track 3	word_gleu	P	71.35	68.59	False
+14	Table 7	DeepSeek	CEFE Track 3	word_gleu	I	71.35	68.59	False
+14	Table 7	Kimi	NLPCC2018	character_gleu	R	73.01	73.01	True
+14	Table 7	Kimi	NLPCC2018	character_gleu	D	70.54	70.54	True
+14	Table 7	Kimi	NLPCC2018	character_gleu	P	70.41	70.41	True
+14	Table 7	Kimi	NLPCC2018	character_gleu	I	70.47	70.47	True
+14	Table 7	Kimi	NLPCC2018	word_gleu	R	63.74	63.31	False
+14	Table 7	Kimi	NLPCC2018	word_gleu	D	60.30	59.53	False
+14	Table 7	Kimi	NLPCC2018	word_gleu	P	60.18	59.31	False
+14	Table 7	Kimi	NLPCC2018	word_gleu	I	60.24	59.30	False
+14	Table 7	Kimi	MuCGEC	character_gleu	R	75.54	75.54	True
+14	Table 7	Kimi	MuCGEC	character_gleu	D	73.13	73.13	True
+14	Table 7	Kimi	MuCGEC	character_gleu	P	73.07	73.07	True
+14	Table 7	Kimi	MuCGEC	character_gleu	I	73.09	73.09	True
+14	Table 7	Kimi	MuCGEC	word_gleu	R	67.13	66.70	False
+14	Table 7	Kimi	MuCGEC	word_gleu	D	63.52	62.96	False
+14	Table 7	Kimi	MuCGEC	word_gleu	P	63.45	62.71	False
+14	Table 7	Kimi	MuCGEC	word_gleu	I	63.45	62.65	False
+14	Table 7	Kimi	YACLC	character_gleu	R	81.22	81.22	True
+14	Table 7	Kimi	YACLC	character_gleu	D	80.42	80.42	True
+14	Table 7	Kimi	YACLC	character_gleu	P	80.18	80.18	True
+14	Table 7	Kimi	YACLC	character_gleu	I	80.19	80.19	True
+14	Table 7	Kimi	YACLC	word_gleu	R	74.35	74.15	False
+14	Table 7	Kimi	YACLC	word_gleu	D	73.29	73.06	False
+14	Table 7	Kimi	YACLC	word_gleu	P	73.06	72.73	False
+14	Table 7	Kimi	YACLC	word_gleu	I	73.04	72.57	False
+14	Table 7	Kimi	FlaCGEC	character_gleu	R	81.12	81.12	True
+14	Table 7	Kimi	FlaCGEC	character_gleu	D	78.48	78.48	True
+14	Table 7	Kimi	FlaCGEC	character_gleu	P	78.48	78.48	True
+14	Table 7	Kimi	FlaCGEC	character_gleu	I	78.53	78.53	True
+14	Table 7	Kimi	FlaCGEC	word_gleu	R	73.50	73.11	False
+14	Table 7	Kimi	FlaCGEC	word_gleu	D	69.49	68.94	False
+14	Table 7	Kimi	FlaCGEC	word_gleu	P	69.48	68.57	False
+14	Table 7	Kimi	FlaCGEC	word_gleu	I	69.51	68.57	False
+14	Table 7	Kimi	FCGEC	character_gleu	R	90.95	90.95	True
+14	Table 7	Kimi	FCGEC	character_gleu	D	90.81	90.81	True
+14	Table 7	Kimi	FCGEC	character_gleu	P	90.86	90.86	True
+14	Table 7	Kimi	FCGEC	character_gleu	I	90.85	90.85	True
+14	Table 7	Kimi	FCGEC	word_gleu	R	86.34	86.12	False
+14	Table 7	Kimi	FCGEC	word_gleu	D	86.14	85.83	False
+14	Table 7	Kimi	FCGEC	word_gleu	P	86.21	85.66	False
+14	Table 7	Kimi	FCGEC	word_gleu	I	86.20	85.63	False
+14	Table 7	Kimi	NaCGEC	character_gleu	R	88.99	88.99	True
+14	Table 7	Kimi	NaCGEC	character_gleu	D	87.13	87.13	True
+14	Table 7	Kimi	NaCGEC	character_gleu	P	87.15	87.15	True
+14	Table 7	Kimi	NaCGEC	character_gleu	I	87.16	87.16	True
+14	Table 7	Kimi	NaCGEC	word_gleu	R	83.99	83.70	False
+14	Table 7	Kimi	NaCGEC	word_gleu	D	81.11	80.58	False
+14	Table 7	Kimi	NaCGEC	word_gleu	P	81.13	80.44	False
+14	Table 7	Kimi	NaCGEC	word_gleu	I	81.15	80.43	False
+14	Table 7	Kimi	NaSGEC-Exam	character_gleu	R	90.43	90.43	True
+14	Table 7	Kimi	NaSGEC-Exam	character_gleu	D	89.40	89.40	True
+14	Table 7	Kimi	NaSGEC-Exam	character_gleu	P	89.40	89.40	True
+14	Table 7	Kimi	NaSGEC-Exam	character_gleu	I	89.40	89.40	True
+14	Table 7	Kimi	NaSGEC-Exam	word_gleu	R	85.89	85.73	False
+14	Table 7	Kimi	NaSGEC-Exam	word_gleu	D	84.38	84.11	False
+14	Table 7	Kimi	NaSGEC-Exam	word_gleu	P	84.40	83.93	False
+14	Table 7	Kimi	NaSGEC-Exam	word_gleu	I	84.38	83.89	False
+14	Table 7	Kimi	CEFE Track 3	character_gleu	R	81.54	81.54	True
+14	Table 7	Kimi	CEFE Track 3	character_gleu	D	80.57	80.57	True
+14	Table 7	Kimi	CEFE Track 3	character_gleu	P	80.45	80.45	True
+14	Table 7	Kimi	CEFE Track 3	character_gleu	I	80.45	80.45	True
+14	Table 7	Kimi	CEFE Track 3	word_gleu	R	72.30	70.55	False
+14	Table 7	Kimi	CEFE Track 3	word_gleu	D	70.46	68.64	False
+14	Table 7	Kimi	CEFE Track 3	word_gleu	P	70.29	68.05	False
+14	Table 7	Kimi	CEFE Track 3	word_gleu	I	70.29	68.05	False
+13	Table 6	DeepSeek	NLPCC2018	character_f05	R	34.22	34.22	True
+13	Table 6	DeepSeek	NLPCC2018	character_f05	D	39.87	39.87	True
+13	Table 6	DeepSeek	NLPCC2018	character_f05	P	39.76	39.76	True
+13	Table 6	DeepSeek	NLPCC2018	character_f05	I	39.72	39.72	True
+13	Table 6	DeepSeek	NLPCC2018	word_f05	R	33.19	33.19	True
+13	Table 6	DeepSeek	NLPCC2018	word_f05	D	37.78	37.78	True
+13	Table 6	DeepSeek	NLPCC2018	word_f05	P	37.70	37.70	True
+13	Table 6	DeepSeek	NLPCC2018	word_f05	I	37.71	37.71	True
+13	Table 6	DeepSeek	MuCGEC	character_f05	R	41.21	41.21	True
+13	Table 6	DeepSeek	MuCGEC	character_f05	D	48.17	48.17	True
+13	Table 6	DeepSeek	MuCGEC	character_f05	P	48.14	48.14	True
+13	Table 6	DeepSeek	MuCGEC	character_f05	I	48.11	48.11	True
+13	Table 6	DeepSeek	MuCGEC	word_f05	R	41.01	41.01	True
+13	Table 6	DeepSeek	MuCGEC	word_f05	D	47.02	47.02	True
+13	Table 6	DeepSeek	MuCGEC	word_f05	P	46.97	46.97	True
+13	Table 6	DeepSeek	MuCGEC	word_f05	I	47.00	47.00	True
+13	Table 6	DeepSeek	YACLC	character_f05	R	57.59	57.59	True
+13	Table 6	DeepSeek	YACLC	character_f05	D	62.96	62.96	True
+13	Table 6	DeepSeek	YACLC	character_f05	P	63.05	63.05	True
+13	Table 6	DeepSeek	YACLC	character_f05	I	62.97	62.97	True
+13	Table 6	DeepSeek	YACLC	word_f05	R	59.17	59.17	True
+13	Table 6	DeepSeek	YACLC	word_f05	D	64.74	64.74	True
+13	Table 6	DeepSeek	YACLC	word_f05	P	64.74	64.74	True
+13	Table 6	DeepSeek	YACLC	word_f05	I	64.73	64.73	True
+13	Table 6	DeepSeek	FlaCGEC	character_f05	R	43.10	43.10	True
+13	Table 6	DeepSeek	FlaCGEC	character_f05	D	43.89	43.89	True
+13	Table 6	DeepSeek	FlaCGEC	character_f05	P	44.06	44.06	True
+13	Table 6	DeepSeek	FlaCGEC	character_f05	I	44.04	44.04	True
+13	Table 6	DeepSeek	FlaCGEC	word_f05	R	41.07	41.07	True
+13	Table 6	DeepSeek	FlaCGEC	word_f05	D	41.34	41.34	True
+13	Table 6	DeepSeek	FlaCGEC	word_f05	P	41.61	41.61	True
+13	Table 6	DeepSeek	FlaCGEC	word_f05	I	41.66	41.66	True
+13	Table 6	DeepSeek	FCGEC	character_f05	R	20.46	20.46	True
+13	Table 6	DeepSeek	FCGEC	character_f05	D	23.63	23.63	True
+13	Table 6	DeepSeek	FCGEC	character_f05	P	23.79	23.79	True
+13	Table 6	DeepSeek	FCGEC	character_f05	I	23.69	23.69	True
+13	Table 6	DeepSeek	FCGEC	word_f05	R	17.91	17.91	True
+13	Table 6	DeepSeek	FCGEC	word_f05	D	19.69	19.69	True
+13	Table 6	DeepSeek	FCGEC	word_f05	P	19.76	19.76	True
+13	Table 6	DeepSeek	FCGEC	word_f05	I	19.69	19.69	True
+13	Table 6	DeepSeek	NaCGEC	character_f05	R	31.76	31.76	True
+13	Table 6	DeepSeek	NaCGEC	character_f05	D	32.75	32.75	True
+13	Table 6	DeepSeek	NaCGEC	character_f05	P	33.03	33.03	True
+13	Table 6	DeepSeek	NaCGEC	character_f05	I	32.83	32.83	True
+13	Table 6	DeepSeek	NaCGEC	word_f05	R	29.69	29.69	True
+13	Table 6	DeepSeek	NaCGEC	word_f05	D	28.87	28.87	True
+13	Table 6	DeepSeek	NaCGEC	word_f05	P	29.10	29.10	True
+13	Table 6	DeepSeek	NaCGEC	word_f05	I	28.92	28.92	True
+13	Table 6	DeepSeek	NaSGEC-Exam	character_f05	R	29.32	29.32	True
+13	Table 6	DeepSeek	NaSGEC-Exam	character_f05	D	33.90	33.90	True
+13	Table 6	DeepSeek	NaSGEC-Exam	character_f05	P	33.66	33.66	True
+13	Table 6	DeepSeek	NaSGEC-Exam	character_f05	I	33.95	33.95	True
+13	Table 6	DeepSeek	NaSGEC-Exam	word_f05	R	28.71	28.71	True
+13	Table 6	DeepSeek	NaSGEC-Exam	word_f05	D	32.01	32.01	True
+13	Table 6	DeepSeek	NaSGEC-Exam	word_f05	P	32.15	32.15	True
+13	Table 6	DeepSeek	NaSGEC-Exam	word_f05	I	32.34	32.34	True
+13	Table 6	DeepSeek	CEFE Track 3	character_f05	R	46.67	46.67	True
+13	Table 6	DeepSeek	CEFE Track 3	character_f05	D	43.35	43.35	True
+13	Table 6	DeepSeek	CEFE Track 3	character_f05	P	43.35	43.35	True
+13	Table 6	DeepSeek	CEFE Track 3	character_f05	I	43.35	43.35	True
+13	Table 6	DeepSeek	CEFE Track 3	word_f05	R	40.98	40.98	True
+13	Table 6	DeepSeek	CEFE Track 3	word_f05	D	37.04	37.04	True
+13	Table 6	DeepSeek	CEFE Track 3	word_f05	P	37.04	37.04	True
+13	Table 6	DeepSeek	CEFE Track 3	word_f05	I	37.04	37.04	True
+13	Table 6	Kimi	NLPCC2018	character_f05	R	36.67	36.67	True
+13	Table 6	Kimi	NLPCC2018	character_f05	D	36.73	36.73	True
+13	Table 6	Kimi	NLPCC2018	character_f05	P	36.66	36.66	True
+13	Table 6	Kimi	NLPCC2018	character_f05	I	36.80	36.80	True
+13	Table 6	Kimi	NLPCC2018	word_f05	R	35.66	35.66	True
+13	Table 6	Kimi	NLPCC2018	word_f05	D	34.95	34.95	True
+13	Table 6	Kimi	NLPCC2018	word_f05	P	35.08	35.08	True
+13	Table 6	Kimi	NLPCC2018	word_f05	I	35.18	35.18	True
+13	Table 6	Kimi	MuCGEC	character_f05	R	43.17	43.17	True
+13	Table 6	Kimi	MuCGEC	character_f05	D	44.12	44.12	True
+13	Table 6	Kimi	MuCGEC	character_f05	P	44.19	44.19	True
+13	Table 6	Kimi	MuCGEC	character_f05	I	44.09	44.09	True
+13	Table 6	Kimi	MuCGEC	word_f05	R	42.78	42.78	True
+13	Table 6	Kimi	MuCGEC	word_f05	D	43.07	43.07	True
+13	Table 6	Kimi	MuCGEC	word_f05	P	43.10	43.10	True
+13	Table 6	Kimi	MuCGEC	word_f05	I	43.05	43.05	True
+13	Table 6	Kimi	YACLC	character_f05	R	60.16	60.16	True
+13	Table 6	Kimi	YACLC	character_f05	D	60.86	60.86	True
+13	Table 6	Kimi	YACLC	character_f05	P	60.39	60.39	True
+13	Table 6	Kimi	YACLC	character_f05	I	60.39	60.39	True
+13	Table 6	Kimi	YACLC	word_f05	R	61.20	61.20	True
+13	Table 6	Kimi	YACLC	word_f05	D	62.01	62.01	True
+13	Table 6	Kimi	YACLC	word_f05	P	61.69	61.69	True
+13	Table 6	Kimi	YACLC	word_f05	I	61.64	61.64	True
+13	Table 6	Kimi	FlaCGEC	character_f05	R	34.71	34.71	True
+13	Table 6	Kimi	FlaCGEC	character_f05	D	32.17	32.17	True
+13	Table 6	Kimi	FlaCGEC	character_f05	P	32.84	32.84	True
+13	Table 6	Kimi	FlaCGEC	character_f05	I	32.89	32.89	True
+13	Table 6	Kimi	FlaCGEC	word_f05	R	31.98	31.98	True
+13	Table 6	Kimi	FlaCGEC	word_f05	D	29.97	29.97	True
+13	Table 6	Kimi	FlaCGEC	word_f05	P	30.60	30.60	True
+13	Table 6	Kimi	FlaCGEC	word_f05	I	30.60	30.60	True
+13	Table 6	Kimi	FCGEC	character_f05	R	18.52	18.52	True
+13	Table 6	Kimi	FCGEC	character_f05	D	15.44	15.44	True
+13	Table 6	Kimi	FCGEC	character_f05	P	15.63	15.63	True
+13	Table 6	Kimi	FCGEC	character_f05	I	15.48	15.48	True
+13	Table 6	Kimi	FCGEC	word_f05	R	16.42	16.42	True
+13	Table 6	Kimi	FCGEC	word_f05	D	13.68	13.68	True
+13	Table 6	Kimi	FCGEC	word_f05	P	13.83	13.83	True
+13	Table 6	Kimi	FCGEC	word_f05	I	13.73	13.73	True
+13	Table 6	Kimi	NaCGEC	character_f05	R	28.70	28.70	True
+13	Table 6	Kimi	NaCGEC	character_f05	D	23.43	23.43	True
+13	Table 6	Kimi	NaCGEC	character_f05	P	23.44	23.44	True
+13	Table 6	Kimi	NaCGEC	character_f05	I	23.48	23.48	True
+13	Table 6	Kimi	NaCGEC	word_f05	R	27.42	27.42	True
+13	Table 6	Kimi	NaCGEC	word_f05	D	22.18	22.18	True
+13	Table 6	Kimi	NaCGEC	word_f05	P	22.14	22.14	True
+13	Table 6	Kimi	NaCGEC	word_f05	I	22.26	22.26	True
+13	Table 6	Kimi	NaSGEC-Exam	character_f05	R	27.35	27.35	True
+13	Table 6	Kimi	NaSGEC-Exam	character_f05	D	22.25	22.25	True
+13	Table 6	Kimi	NaSGEC-Exam	character_f05	P	22.04	22.04	True
+13	Table 6	Kimi	NaSGEC-Exam	character_f05	I	22.16	22.16	True
+13	Table 6	Kimi	NaSGEC-Exam	word_f05	R	27.23	27.23	True
+13	Table 6	Kimi	NaSGEC-Exam	word_f05	D	22.46	22.46	True
+13	Table 6	Kimi	NaSGEC-Exam	word_f05	P	22.37	22.37	True
+13	Table 6	Kimi	NaSGEC-Exam	word_f05	I	22.43	22.43	True
+13	Table 6	Kimi	CEFE Track 3	character_f05	R	40.67	40.67	True
+13	Table 6	Kimi	CEFE Track 3	character_f05	D	40.46	40.46	True
+13	Table 6	Kimi	CEFE Track 3	character_f05	P	37.57	37.57	True
+13	Table 6	Kimi	CEFE Track 3	character_f05	I	37.57	37.57	True
+13	Table 6	Kimi	CEFE Track 3	word_f05	R	33.73	33.73	True
+13	Table 6	Kimi	CEFE Track 3	word_f05	D	33.65	33.65	True
+13	Table 6	Kimi	CEFE Track 3	word_f05	P	31.25	31.25	True
+13	Table 6	Kimi	CEFE Track 3	word_f05	I	31.25	31.25	True

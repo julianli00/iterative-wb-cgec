@@ -1,0 +1,208 @@
+{
+  "review_date": "2026-10-09",
+  "scope": "Only the existing eight prompting benchmark input/reference splits, not new MuCGEC dev or model outputs.",
+  "destination_repository": "https://github.com/julianli00/iterative-wb-cgec",
+  "destination_visibility": "public",
+  "dataset_count": 8,
+  "local_files": 16,
+  "local_file_bytes": 12945114,
+  "local_sources": 20213,
+  "local_complete_references": 38000,
+  "local_status_scope": "Verified in the original research workspace, not inferred from files present in a public clone.",
+  "published_data_files": 2,
+  "withheld_data_files": 14,
+  "publication_notice": "Only the FCGEC validation pair is distributed. All other entries are metadata-only records of local inputs, not permission to obtain or redistribute those datasets.",
+  "fcgec_notice": "data/benchmarks/prepared/fcgec/validation/NOTICE.md",
+  "fcgec_license": "data/benchmarks/licenses/FCGEC-Apache-2.0.txt",
+  "approved_for_this_public_upload": [
+    "fcgec"
+  ],
+  "datasets": [
+    {
+      "dataset": "nlpcc2018",
+      "upstream_revision": "6cd5ecad110f",
+      "split": "test",
+      "sources": 2000,
+      "complete_references": 2183,
+      "local_status": "verified present",
+      "public_data_status": "permission_not_established",
+      "reason": "No explicit data redistribution license was identified in the original NLPCC2018 release. Availability for download is not a redistribution grant.",
+      "terms_url": "https://github.com/zhaoyyoo/NLPCC2018_GEC/tree/6cd5ecad110f",
+      "original_source_url": "https://github.com/zhaoyyoo/NLPCC2018_GEC",
+      "original_source_path": "data/benchmarks/upstream/nlpcc2018/Data.zip",
+      "pipeline_input": {
+        "path": "data/benchmarks/prepared/nlpcc2018/test/pipeline.tsv",
+        "bytes": 358375,
+        "sha256": "b460a0c761b1c0d9b029673ce42f7a98b01190e0f53a596e287cc501e2bf2f15"
+      },
+      "gold_para": {
+        "path": "data/benchmarks/prepared/nlpcc2018/test/gold.para",
+        "bytes": 382037,
+        "sha256": "ad4081267dd4706dbd1a85470a8c1d7d01beddfd69396ff118e695d724f47917"
+      }
+    },
+    {
+      "dataset": "mucgec",
+      "upstream_revision": "19daf271e3d9fc6875078a74f4e0245cc8aa59e4",
+      "split": "test",
+      "sources": 6000,
+      "complete_references": 13119,
+      "local_status": "verified present",
+      "public_data_status": "restricted_no_rehost",
+      "reason": "The data-specific MuCGEC/NaSGEC sharing agreement limits organizational use and third-party distribution; do not infer corpus rights from the repository MIT file.",
+      "terms_url": "https://github.com/SUDA-LA/CGECData/blob/19daf271e3d9fc6875078a74f4e0245cc8aa59e4/2025.02.18_MuCGEC_NaSGEC_Sharing_Agreement.docx",
+      "original_source_url": "https://github.com/SUDA-LA/CGECData",
+      "original_source_path": "data/benchmarks/upstream/cgecdata/MuCGEC/v1-NAACL22/mucgec.test.m2",
+      "pipeline_input": {
+        "path": "data/benchmarks/prepared/mucgec/test/pipeline.tsv",
+        "bytes": 1359355,
+        "sha256": "44dd2a6a5955d0f8d53c84044ff12e3ba6724bb561d32773281fae33df4f4dff"
+      },
+      "gold_para": {
+        "path": "data/benchmarks/prepared/mucgec/test/gold.para",
+        "bytes": 2210958,
+        "sha256": "c55f810b60537b74cfefe74f0a70fd4dce20b97a9c52c6d43daca0dd13ed8018"
+      }
+    },
+    {
+      "dataset": "yaclc",
+      "upstream_revision": "bf17c54e8f55d36b019bef782eccbb1cdd027e81",
+      "split": "validation",
+      "sources": 1000,
+      "complete_references": 8931,
+      "local_status": "verified present",
+      "public_data_status": "restricted_no_rehost",
+      "reason": "Official README prohibits reproducing, republishing, distributing or transmitting the downloaded dataset without express permission of BLCUICALL.",
+      "terms_url": "https://github.com/blcuicall/YACLC/blob/bf17c54e8f55d36b019bef782eccbb1cdd027e81/README.md#how-to-obtain-the-dataset",
+      "original_source_url": "https://github.com/blcuicall/YACLC",
+      "original_source_path": "data/benchmarks/upstream/yaclc/valid.jsonl",
+      "pipeline_input": {
+        "path": "data/benchmarks/prepared/yaclc/validation/pipeline.tsv",
+        "bytes": 154972,
+        "sha256": "efd8fcceeb2f85f2ce085bfc97af14a16230bbaae8c936c1cb787bb1297fa885"
+      },
+      "gold_para": {
+        "path": "data/benchmarks/prepared/yaclc/validation/gold.para",
+        "bytes": 806384,
+        "sha256": "346733356acfbb62a86608d5169b64498c384f91c7d4a191657d2715b13421f2"
+      }
+    },
+    {
+      "dataset": "flacgec",
+      "upstream_revision": "79850e3fe3b6ce8893345790d1e114a2a7b25e31",
+      "split": "test",
+      "sources": 1325,
+      "complete_references": 1325,
+      "local_status": "verified present",
+      "public_data_status": "permission_not_established",
+      "reason": "The reviewed upstream release is publicly downloadable but has no identified explicit redistribution license.",
+      "terms_url": "https://github.com/hyDududu/FlaCGEC/tree/79850e3fe3b6ce8893345790d1e114a2a7b25e31",
+      "original_source_url": "https://github.com/hyDududu/FlaCGEC",
+      "original_source_path": "data/benchmarks/upstream/flacgec/data/test.json",
+      "pipeline_input": {
+        "path": "data/benchmarks/prepared/flacgec/test/pipeline.tsv",
+        "bytes": 287220,
+        "sha256": "3ac23f0a766d2c39a4d6bea124b68f22fe4a72e57409b2f09f1347289b51d4c8"
+      },
+      "gold_para": {
+        "path": "data/benchmarks/prepared/flacgec/test/gold.para",
+        "bytes": 292738,
+        "sha256": "9cabec8a56964910e1689073e5f50341a1b26f85e053e57febb09bb53be416f5"
+      }
+    },
+    {
+      "dataset": "fcgec",
+      "upstream_revision": "851cfb043e9cca8bc2f866d46987e10b24b1b9d6",
+      "split": "validation",
+      "sources": 2000,
+      "complete_references": 2550,
+      "local_status": "verified present",
+      "public_data_status": "publish_with_terms",
+      "reason": "Repository Apache-2.0 LICENSE permits redistribution; the dataset-specific README additionally limits use to noncommercial academic research and prohibits illegal/discriminatory uses. Retain both terms, attribution, and format-conversion notice.",
+      "terms_url": "https://github.com/xlxwalex/FCGEC/blob/851cfb043e9cca8bc2f866d46987e10b24b1b9d6/README.md#数据使用条件",
+      "original_source_url": "https://github.com/xlxwalex/FCGEC",
+      "original_source_path": "data/benchmarks/upstream/fcgec/data/FCGEC_valid.json",
+      "pipeline_input": {
+        "path": "data/benchmarks/prepared/fcgec/validation/pipeline.tsv",
+        "bytes": 664733,
+        "sha256": "9e30d8121253dc3a1940c567e581784a65483ef5cf99bcf0ac0de3e78e185ca0"
+      },
+      "gold_para": {
+        "path": "data/benchmarks/prepared/fcgec/validation/gold.para",
+        "bytes": 769811,
+        "sha256": "c19eb3033e83e11e0a3d31f63ac113e8aee286c89cb3d7619818bfdb9bd9f2ef"
+      }
+    },
+    {
+      "dataset": "nacgec",
+      "upstream_revision": "da54f1e3ccb9",
+      "split": "test",
+      "sources": 5869,
+      "complete_references": 6978,
+      "local_status": "verified present",
+      "public_data_status": "permission_not_established",
+      "reason": "No explicit redistribution license was identified for the reviewed original shared-task source.",
+      "terms_url": "https://github.com/masr2000/NaCGEC/tree/da54f1e3ccb9",
+      "original_source_url": "https://github.com/masr2000/NaCGEC",
+      "original_source_path": "data/benchmarks/upstream/nacgec/data/nacgec.test.ref.para",
+      "pipeline_input": {
+        "path": "data/benchmarks/prepared/nacgec/test/pipeline.tsv",
+        "bytes": 1969965,
+        "sha256": "59b7067e60ffe1e42399beb3243e409c3bb7565ac28037acc9671b5c8408b4b5"
+      },
+      "gold_para": {
+        "path": "data/benchmarks/prepared/nacgec/test/gold.para",
+        "bytes": 2180179,
+        "sha256": "6dee1c468bb118faf78740d2a30aa517d15dfd976cb6bfb5339c3ea8a0d4cd0f"
+      }
+    },
+    {
+      "dataset": "nasgec_exam",
+      "upstream_revision": "19daf271e3d9fc6875078a74f4e0245cc8aa59e4",
+      "split": "test",
+      "sources": 2000,
+      "complete_references": 2895,
+      "local_status": "verified present",
+      "public_data_status": "restricted_no_rehost",
+      "reason": "The public Exam subset may be accessed directly from the publisher but remains subject to the MuCGEC/NaSGEC data-sharing agreement; no unrestricted mirror is authorized.",
+      "terms_url": "https://github.com/SUDA-LA/CGECData/blob/19daf271e3d9fc6875078a74f4e0245cc8aa59e4/2025.02.18_MuCGEC_NaSGEC_Sharing_Agreement.docx",
+      "original_source_url": "https://github.com/SUDA-LA/CGECData",
+      "original_source_path": "data/benchmarks/upstream/cgecdata/NaSGEC/v1-ACL23/NaSGEC/NaSGEC-Exam/nasgec.exam.test.m2",
+      "pipeline_input": {
+        "path": "data/benchmarks/prepared/nasgec_exam/test/pipeline.tsv",
+        "bytes": 670023,
+        "sha256": "8a80f33a8c0c8c9973feb3632f54b5b3c70b24955398641a06978fcce73499ca"
+      },
+      "gold_para": {
+        "path": "data/benchmarks/prepared/nasgec_exam/test/gold.para",
+        "bytes": 826096,
+        "sha256": "ac9b2bbfefc12056028d6acd5fdbbfde36f90fdf9479e23133e3d7b9359d7327"
+      }
+    },
+    {
+      "dataset": "cefe_track3",
+      "upstream_revision": "db121b8cae3e",
+      "split": "validation",
+      "sources": 19,
+      "complete_references": 19,
+      "local_status": "verified present",
+      "public_data_status": "restricted_or_unclear_no_rehost",
+      "reason": "The source README describes competition-only data use; no separate redistribution grant for the selected validation subset was identified.",
+      "terms_url": "https://github.com/cubenlp/2023CCL_CEFE/blob/db121b8cae3e/README.md#3-评测数据",
+      "original_source_url": "https://github.com/cubenlp/2023CCL_CEFE",
+      "original_source_path": "data/benchmarks/upstream/cefe/track3/datas/val.json",
+      "pipeline_input": {
+        "path": "data/benchmarks/prepared/cefe_track3/validation/pipeline.tsv",
+        "bytes": 6110,
+        "sha256": "f5d5ca5f139716db4efd098ed216243ed54407423647f61e847c15e770c18694"
+      },
+      "gold_para": {
+        "path": "data/benchmarks/prepared/cefe_track3/validation/gold.para",
+        "bytes": 6158,
+        "sha256": "cbd9af158c72af3118bf5c24ba22114dadfd44d52f45b33675f42e6c9d6941cc"
+      }
+    }
+  ],
+  "new_model_calls": 0,
+  "input_files_changed": false
+}

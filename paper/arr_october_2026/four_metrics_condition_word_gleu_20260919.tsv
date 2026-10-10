@@ -1,0 +1,65 @@
+model	model_identifier	dataset	dataset_key	split	n_sentences	references	stage	condition	character_f05	word_f05	character_gleu	word_gleu	word_gleu_source_policy	word_gleu_source_column	edit_selection
+DeepSeek	deepseek-v4-pro	NLPCC2018	nlpcc2018	test	2000	2183	T0	R	34.216007140731925	33.18644464376243	73.20277061074762	63.85692856406989	condition	S1	sentence-local select-best
+DeepSeek	deepseek-v4-pro	NLPCC2018	nlpcc2018	test	2000	2183	T1	D	39.868395587381464	37.77764990217516	70.66197590241454	60.066728838792095	condition	S1	sentence-local select-best
+DeepSeek	deepseek-v4-pro	NLPCC2018	nlpcc2018	test	2000	2183	T2	P	39.76136730087069	37.69944127642417	70.62499956303277	59.925352451834044	condition	S2	sentence-local select-best
+DeepSeek	deepseek-v4-pro	NLPCC2018	nlpcc2018	test	2000	2183	T3	I	39.71617543183715	37.710379688666784	70.63285757710037	59.89200415455639	condition	S3	sentence-local select-best
+DeepSeek	deepseek-v4-pro	MuCGEC	mucgec	test	6000	13119	T0	R	41.214738623501354	41.01448692961482	75.91586172592808	67.5398710236558	condition	S1	sentence-local select-best
+DeepSeek	deepseek-v4-pro	MuCGEC	mucgec	test	6000	13119	T1	D	48.17278602860286	47.01767870868563	74.36246779116422	64.72805087441634	condition	S1	sentence-local select-best
+DeepSeek	deepseek-v4-pro	MuCGEC	mucgec	test	6000	13119	T2	P	48.144441952347265	46.966867795250074	74.31121416902229	64.4758296167988	condition	S2	sentence-local select-best
+DeepSeek	deepseek-v4-pro	MuCGEC	mucgec	test	6000	13119	T3	I	48.1094929417631	47.00130879975364	74.36660301647984	64.49653187460342	condition	S3	sentence-local select-best
+DeepSeek	deepseek-v4-pro	YACLC	yaclc	validation	1000	8931	T0	R	57.586016305098795	59.17379977670264	79.85868605228306	73.07228855007989	condition	S1	sentence-local select-best
+DeepSeek	deepseek-v4-pro	YACLC	yaclc	validation	1000	8931	T1	D	62.95630092053751	64.7422300101448	81.44072889266573	74.5372407054077	condition	S1	sentence-local select-best
+DeepSeek	deepseek-v4-pro	YACLC	yaclc	validation	1000	8931	T2	P	63.04812834224599	64.74310540234227	81.39177945115551	74.38078634135518	condition	S2	sentence-local select-best
+DeepSeek	deepseek-v4-pro	YACLC	yaclc	validation	1000	8931	T3	I	62.971222257619196	64.73110261906982	81.41637100756581	74.3511000427672	condition	S3	sentence-local select-best
+DeepSeek	deepseek-v4-pro	FlaCGEC	flacgec	test	1325	1325	T0	R	43.09904697072839	41.07225034514496	84.13042523063862	77.3008675756112	condition	S1	sentence-local select-best
+DeepSeek	deepseek-v4-pro	FlaCGEC	flacgec	test	1325	1325	T1	D	43.889578163771716	41.336405529953915	80.93920231542465	72.77803011308522	condition	S1	sentence-local select-best
+DeepSeek	deepseek-v4-pro	FlaCGEC	flacgec	test	1325	1325	T2	P	44.05652535328346	41.61266432142196	80.92396003465454	72.48081312799738	condition	S2	sentence-local select-best
+DeepSeek	deepseek-v4-pro	FlaCGEC	flacgec	test	1325	1325	T3	I	44.04171829822388	41.65898617511521	81.02647174285724	72.51431635488524	condition	S3	sentence-local select-best
+DeepSeek	deepseek-v4-pro	FCGEC	fcgec	validation	2000	2550	T0	R	20.4560697518444	17.909220070290885	91.76598357275051	87.2747226360595	condition	S1	sentence-local select-best
+DeepSeek	deepseek-v4-pro	FCGEC	fcgec	validation	2000	2550	T1	D	23.626373626373624	19.68762304764405	92.75665522126812	88.56986749438452	condition	S1	sentence-local select-best
+DeepSeek	deepseek-v4-pro	FCGEC	fcgec	validation	2000	2550	T2	P	23.78686964795433	19.75522149793801	92.77712179048183	88.38849679214596	condition	S2	sentence-local select-best
+DeepSeek	deepseek-v4-pro	FCGEC	fcgec	validation	2000	2550	T3	I	23.685867170286436	19.68555951909103	92.77163775508804	88.35989257184615	condition	S3	sentence-local select-best
+DeepSeek	deepseek-v4-pro	NaCGEC	nacgec	test	5869	6978	T0	R	31.764369595769516	29.692297641601883	89.6742300889297	84.71125140714364	condition	S1	sentence-local select-best
+DeepSeek	deepseek-v4-pro	NaCGEC	nacgec	test	5869	6978	T1	D	32.74982610711801	28.86543709110037	88.90867566390195	83.19941441370635	condition	S1	sentence-local select-best
+DeepSeek	deepseek-v4-pro	NaCGEC	nacgec	test	5869	6978	T2	P	33.02970142862704	29.10131692144795	88.92792474766787	83.0583244850104	condition	S2	sentence-local select-best
+DeepSeek	deepseek-v4-pro	NaCGEC	nacgec	test	5869	6978	T3	I	32.83414596393468	28.922358512282546	88.91697319989518	83.0139719779232	condition	S3	sentence-local select-best
+DeepSeek	deepseek-v4-pro	NaSGEC-Exam	nasgec_exam	test	2000	2895	T0	R	29.320871334891084	28.706345970919962	90.9458418037641	86.4035181745213	condition	S1	sentence-local select-best
+DeepSeek	deepseek-v4-pro	NaSGEC-Exam	nasgec_exam	test	2000	2895	T1	D	33.89948489489071	32.008441786844884	91.26632849662187	86.95253014801251	condition	S1	sentence-local select-best
+DeepSeek	deepseek-v4-pro	NaSGEC-Exam	nasgec_exam	test	2000	2895	T2	P	33.65723137586256	32.147093712930015	91.23978282961785	86.81005990864857	condition	S2	sentence-local select-best
+DeepSeek	deepseek-v4-pro	NaSGEC-Exam	nasgec_exam	test	2000	2895	T3	I	33.95277350845326	32.34358430540827	91.27374756794487	86.80992527826133	condition	S3	sentence-local select-best
+DeepSeek	deepseek-v4-pro	CEFE Track 3	cefe_track3	validation	19	19	T0	R	46.666666666666664	40.98360655737705	82.74486657364211	74.31144169338421	condition	S1	sentence-local select-best
+DeepSeek	deepseek-v4-pro	CEFE Track 3	cefe_track3	validation	19	19	T1	D	43.35260115606936	37.03703703703704	81.00486028719999	68.67325434972632	condition	S1	sentence-local select-best
+DeepSeek	deepseek-v4-pro	CEFE Track 3	cefe_track3	validation	19	19	T2	P	43.35260115606936	37.03703703703704	81.00486028719999	68.59108483690527	condition	S2	sentence-local select-best
+DeepSeek	deepseek-v4-pro	CEFE Track 3	cefe_track3	validation	19	19	T3	I	43.35260115606936	37.03703703703704	81.00486028719999	68.59108483690527	condition	S3	sentence-local select-best
+Kimi	kimi-k2.6	NLPCC2018	nlpcc2018	test	2000	2183	T0	R	36.66683929773681	35.656747536012126	73.00655362267246	63.31070752236617	condition	S1	sentence-local select-best
+Kimi	kimi-k2.6	NLPCC2018	nlpcc2018	test	2000	2183	T1	D	36.73456517626285	34.95475113122172	70.53537764812752	59.53040823272718	condition	S1	sentence-local select-best
+Kimi	kimi-k2.6	NLPCC2018	nlpcc2018	test	2000	2183	T2	P	36.6596838697391	35.07769652650823	70.40947017293294	59.31174170020661	condition	S2	sentence-local select-best
+Kimi	kimi-k2.6	NLPCC2018	nlpcc2018	test	2000	2183	T3	I	36.79777059978466	35.184762773722625	70.46687924074406	59.300609698285776	condition	S3	sentence-local select-best
+Kimi	kimi-k2.6	MuCGEC	mucgec	test	6000	13119	T0	R	43.174063790698	42.77957515110476	75.53965998162101	66.69736712875772	condition	S1	sentence-local select-best
+Kimi	kimi-k2.6	MuCGEC	mucgec	test	6000	13119	T1	D	44.11552866609046	43.06975104930954	73.13314019421557	62.9617509329391	condition	S1	sentence-local select-best
+Kimi	kimi-k2.6	MuCGEC	mucgec	test	6000	13119	T2	P	44.189763522103966	43.10428299389988	73.06581214124586	62.709511441367674	condition	S2	sentence-local select-best
+Kimi	kimi-k2.6	MuCGEC	mucgec	test	6000	13119	T3	I	44.0881038133676	43.05296351116545	73.08781930828243	62.64776835467198	condition	S3	sentence-local select-best
+Kimi	kimi-k2.6	YACLC	yaclc	validation	1000	8931	T0	R	60.15584860421305	61.19811464193401	81.22334215123071	74.14710609749788	condition	S1	sentence-local select-best
+Kimi	kimi-k2.6	YACLC	yaclc	validation	1000	8931	T1	D	60.86294967938267	62.00994454006502	80.42143967123941	73.06212464035524	condition	S1	sentence-local select-best
+Kimi	kimi-k2.6	YACLC	yaclc	validation	1000	8931	T2	P	60.39017974572556	61.69019532005415	80.18130557788182	72.73323179122406	condition	S2	sentence-local select-best
+Kimi	kimi-k2.6	YACLC	yaclc	validation	1000	8931	T3	I	60.385159395060384	61.63594470046083	80.18672400684869	72.56903116946204	condition	S3	sentence-local select-best
+Kimi	kimi-k2.6	FlaCGEC	flacgec	test	1325	1325	T0	R	34.71202480013053	31.975454679875792	81.12304838138112	73.1094349545729	condition	S1	sentence-local select-best
+Kimi	kimi-k2.6	FlaCGEC	flacgec	test	1325	1325	T1	D	32.16863228304876	29.969711461820502	78.47943963790658	68.9353543013914	condition	S1	sentence-local select-best
+Kimi	kimi-k2.6	FlaCGEC	flacgec	test	1325	1325	T2	P	32.83767038413878	30.603240815016846	78.48466733237899	68.57409711089896	condition	S2	sentence-local select-best
+Kimi	kimi-k2.6	FlaCGEC	flacgec	test	1325	1325	T3	I	32.88661611708693	30.60489678348536	78.52741980836826	68.56875691148585	condition	S3	sentence-local select-best
+Kimi	kimi-k2.6	FCGEC	fcgec	validation	2000	2550	T0	R	18.51851851851852	16.41720604099245	90.9540310150883	86.12460850327352	condition	S1	sentence-local select-best
+Kimi	kimi-k2.6	FCGEC	fcgec	validation	2000	2550	T1	D	15.4420098224405	13.677811550151976	90.80668860809828	85.83376376937775	condition	S1	sentence-local select-best
+Kimi	kimi-k2.6	FCGEC	fcgec	validation	2000	2550	T2	P	15.627968839065174	13.834496849991487	90.85829575129617	85.66140001500227	condition	S2	sentence-local select-best
+Kimi	kimi-k2.6	FCGEC	fcgec	validation	2000	2550	T3	I	15.482954545454545	13.73346897253306	90.84979350033315	85.63389621257173	condition	S3	sentence-local select-best
+Kimi	kimi-k2.6	NaCGEC	nacgec	test	5869	6978	T0	R	28.704612365063788	27.41729655443212	88.98598492194164	83.70354170676404	condition	S1	sentence-local select-best
+Kimi	kimi-k2.6	NaCGEC	nacgec	test	5869	6978	T1	D	23.429801358850682	22.18310680064346	87.12683957853295	80.57821441254816	condition	S1	sentence-local select-best
+Kimi	kimi-k2.6	NaCGEC	nacgec	test	5869	6978	T2	P	23.44279384936148	22.14182005526673	87.15403060798094	80.44012293168899	condition	S2	sentence-local select-best
+Kimi	kimi-k2.6	NaCGEC	nacgec	test	5869	6978	T3	I	23.480950153334373	22.256232913521977	87.15907224829117	80.43289239166278	condition	S3	sentence-local select-best
+Kimi	kimi-k2.6	NaSGEC-Exam	nasgec_exam	test	2000	2895	T0	R	27.35089025793785	27.227264308205225	90.42611030311556	85.72976563693283	condition	S1	sentence-local select-best
+Kimi	kimi-k2.6	NaSGEC-Exam	nasgec_exam	test	2000	2895	T1	D	22.248142388111283	22.456356225486427	89.39827816698947	84.10529145734284	condition	S1	sentence-local select-best
+Kimi	kimi-k2.6	NaSGEC-Exam	nasgec_exam	test	2000	2895	T2	P	22.039757994814174	22.371277915632753	89.40205334661357	83.92760753649891	condition	S2	sentence-local select-best
+Kimi	kimi-k2.6	NaSGEC-Exam	nasgec_exam	test	2000	2895	T3	I	22.157082507112683	22.427745664739884	89.40424181162727	83.89340623509871	condition	S3	sentence-local select-best
+Kimi	kimi-k2.6	CEFE Track 3	cefe_track3	validation	19	19	T0	R	40.66985645933015	33.730158730158735	81.54403405672632	70.54640291104738	condition	S1	sentence-local select-best
+Kimi	kimi-k2.6	CEFE Track 3	cefe_track3	validation	19	19	T1	D	40.46242774566474	33.65384615384615	80.56579602396316	68.6415818081579	condition	S1	sentence-local select-best
+Kimi	kimi-k2.6	CEFE Track 3	cefe_track3	validation	19	19	T2	P	37.57225433526011	31.25	80.44732124858946	68.05258791594737	condition	S2	sentence-local select-best
+Kimi	kimi-k2.6	CEFE Track 3	cefe_track3	validation	19	19	T3	I	37.57225433526011	31.25	80.44732124858946	68.05258791594737	condition	S3	sentence-local select-best

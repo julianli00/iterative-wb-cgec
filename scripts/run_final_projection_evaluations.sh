@@ -35,7 +35,7 @@ run "$PYTHON_BIN" -B scripts/run_projection_word_m2_evaluation.py \
 
 run "$PYTHON_BIN" -B scripts/run_character_gleu_evaluation.py
 run "$PYTHON_BIN" -B scripts/run_word_gleu_evaluation.py \
-  --target-normalization none
+  --target-normalization none --source-policy condition
 
 for l_max in 2 4; do
   run "$PYTHON_BIN" -B scripts/run_projection_m2_evaluation.py \

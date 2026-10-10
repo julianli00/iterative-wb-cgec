@@ -380,7 +380,7 @@ def main() -> None:
     )
     method = f"""# Character-based GLEU Evaluation
 
-This run reuses the existing DeepSeek T0--T3 predictions and makes no LLM or API calls.
+This run reuses the saved T0--T3 predictions selected by the run-name map and makes no LLM or API calls.
 
 ## Method
 

@@ -1,0 +1,3 @@
+model,scope,contrast,source_sentences,changed_sources,changed_source_percent,changed_corrections_among_changed_sources,changed_correction_percent_within_changed_sources,closer,tied,farther,correction_relevant_overlap_positions,changed_boundary_positions,overlap_position_percent
+GPT-5.6 Sol (none),all8splits including descriptive CEFE,P-D,20213,2511,12.42269826349379,1362,54.241338112305854,1073,48,1390,744,3019,24.643921828420005
+GPT-5.6 Sol (none),all8splits including descriptive CEFE,I-P,20213,558,2.7605996141097315,445,79.74910394265233,376,13,169,110,677,16.248153618906944
