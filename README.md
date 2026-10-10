@@ -15,6 +15,24 @@ It gives each model a separate chapter with recorded calling parameters and
 all four metrics under R/D/P/I. Current Word GLEU uses the revised
 S1/S1/S2/S3 source policy, not the archived fixed-source values.
 
+**Additional-experiment progress (2026-10-10):**
+[MuCGEC dev first additional experiment results](paper/arr_october_2026/mucgec_dev_gold_first/MuCGEC_Dev_First_Additional_Experiment_Results.md)
+and [protocol](docs/MUCGEC_GOLD_REFERENCE_EXPERIMENT.md).
+DeepSeek/Kimi R/D/P are complete on 1,079 selected single-reference pairs,
+separate from the historical three-model test/validation results above.
+Output evaluation now uses Target-compatible LTP/base; generation D_input
+still uses LTP/small and P_input retains its original supplied-Target
+projection. All 1,079 Target boundaries reproduce, and the previous 113
+same-text tokenization mismatches across 35 sources are resolved. Generation
+inputs/outputs and character scores are unchanged.
+
+These are descriptive results, with no new significance or equivalence test.
+The paper retains its negative-result framing; the second R_output-projection
+experiment is not planned, and human-annotated Target WB remains future work.
+Only code, synthetic tests, and aggregate records are published for this
+additional experiment; its MuCGEC CSV and sentence-level artifacts remain
+withheld under the [dataset restrictions](data/benchmarks/README.md).
+
 ## Final protocol
 
 - T0: raw learner sentence

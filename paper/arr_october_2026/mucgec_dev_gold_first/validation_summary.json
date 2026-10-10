@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "source_rows_per_model": 1079,
+  "model_condition_groups": 6,
+  "output_records": 6474,
+  "unique_base_segmented_output_texts": 3443,
+  "original_Target_boundary_reproduction": {
+    "matching_rows": 1079,
+    "total_rows": 1079,
+    "known_35_matches_in_batch_1_and_batch_32": true
+  },
+  "same_text_Target_output_check": {
+    "exact_Target_output_records": 634,
+    "previous_mismatched_records": 113,
+    "previous_distinct_source_rows": 35,
+    "remaining_mismatched_records": 0,
+    "word_FP_and_FN_zero_for_exact_Target_outputs": true,
+    "word_GLEU_100_for_exact_Target_outputs": true
+  },
+  "reconstruction_checks": {
+    "reference_M2_blocks": 2158,
+    "hypothesis_M2_blocks": 12948,
+    "all_targets_reconstructed_from_serialized_edits": true,
+    "linked_movement_validation": "reciprocal U-M scored once as WO"
+  },
+  "preservation": {
+    "all_generation_inputs_and_output_characters_unchanged": true,
+    "CSV_Target_text_and_tokens_unchanged": true,
+    "previous_scores_retained": true,
+    "all_character_metrics_and_M2_unchanged": true,
+    "word_reference_M2_unchanged": true,
+    "word_GLEU_actual_prompt_source_policy_unchanged": true,
+    "new_GEC_calls_for_resegmentation_and_rescoring": 0
+  },
+  "reproducibility": {
+    "all_metrics_recomputed_from_pooled_counts_or_saved_sentence_GLEU": true,
+    "all_differences_checked_before_rounding": true,
+    "two_model_free_network_blocked_regenerations_byte_identical": true,
+    "research_workspace_focused_tests": 35,
+    "research_workspace_full_tests": 241
+  },
+  "limitations": [
+    "Selected single-reference dev subset, not the original full multi-reference test evaluation",
+    "Generation D_input retains LTP/small; only output evaluation changed to LTP/base",
+    "Human-annotated Target word boundaries were not tested",
+    "No new significance or equivalence test was performed",
+    "Individual corpus sentences, predictions, segmentations and M2 files are intentionally not published"
+  ]
+}

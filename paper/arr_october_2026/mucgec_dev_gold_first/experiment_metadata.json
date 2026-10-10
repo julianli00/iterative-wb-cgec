@@ -1,0 +1,104 @@
+{
+  "experiment": "MuCGEC dev first additional gold-reference projection experiment",
+  "status": "completed",
+  "generation_date": "2026-10-09",
+  "base_aligned_word_evaluation_date": "2026-10-10",
+  "dataset": {
+    "name": "MuCGEC",
+    "split": "dev",
+    "scope": "user-supplied selected single-reference subset",
+    "source_rows": 1079,
+    "selected_references": 1079,
+    "input_filename": "levcos+human.csv",
+    "input_sha256": "6c1df24a16c81e688468e8a3179ac1bc3abffe89de2ae1018b5ba066e016251e",
+    "raw_data_included": false,
+    "redistribution": "withheld; publisher terms apply",
+    "source_human_word_boundaries": "removed before constructing all prompting conditions",
+    "target_text_and_word_boundaries": "supplied preselected Target; retained unchanged"
+  },
+  "conditions": {
+    "R": "unsegmented Source supplied to GEC",
+    "D": "Source segmented with LTP/small and supplied to GEC",
+    "P": "supplied Target boundaries projected back onto D_input; Source text preserved",
+    "I": "not run"
+  },
+  "generation_models": {
+    "deepseek": {
+      "model": "deepseek-v4-pro",
+      "temperature": 0.000001,
+      "max_tokens": null,
+      "max_tokens_policy": "omitted; provider default",
+      "thinking": "disabled",
+      "top_p": "omitted",
+      "seed": "omitted"
+    },
+    "kimi": {
+      "model": "kimi-k2.6",
+      "temperature": null,
+      "temperature_policy": "omitted; endpoint-fixed 0.6 in non-thinking mode",
+      "max_tokens": 512,
+      "thinking": "disabled",
+      "top_p": "omitted",
+      "seed": "omitted"
+    }
+  },
+  "prompt_variant": "paper",
+  "segmentation_models": {
+    "generation_D_input": {
+      "model": "LTP/small",
+      "revision": "dea87bf0da3c5d054bbd426a78d7fa9efd347799",
+      "ltp": "4.2.14",
+      "python": "3.9.23"
+    },
+    "output_evaluation": {
+      "model": "LTP/base",
+      "revision": "97d6e77d2d7e93c435ec0fb297800f54964323be",
+      "ltp": "4.2.14",
+      "python": "3.11.9",
+      "torch": "2.7.1",
+      "transformers": "4.54.1",
+      "device": "cpu",
+      "training": false,
+      "tasks": ["cws"],
+      "batch_size": 32,
+      "custom_dictionary": null,
+      "weight_sha256": "30f651d5031f694e6320ceffc5fdba86c7681f0d9fe18dacab482e9c5e037bfb"
+    },
+    "target_reproduction": {
+      "matching_rows": 1079,
+      "total_rows": 1079,
+      "historical_exact_revision_independently_confirmed": false
+    }
+  },
+  "evaluation": {
+    "character_and_word_m2": "existing Chinese projection-derived M/R/U/W with reciprocal linked U-M counted once as WO",
+    "bert_model": "bert-base-chinese",
+    "projection_threshold": 0.85,
+    "l_max_char": 3,
+    "l_max_word": 3,
+    "beta": 0.5,
+    "reference_selection": "sentence-local complete reference; one supplied reference per row",
+    "word_m2_source": "fixed original P_input across all models and conditions",
+    "word_gleu_source": {"R": "D_input", "D": "D_input", "P": "P_input"},
+    "target_word_tokens": "original CSV tokens; fully reproduced by LTP/base",
+    "output_word_tokens": "LTP/base",
+    "gleu": "1-4 grams, sentence macro-average",
+    "normalization": "BOM and whitespace only; no BPE, no OpenCC",
+    "score_scale": "0-100",
+    "difference_units": "percentage points, calculated before rounding",
+    "new_significance_or_equivalence_analysis": false
+  },
+  "coverage": {
+    "output_records": 6474,
+    "unique_output_texts": 3443,
+    "D_P_equal_boundary_rows_per_model": 782,
+    "D_P_different_boundary_rows": 297,
+    "carry_forward": "P_output equals D_output when normalized D_input and P_input boundaries match"
+  },
+  "scope_after_completion": {
+    "paper_direction": "retain negative-result framing",
+    "second_R_output_projection_experiment": "not planned under the current scope",
+    "human_annotated_Target_WB_experiment": "not currently feasible; possible future work",
+    "new_GEC_calls_for_base_aligned_evaluation_or_publication": 0
+  }
+}
